@@ -28,8 +28,8 @@ Através de um aplicativo de chat integrado, você se comunicará com amigos e s
 
 [Leonardo Tiago] - - Haskell - GitHub
 
-[Tharcylo Josê] - - Haskell - Programação C - GitHub
+[Tharcylo José] - - Haskell - Programação C - GitHub
 
 [Matheus Oliveira] - - Haskell - Wireframe - GitHub
 
-[IagO Ataîde] - - Haskell - GitHub
+[Iago Ataíde] - - Haskell - GitHub
