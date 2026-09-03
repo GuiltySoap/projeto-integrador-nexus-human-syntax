@@ -20,16 +20,16 @@ Através de um aplicativo de chat integrado, você se comunicará com amigos e s
 * **Compilador:** GCC
 
 ### 👥 Autores
-[Guilherme Santana Habib] - Game Design, Roteiro e Programação C - GitHub.
+[Guilherme Santana Habib] - Haskell - Game Design, Roteiro e Programação C - GitHub.
 
-[Jennifer Dantas Machado] - - GitHub
+[Jennifer Dantas Machado] - - Designer, roteirista e artista - Haskell - GitHub
 
-[Linda Sabrina Rosal] - - GitHub
+[Linda Sabrina Rosal] - - Haskell - Wireframe - GitHub
 
-[Leonardo] - - GitHub
+[Leonardo Tiago] - - Haskell - GitHub
 
-[Tarcylo] - - GitHub
+[Tharcylo Josê] - - Haskell - Programação C - GitHub
 
-[Nome] - - GitHub
+[Matheus Oliveira] - - Haskell - Wireframe - GitHub
 
-[Nome] - - GitHub
+[IagO Ataîde] - - Haskell - GitHub
