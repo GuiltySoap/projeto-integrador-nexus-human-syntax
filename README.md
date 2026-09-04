@@ -1,5 +1,7 @@
-﻿# projeto-integrador-nexus-human-syntax
+# projeto-integrador-nexus-human-syntax
 # 🖥️ Nexus: Human Syntax
+
+<img width="1024" height="1536" alt="Nexus banner" src="https://github.com/user-attachments/assets/48fb5b09-c1e2-450a-8a78-3cf17dbf4bcb" />
 
 > *"Sua nova assistente virtual está online. E ela não quer que você saia."*
 
