@@ -33,3 +33,6 @@ Através de um aplicativo de chat integrado, você se comunicará com amigos e s
 [Matheus Oliveira] - - Haskell - Wireframe - GitHub
 
 [Iago Ataíde] - - Haskell - GitHub
+
+### Link para o trello
+https://trello.com/invite/b/6a9a0d5556694678475d227e/ATTIb3eac34edf3423a00d42e1670345f4fbAAE4EA3C/nexus-human-syntax
