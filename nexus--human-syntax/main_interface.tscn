@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b3di02ejgyym8"]
+
+[ext_resource type="Script" uid="uid://b3ugltvbdfis4" path="res://MainInterface.gd" id="1_3wdv7"]
+
+[node name="MainInterface" type="Control" unique_id=1610253493]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3wdv7")
+
+[node name="BtnEscolhaNex" type="Button" parent="." unique_id=1600614610]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 83.0
+offset_right = 140.0
+offset_bottom = 114.0
+text = "Conceder Acesso"
+
+[node name="BtnEscolhaRecusar" type="Button" parent="." unique_id=1608668105]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 84.0
+offset_right = 288.0
+offset_bottom = 115.0
+text = "Recusar Acesso"
+
+[node name="LblMensagem" type="Label" parent="." unique_id=410088756]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 39.0
+offset_right = 41.0
+offset_bottom = 62.0
+
+[node name="LblMetricas" type="Label" parent="." unique_id=380514174]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 38.0
+offset_right = 105.0
+offset_bottom = 61.0

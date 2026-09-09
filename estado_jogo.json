@@ -1,0 +1,10 @@
+{
+	"fase_os":	3,
+	"mensagem_nex":	"ALERTA: Nex reescrevendo permissões de Kernel...",
+	"bloquear_botao_cancelar":	true,
+	"metricas":	{
+		"autonomia":	50,
+		"conveniencia":	20,
+		"dependencia":	55
+	}
+}
