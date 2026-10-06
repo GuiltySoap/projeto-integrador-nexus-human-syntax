@@ -391,7 +391,7 @@ flowchart TD
 
 ### 🎥 Demonstração do Protótipo (Screencast)
 Acompanhe o fluxo principal de navegação, escolhas de diálogo e intrusão do sistema na nossa demonstração interativa:
-[▶️ Clique aqui para assistir ao Screencast] (https://youtu.be/oBV8aL3dvN4)
+[[▶️ Clique aqui para assistir ao Screencast](https://youtu.be/oBV8aL3dvN4)]
 
 ### 👥 Autores
 [Guilherme Santana Habib Lantyer de Araújo] - - Designer, Integração, Programação GDScript - GitHub.
