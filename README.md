@@ -394,15 +394,15 @@ Acompanhe o fluxo principal de navegação, escolhas de diálogo e intrusão do 
 [[▶️ Clique aqui para assistir ao Screencast](https://youtu.be/oBV8aL3dvN4)]
 
 ### 👥 Autores
-[Guilherme Santana Habib Lantyer de Araújo] - - Designer, Integração, Programação GDScript - GitHub.
+[Guilherme Santana Habib Lantyer de Araújo] - - Designer, Integração, Programação GDScript - [GitHub](https://github.com/GuiltySoap).
 
-[Jennifer Dantas Machado Almeida] - - Designer, Roteirista, Artista - GitHub
+[Jennifer Dantas Machado Almeida] - - Designer, Roteirista, Artista - [GitHub](https://github.com/jdm-debug)
 
-[Linda Sabrina Rosal] - - Wireframes - GitHub
+[Linda Sabrina Rosal] - - Wireframes - [GitHub](https://github.com/Linda2101)
 
 [Leonardo Tiago] - - Audio Design - GitHub
 
-[Tharcylo José] - - Programação C - GitHub
+[Tharcylo José] - - Programação C - [GitHub](https://github.com/tharcylojose)
 
 ### Link para o Jira
 https://csprj-adsr-2p-e1.atlassian.net/jira/software/c/projects/PI2/boards/2/backlog?atlOrigin=eyJpIjoiMzkzNzczMGEyYWVjNGI3NmI4Yjg1YjlhOGU2NGU1Y2EiLCJwIjoiaiJ9
