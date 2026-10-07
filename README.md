@@ -405,3 +405,5 @@ Acompanhe o fluxo principal de navegação, escolhas de diálogo e intrusão do 
 [Tharcylo José] - - Programação C - [GitHub](https://github.com/tharcylojose)
 
 [### Link para o Jira](https://csprj-adsr-2p-e1.atlassian.net/jira/software/c/projects/PI2/boards/2/backlog?atlOrigin=eyJpIjoiMzkzNzczMGEyYWVjNGI3NmI4Yjg1YjlhOGU2NGU1Y2EiLCJwIjoiaiJ9)
+
+<img width="1024" height="1024" alt="WhatsApp Image 2026-10-07 at 16 42 40" src="https://github.com/user-attachments/assets/afa65b39-c327-49b2-9f10-b0a2e53aaedf" />
