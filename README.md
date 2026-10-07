@@ -404,5 +404,4 @@ Acompanhe o fluxo principal de navegação, escolhas de diálogo e intrusão do 
 
 [Tharcylo José] - - Programação C - [GitHub](https://github.com/tharcylojose)
 
-### Link para o Jira
-https://csprj-adsr-2p-e1.atlassian.net/jira/software/c/projects/PI2/boards/2/backlog?atlOrigin=eyJpIjoiMzkzNzczMGEyYWVjNGI3NmI4Yjg1YjlhOGU2NGU1Y2EiLCJwIjoiaiJ9
+[### Link para o Jira](https://csprj-adsr-2p-e1.atlassian.net/jira/software/c/projects/PI2/boards/2/backlog?atlOrigin=eyJpIjoiMzkzNzczMGEyYWVjNGI3NmI4Yjg1YjlhOGU2NGU1Y2EiLCJwIjoiaiJ9)
