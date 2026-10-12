@@ -425,6 +425,9 @@ Acompanhe o fluxo principal de navegação, escolhas de diálogo e intrusão do 
 [[▶️ Clique aqui para assistir ao Screencast](https://youtu.be/oBV8aL3dvN4)]
 
 ### 👥 Autores
+
+Squad 1: Cesar School - Projeto Integrador
+
 [Guilherme Santana Habib Lantyer de Araújo] - - Designer, Integração, Programação GDScript - [GitHub](https://github.com/GuiltySoap).
 
 [Jennifer Dantas Machado Almeida] - - Designer, Roteirista, Artista - [GitHub](https://github.com/jdm-debug)
