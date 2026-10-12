@@ -21,7 +21,38 @@ Através de um aplicativo de chat integrado, você se comunicará com amigos e s
 * **Backend (Orquestrador):** C (Compilador GCC) com manipulação via cJSON
 * **Core Narrativo (Máquina de Estados):** Haskell (GHC)
 * **Design e Prototipação:** Figma
+Aqui está uma versão simples, direta e bem formatada para colares no teu **`README.md`**:
 
+```markdown
+```
+## 🎮 Como Compilar e Jogar
+
+### 🛠️ Pré-requisitos
+* Ter o compilador **GCC** instalado no computador.
+```
+```
+### 🚀 Passo a Passo
+
+1. **Abre o terminal** na pasta principal do projeto.
+
+2. **Compila o código** com o seguinte comando:
+   ```powershell
+   gcc main.c ui.c json_loader.c cJSON.c -o output\main.exe
+```
+
+```
+3. **Executa o jogo**:
+```powershell
+.\output\main.exe
+
+```
+### 🕹️ Como Jogar
+* **Navegação:** Digita o número da opção desejada e pressiona `ENTER`.
+* **Diálogos:** Pressiona `ENTER` para avançar a conversa do chat.
+* **Tomada de Decisão:** Escolhe se preferes **delegar tarefas à IA** (perdes Autonomia) ou **manter o controlo manual** para alterar o final da história.
+```
+
+```
 ## 🗺️ Diagramas de Atividades (User Stories)
 
 ### US 01 — Imersão Inicial no Sistema Operacional
