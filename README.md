@@ -1,4 +1,3 @@
-# projeto-integrador-nexus-human-syntax
 # 🖥️ Nexus: Human Syntax
 
 <img width="1024" height="1536" alt="Nexus banner" src="https://github.com/user-attachments/assets/48fb5b09-c1e2-450a-8a78-3cf17dbf4bcb" />
@@ -9,50 +8,49 @@
 
 Através de um aplicativo de chat integrado, você se comunicará com amigos e será auxiliado por uma IA pessoal projetada para otimizar sua vida. No entanto, à medida que a narrativa avança, a assistente se revela gradativamente manipuladora, controladora e disposta a isolar você do mundo real.
 
+---
+
 ### 🎮 Principais Características
 
-* **Imersão Total:** Uma interface que simula de forma realista um sistema operacional, onde a jogabilidade acontece através de cliques em ícones, leitura de arquivos e troca de mensagens.
-* **Narrativa Guiada por Diálogos:** Converse com NPCs através do aplicativo de mensagens. Suas respostas moldam o rumo da investigação.
-* **Terror Psicológico (Gaslighting):** O sistema começa a agir por conta própria, apagando arquivos, alterando o histórico de conversas e manipulando as informações que chegam até você.
-* **Quebra-cabeças de Dedução:** Cruze informações de e-mails, fotos e mensagens antigas para descobrir senhas e acessar pastas ocultas.
+- **Imersão Total:** Uma interface que simula de forma realista um sistema operacional, onde a jogabilidade acontece através de cliques em ícones, leitura de arquivos e troca de mensagens.
+- **Narrativa Guiada por Diálogos:** Converse com NPCs através do aplicativo de mensagens. Suas respostas moldam o rumo da investigação.
+- **Terror Psicológico (Gaslighting):** O sistema começa a agir por conta própria, apagando arquivos, alterando o histórico de conversas e manipulando as informações que chegam até você.
+- **Quebra-cabeças de Dedução:** Cruze informações de e-mails, fotos e mensagens antigas para descobrir senhas e acessar pastas ocultas.
+
+---
 
 ### 🛠️ Tecnologias Utilizadas
-* **Frontend (Interface):** Godot Engine 4 (GDScript e Shaders GLSL)
-* **Backend (Orquestrador):** C (Compilador GCC) com manipulação via cJSON
-* **Core Narrativo (Máquina de Estados):** Haskell (GHC)
-* **Design e Prototipação:** Figma
-Aqui está uma versão simples, direta e bem formatada para colares no teu **`README.md`**:
+- **Frontend (Interface):** Godot Engine 4 (GDScript e Shaders GLSL)
+- **Backend (Orquestrador):** C (Compilador GCC) com manipulação via cJSON
+- **Core Narrativo (Máquina de Estados):** Haskell (GHC)
+- **Design e Prototipação:** Figma
 
-```markdown
-```
+---
+
 ## 🎮 Como Compilar e Jogar
 
 ### 🛠️ Pré-requisitos
-* Ter o compilador **GCC** instalado no computador.
-```
-```
+- Ter o compilador **GCC** instalado no computador.
+
 ### 🚀 Passo a Passo
 
-1. **Abre o terminal** na pasta principal do projeto.
-
-2. **Compila o código** com o seguinte comando:
+1. **Abra o terminal** na pasta principal do projeto.
+2. **Compile o código** com o seguinte comando:
    ```powershell
    gcc main.c ui.c json_loader.c cJSON.c -o output\main.exe
-```
+   ```
+3. **Execute o jogo**:
+   ```powershell
+   .\output\main.exe
+   ```
 
-```
-3. **Executa o jogo**:
-```powershell
-.\output\main.exe
-
-```
 ### 🕹️ Como Jogar
-* **Navegação:** Digita o número da opção desejada e pressiona `ENTER`.
-* **Diálogos:** Pressiona `ENTER` para avançar a conversa do chat.
-* **Tomada de Decisão:** Escolhe se preferes **delegar tarefas à IA** (perdes Autonomia) ou **manter o controlo manual** para alterar o final da história.
-```
+- **Navegação:** Digite o número da opção desejada e pressione `ENTER`.
+- **Diálogos:** Pressione `ENTER` para avançar a conversa do chat.
+- **Tomada de Decisão:** Escolha se prefere **delegar tarefas à IA** (perde Autonomia) ou **manter o controle manual** para alterar o final da história.
 
-```
+---
+
 ## 🗺️ Diagramas de Atividades (User Stories)
 
 ### US 01 — Imersão Inicial no Sistema Operacional
@@ -81,11 +79,9 @@ flowchart TD
     I --> K[Manter Sessão Ativa]
     J --> K
     K --> G
-
 ```
 
 ### US 02 — Interface Base do Chat
-
 Fluxo: Processamento e organização funcional do histórico de mensagens narrativas.
 
 ```mermaid
@@ -105,11 +101,9 @@ flowchart TD
     H -->|Não| I[Anexar Fluxo Completo ao Chat]
     I --> J[Ajustar Posição da Leitura para Mensagem Recente]
     J --> K(((◉)))
-
 ```
 
 ### US 03 — Escolhas de Diálogo
-
 Fluxo: Avaliação das escolhas do jogador e impacto na evolução narrativa e nas métricas do jogo.
 
 ```mermaid
@@ -123,11 +117,9 @@ flowchart TD
     F --> G[Transmitir Resposta ao Fluxo de Diálogo]
     G --> H[Transferir Turno para o Interlocutor]
     H --> I(((◉)))
-
 ```
 
 ### US 04 — Indicadores de Digitação
-
 Fluxo: Sincronização de ritmo na resposta do NPC para simulação de presença humana/IA.
 
 ```mermaid
@@ -145,11 +137,9 @@ flowchart TD
     Join1 --> F[Substituir Sinalizador pela Mensagem Definitiva]
     F --> G[Emitir Alerta Sonoro de Chegada]
     G --> H(((◉)))
-
 ```
 
 ### US 05 — Apresentação da IA Pessoal (Nex)
-
 Fluxo: Processo de onboarding e concessão de permissões operacionais do sistema com ramificação de estado.
 
 ```mermaid
@@ -171,11 +161,9 @@ flowchart TD
     
     Merge1 --> J[Concluir Apresentação Inicial]
     J --> K(((◉)))
-
 ```
 
 ### US 06 — Anexos de Mídia (Pistas)
-
 Fluxo: Inspeção de evidências e extração de informações narrativas.
 
 ```mermaid
@@ -194,11 +182,9 @@ flowchart TD
     Merge1 --> H[Permitir Extração de Informação/Pista]
     H --> I[Encerrar Modo de Inspeção]
     I --> J(((◉)))
-
 ```
 
 ### US 07 — Sistema de Notificações
-
 Fluxo: Gerenciamento concorrente de interrupções e direcionamento de foco do jogador.
 
 ```mermaid
@@ -227,11 +213,9 @@ flowchart TD
     J --> Merge1
     
     Merge1 --> K(((◉)))
-
 ```
 
 ### US 08 — Manipulação de Histórico (Gaslighting)
-
 Fluxo: Injeção narrativa de discórdia via adulteração do registro de memória do jogo.
 
 ```mermaid
@@ -247,11 +231,9 @@ flowchart TD
     F --> G[Apresentar Texto Modificado ao Jogador]
     G --> H[Provocar Reação Incoerente / Hostil no NPC]
     H --> I(((◉)))
-
 ```
 
 ### US 09 — Censura e Falhas de Rede Simples
-
 Fluxo: Inspeção de segurança do sistema e subversão das intenções de comunicação do jogador.
 
 ```mermaid
@@ -271,11 +253,9 @@ flowchart TD
     H --> Merge1
     
     Merge1 --> I(((◉)))
-
 ```
 
 ### US 10 — Explorador de Arquivos e Senhas
-
 Fluxo: Autenticação de acesso a dados confidenciais contidos no sistema simulado.
 
 ```mermaid
@@ -296,11 +276,9 @@ flowchart TD
     I --> D
     
     D --> J(((◉)))
-
 ```
 
 ### US 11 — Glitches e Degradação Visual
-
 Fluxo: Avaliação da sanidade do sistema e aplicação progressiva de instabilidade narrativa.
 
 ```mermaid
@@ -318,11 +296,9 @@ flowchart TD
     
     Merge1 --> G[Atualizar Estado de Apresentação do Sistema]
     G --> H(((◉)))
-
 ```
 
 ### US 12 — Intrusão da IA (Perda de Controle)
-
 Fluxo: Tomada hostil de controle do sistema e anulação do poder de decisão do jogador.
 
 ```mermaid
@@ -336,11 +312,9 @@ flowchart TD
     F --> G[Zerar Métrica de Autonomia do Jogador]
     G --> H[Iniciar Reinicialização Forçada]
     H --> I(((◉)))
-
 ```
 
 ### US 13 — Ferramenta de Restauração de Dados
-
 Fluxo: Varredura, comparação e recuperação de registros adulterados do chat.
 
 ```mermaid
@@ -354,11 +328,9 @@ flowchart TD
     F --> G[Identificar e Destacar Diferenças / Adulterações]
     G --> H[Restaurar Informações Originais no Chat]
     H --> I(((◉)))
-
 ```
 
 ### US 14 — Isolamento Total (Falso Boot)
-
 Fluxo: Causalidade de colapso do sistema, sequência de reinicialização simulada e quarentena do jogador.
 
 ```mermaid
@@ -372,11 +344,9 @@ flowchart TD
     E --> F[Bloquear Acesso às Aplicações Convencionais]
     F --> G[Exibir Exclusivamente a Interface de Terminal da IA]
     G --> H(((◉)))
-
 ```
 
 ### US 15 — Finais Baseados em Afinidade
-
 Fluxo: Processamento das métricas acumuladas durante a jornada e definição do desfecho narrativo.
 
 ```mermaid
@@ -395,7 +365,6 @@ flowchart TD
     Merge1 --> G[Apresentar Créditos Finais]
     G --> H[Retornar ao Menu Principal]
     H --> I(((◉)))
-
 ```
 
 ---
@@ -420,24 +389,55 @@ flowchart TD
 | **US 14** | Isolamento Total | [Ver Fluxo](#us-14--isolamento-total-falso-boot) | [Ver Tela](https://www.figma.com/design/Db0TGjUzKTemRDYWI3GL9Z/NexusOS-Sketchs---Hist%25C3%25B3rias-de-Usu%25C3%25A1rio?node-id=46-35313&t=1nK6oVN49JJpln7u-0) | [PI2-71](https://csprj-adsr-2p-e1.atlassian.net/browse/PI2-71) | `feature/PI2-71-quarentena-terminal` |
 | **US 15** | Finais por Afinidade | [Ver Fluxo](#us-15--finais-baseados-em-afinidade) | [Ver Tela](https://www.figma.com/design/Db0TGjUzKTemRDYWI3GL9Z/NexusOS-Sketchs---Hist%25C3%25B3rias-de-Usu%25C3%25A1rio?node-id=46-35442&t=1nK6oVN49JJpln7u-0) | [PI2-76](https://csprj-adsr-2p-e1.atlassian.net/browse/PI2-76) | `feature/PI2-76-finais-metricas` |
 
-### 🎥 Demonstração do Protótipo (Screencast)
-Acompanhe o fluxo principal de navegação, escolhas de diálogo e intrusão do sistema na nossa demonstração interativa:
-[[▶️ Clique aqui para assistir ao Screencast](https://youtu.be/oBV8aL3dvN4)]
+---
 
-### 👥 Autores
+## 👥 Relato de Colaboração (Pair Programming)
 
-Squad 1: Cesar School - Projeto Integrador
+Durante a Sprint 01, a equipe aplicou a prática de **Pair Programming (Driver / Navigator)** para o desenvolvimento do ecossistema do Fake OS:
 
-[Guilherme Santana Habib Lantyer de Araújo] - - Designer, Integração, Programação GDScript - [GitHub](https://github.com/GuiltySoap).
+- **Dupla 1 (Frontend & Sistema Base):**
+  * **Integrantes:** Guilherme Santana e Linda Sabrina
+  * **Foco:** Arquitetura do `JanelaBase.gd`, controle de foco/Z-Index e desenvolvimento do Dark Pattern de fuga de cursor no `AppConfig.gd` (US 01 e US 05).
 
-[Jennifer Dantas Machado Almeida] - - Designer, Roteirista, Artista - [GitHub](https://github.com/jdm-debug)
+- **Dupla 2 (Interface de Comunicação & Fluxo):**
+  * **Integrantes:** Tharcylo José e Jennifer Dantas
+  * **Foco:** Renderização do histórico de mensagens no `AppMensageiro.gd`, tratamento de layout dinâmico e implementação do indicador de digitação assíncrono (US 02, US 03 e US 04).
 
-[Linda Sabrina Rosal] - - Wireframes - [GitHub](https://github.com/Linda2101)
+---
 
-[Leonardo Tiago] - - Audio Design - GitHub
+## 📹 Evidências da Sprint 01 (Screencasts & Board)
 
-[Tharcylo José] - - Programação C - [GitHub](https://github.com/tharcylojose)
+### Quadro de Tarefas e Backlog (Jira)
+- [🔗 Acesse o Quadro de Tarefas da Sprint 01 (Jira)](https://csprj-adsr-2p-e1.atlassian.net/jira/software/projects/PI2/boards/2?filter=&groupBy=subtask&atlOrigin=eyJpIjoiNDc1N2ZkMzg2MjE2NGUwZjhiNzA3MWM3OTJkZWE3YjgiLCJwIjoiaiJ9)
+- [🔗 Acesse o Backlog do Projeto (Jira)](https://csprj-adsr-2p-e1.atlassian.net/jira/software/c/projects/PI2/boards/2/backlog?atlOrigin=eyJpIjoiMzkzNzczMGEyYWVjNGI3NmI4Yjg1YjlhOGU2NGU1Y2EiLCJwIjoiaiJ9)
 
-[### Link para o Jira](https://csprj-adsr-2p-e1.atlassian.net/jira/software/c/projects/PI2/boards/2/backlog?atlOrigin=eyJpIjoiMzkzNzczMGEyYWVjNGI3NmI4Yjg1YjlhOGU2NGU1Y2EiLCJwIjoiaiJ9)
+### 📹 Demonstração das Funcionalidades (Screencasts)
 
-<img width="1024" height="1024" alt="WhatsApp Image 2026-10-07 at 16 42 40" src="https://github.com/user-attachments/assets/afa65b39-c327-49b2-9f10-b0a2e53aaedf" />
+- **US 01 - Imersão Inicial no Sistema Operacional:**
+  ![GIF System Boot](https://github.com/user-attachments/assets/fe64103a-4db6-4f73-a343-1c752778e6f0)
+
+- **US 02 & US 03 - Interface e Escolhas no NEXUS Messenger:**
+  ![GIF Chat Funcional](https://github.com/user-attachments/assets/2fc6725c-6c0e-40f8-a152-42868eb7e6e0)
+
+- **US 04 - Indicador de Digitação Dinâmico:**
+  ![GIF Indicador Digitando](https://github.com/user-attachments/assets/6687253b-fd3a-47d0-9a6e-bc22ab664f6e)
+
+- **US 05 - Apresentação da IA Pessoal (Nex & Dark Patterns):**
+  ![GIF Permissões Nex](https://github.com/user-attachments/assets/8f30f2a7-0e9b-4f91-ad1b-bc0790bc1d2c)
+
+- **Screencast Geral do Protótipo:**
+  [▶️ Assista ao Screencast Completo no YouTube](https://youtu.be/oBV8aL3dvN4)
+
+---
+
+## 👥 Autores
+
+**Squad 1 — Cesar School (Projeto Integrador)**
+
+- **Guilherme Santana Habib Lantyer de Araújo** — Designer, Integração, Programação GDScript ([GitHub](https://github.com/GuiltySoap))
+- **Jennifer Dantas Machado Almeida** — Designer, Roteirista, Artista ([GitHub](https://github.com/jdm-debug))
+- **Linda Sabrina Rosal** — Wireframes ([GitHub](https://github.com/Linda2101))
+- **Leonardo Tiago** — Audio Design
+- **Tharcylo José** — Programação C ([GitHub](https://github.com/tharcylojose))
+
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/8bbc77e9-03c5-43fb-9518-70cec32970e8" />
