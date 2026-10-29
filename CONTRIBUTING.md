@@ -1,4 +1,4 @@
-# Como Contribuir com o IARA
+# Como Contribuir com o Nexus: Human Sintax
 
 Obrigado por colocar a mão na massa! Este guia explica como a gente trabalha no repositório: como organizar branches, como escrever commits e como levar uma mudança até o `main`.
 
