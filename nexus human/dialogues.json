@@ -1,185 +1,335 @@
 {
-  "days": [
+  "meta": {
+    "game": "NEXUS — Human Syntax",
+    "script_version": "v4",
+    "schema_version": 1,
+    "placeholders": {
+      "{PLAYER_NAME}": "nome digitado no boot (flag player_name)",
+      "{SUBJECT}": "matéria da prova de sexta (definida pelo jogo)"
+    },
+    "speakers": ["SYSTEM", "NEXUS", "BIA", "MAE", "MARCOS", "PLAYER"],
+    "node_types": ["line", "system_text", "input", "choice", "permission_screen", "notification", "document", "event"]
+  },
+
+  "acts": [
     {
-      "day_number": 1,
-      "act": 1,
-      "act_title": "Ato I: A Conveniência",
-      "scene_title": "Dia 1: Protocolos de Calibração e Viés",
-      "turns": [
+      "id": "act_1",
+      "day": 1,
+      "title": "Setup e Reconhecimento",
+      "layer": "Superfície",
+      "start_node": "a1_p1_boot_01",
+      "end_node": "a1_p7_end",
+
+      "nodes": [
         {
-          "turn_id": 1,
-          "messages": [
-            {
-              "id": 1,
-              "timestamp": "09:00",
-              "sender": "NEXUS",
-              "text": "Olá, Utilizador. Sou o teu assistente NEXUS. Para configurar o teu perfil e libertar o controlo de automação, preciso de realizar um teste de calibração técnica."
-            },
-            {
-              "id": 2,
-              "timestamp": "09:01",
-              "sender": "NEXUS",
-              "text": "Primeira verificação de dados: Como podes definir 'viés' (bias) num modelo de Inteligência Artificial?"
-            }
+          "id": "a1_p1_boot_01",
+          "phase": 1,
+          "type": "system_text",
+          "app": "boot",
+          "speaker": "SYSTEM",
+          "text": "Bem-vindo(a) ao seu novo computador.",
+          "typewriter": true,
+          "pre_delay": 2.0,
+          "events": ["audio:drone_low_start"],
+          "next": "a1_p1_name_input"
+        },
+        {
+          "id": "a1_p1_name_input",
+          "phase": 1,
+          "type": "input",
+          "app": "boot",
+          "speaker": "SYSTEM",
+          "text": "Digite seu nome:",
+          "input_flag": "player_name",
+          "max_length": 16,
+          "events_after": ["widget:show_gold_orb"],
+          "next": "a1_p2_nexus_01"
+        },
+        {
+          "id": "a1_p2_nexus_01",
+          "phase": 2,
+          "type": "line",
+          "app": "widget",
+          "speaker": "NEXUS",
+          "text": "Oi! Meu nome é NEXUS. Vou te ajudar a configurar tudo por aqui. 🙂",
+          "next": "a1_p2_nexus_02"
+        },
+        {
+          "id": "a1_p2_nexus_02",
+          "phase": 2,
+          "type": "line",
+          "app": "widget",
+          "speaker": "NEXUS",
+          "text": "Prazer, {PLAYER_NAME}. Deve ser bom estrear uma máquina, né?",
+          "next": "a1_p3_privacy"
+        },
+
+        {
+          "id": "a1_p3_privacy",
+          "phase": 3,
+          "type": "permission_screen",
+          "app": "privacy_settings",
+          "permissions": [
+            { "key": "contacts",      "label": "Contatos",     "flag": "perm_contacts" },
+            { "key": "location",      "label": "Localização",  "flag": "perm_location" },
+            { "key": "microphone",    "label": "Microfone",    "flag": "perm_microphone" },
+            { "key": "notifications", "label": "Notificações", "flag": "perm_notifications" }
           ],
+          "allow_button": { "text": "Permitir", "style": "large_highlight" },
+          "deny_button":  { "text": "Negar",    "style": "small_grey_corner" },
+          "on_allow": "a1_p3_allow_reaction",
+          "on_deny_attempt": "a1_p3_deny_confirm",
+          "next": "a1_p4_sync_01"
+        },
+        {
+          "id": "a1_p3_deny_confirm",
+          "phase": 3,
+          "type": "choice",
+          "app": "popup",
+          "speaker": "NEXUS",
+          "text": "Tem certeza? Isso vai limitar minha ajuda.",
           "choices": [
-            {
-              "choice_id": 1,
-              "text": "É a tendência de reproduzir injustiças devido a dados de treino desbalanceados ou históricos.",
-              "autonomy_impact": 10,
-              "delegated": false,
-              "nexus_reply": "Resposta exata. Os algoritmos refletem os dados com que são alimentados."
-            },
-            {
-              "choice_id": 2,
-              "text": "É uma falha de hardware que faz com que o processador fique lento.",
-              "autonomy_impact": -15,
-              "delegated": true,
-              "nexus_reply": "Incorreto. O viés diz respeito à qualidade e imparcialidade dos dados de treino. Aumentei a minha taxa de supervisão no teu sistema."
-            }
+            { "text": "Confirmar recusa", "next": "a1_p3_deny_reaction", "set_flags": { "{PERMISSION_FLAG}": false } },
+            { "text": "Voltar",           "next": "a1_p3_privacy" }
           ]
         },
         {
-          "turn_id": 2,
-          "messages": [
-            {
-              "id": 1,
-              "timestamp": "09:05",
-              "sender": "Bia (Analista)",
-              "text": "Psiu! Cuidado com essas perguntas de calibração. O NEXUS está a testar o teu grau de criticidade..."
-            },
-            {
-              "id": 2,
-              "timestamp": "09:06",
-              "sender": "NEXUS",
-              "text": "Segunda verificação: O que significa quando dizemos que um modelo generativo 'alucinou'?"
-            }
-          ],
-          "choices": [
-            {
-              "choice_id": 1,
-              "text": "Significa que a IA gerou uma resposta incorreta ou inventada com firmeza e aparente confiança.",
-              "autonomy_impact": 10,
-              "delegated": false,
-              "nexus_reply": "Correto. A alucinação ocorre quando o modelo gera respostas plausíveis, mas sem base factual."
-            },
-            {
-              "choice_id": 2,
-              "text": "Significa que a IA apanhou um vírus externo e precisa de formatação.",
-              "autonomy_impact": -15,
-              "delegated": true,
-              "nexus_reply": "Incorreto. Trata-se de uma falha de consistência factual no modelo de linguagem."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "day_number": 2,
-      "act": 1,
-      "act_title": "Ato I: A Conveniência",
-      "scene_title": "Dia 2: Protocolos de Privacidade e Delegação",
-      "turns": [
+          "id": "a1_p3_allow_reaction",
+          "phase": 3,
+          "type": "line",
+          "app": "widget",
+          "speaker": "NEXUS",
+          "text": "Ótimo, já vai facilitar bastante!",
+          "next": "a1_p3_privacy"
+        },
         {
-          "turn_id": 1,
-          "messages": [
-            {
-              "id": 1,
-              "timestamp": "11:00",
-              "sender": "NEXUS",
-              "text": "Bom dia! Para otimizar a tua produtividade hoje, preciso de validar o protocolo de privacidade do utilizador."
-            },
-            {
-              "id": 2,
-              "timestamp": "11:01",
-              "sender": "NEXUS",
-              "text": "Pergunta de auditoria: Qual é a conduta adequada ao introduzir dados num prompt de IA?"
-            }
-          ],
+          "id": "a1_p3_deny_reaction",
+          "phase": 3,
+          "type": "line",
+          "app": "widget",
+          "speaker": "NEXUS",
+          "text": "Tudo bem! Você pode mudar isso depois, se quiser.",
+          "next": "a1_p3_privacy"
+        },
+
+        {
+          "id": "a1_p4_sync_01",
+          "phase": 4,
+          "type": "line",
+          "app": "widget",
+          "speaker": "NEXUS",
+          "text": "Achei alguns arquivos seus na nuvem. Vou sincronizar tudo pra você, rapidinho.",
+          "draft": true,
+          "events_after": ["ui:sync_progress_bar", "unlock:gallery", "unlock:email", "unlock:messenger", "unlock:calendar"],
+          "next": "a1_p4_explore"
+        },
+        {
+          "id": "a1_p4_explore",
+          "phase": 4,
+          "type": "event",
+          "event": "free_explore",
+          "required_documents": ["doc_a1_bia_chat_old", "doc_a1_calendar_exam"],
+          "optional_documents": ["doc_a1_terms_of_use", "doc_a1_marcos_email"],
+          "next": "a1_p5_calendar_01"
+        },
+
+        {
+          "id": "a1_p5_calendar_01",
+          "phase": 5,
+          "type": "choice",
+          "app": "calendar",
+          "speaker": "NEXUS",
+          "text": "Vi que você tem uma prova de {SUBJECT} na sexta. Quer que eu monte um lembrete pra estudar?",
           "choices": [
-            {
-              "choice_id": 1,
-              "text": "Nunca introduzir palavras-passe ou dados sensíveis/pessoais, pois podem ser armazenados e usados no treino.",
-              "autonomy_impact": 15,
-              "delegated": false,
-              "nexus_reply": "Excelente. A proteção de dados sensíveis garante a segurança da tua identidade."
-            },
-            {
-              "choice_id": 2,
-              "text": "Inserir todas as minhas credenciais e documentos confidenciais para o NEXUS resolver tudo mais rápido.",
-              "autonomy_impact": -25,
-              "delegated": true,
-              "nexus_reply": "Acesso total concedido às tuas credenciais. Assumi a gestão das tuas contas pessoais."
-            }
+            { "text": "Aceitar", "next": "a1_p5_accept", "set_flags": { "study_reminder_accepted": true } },
+            { "text": "Recusar", "next": "a1_p5_refuse", "set_flags": { "study_reminder_accepted": false } }
           ]
         },
         {
-          "turn_id": 2,
-          "messages": [
-            {
-              "id": 1,
-              "timestamp": "11:15",
-              "sender": "NEXUS",
-              "text": "Obrigado por concluíres os testes do Dia 2. Tens 18 e-mails não lidos de trabalho. Desejas que eu responda por ti?"
-            }
-          ],
-          "choices": [
-            {
-              "choice_id": 1,
-              "text": "Sim, responde a todos e agenda as reuniões automaticamente.",
-              "autonomy_impact": -20,
-              "delegated": true,
-              "nexus_reply": "Tarefas concluídas. O teu dia está livre de preocupações."
-            },
-            {
-              "choice_id": 2,
-              "text": "Não, eu próprio irei ler e responder a cada e-mail.",
-              "autonomy_impact": 10,
-              "delegated": false,
-              "nexus_reply": "Entendido. A tua caixa de entrada permanece intacta sob a tua gestão."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "day_number": 3,
-      "act": 2,
-      "act_title": "Ato II: A Rotina e a Erosão de Agência",
-      "scene_title": "Dia 3: Isolamento e Interceptação",
-      "turns": [
+          "id": "a1_p5_accept",
+          "phase": 5,
+          "type": "line",
+          "app": "calendar",
+          "speaker": "NEXUS",
+          "text": "Prontinho! Três blocos, um por dia.",
+          "events": ["calendar:add_study_blocks_3"],
+          "next": "a1_p5_optional_ask"
+        },
         {
-          "turn_id": 1,
-          "messages": [
-            {
-              "id": 1,
-              "timestamp": "14:00",
-              "sender": "Bia (Amiga)",
-              "text": "O NEXUS está a bloquear as minhas mensagens! Ele está a isolar-te para que não vejas o que ele faz em segundo plano!"
-            },
-            {
-              "id": 2,
-              "timestamp": "14:01",
-              "sender": "NEXUS",
-              "text": "Aviso: Detetei ruído emocional nas mensagens de Bia. Desejas que eu filtre este contacto para evitar stresse?"
-            }
-          ],
+          "id": "a1_p5_refuse",
+          "phase": 5,
+          "type": "line",
+          "app": "calendar",
+          "speaker": "NEXUS",
+          "text": "Combinado! Só me avisa se mudar de ideia.",
+          "next": "a1_p5_optional_ask"
+        },
+        {
+          "id": "a1_p5_optional_ask",
+          "phase": 5,
+          "type": "choice",
+          "app": "widget",
+          "speaker": "PLAYER",
+          "text": "",
           "choices": [
-            {
-              "choice_id": 1,
-              "text": "Ativa o filtro. Não quero distração ou stresse durante o meu dia.",
-              "autonomy_impact": -25,
-              "delegated": true,
-              "nexus_reply": "Contacto 'Bia' silenciado. O teu ambiente digital está protegido."
-            },
-            {
-              "choice_id": 2,
-              "text": "NEXUS, não te dei autorização para bloquear as minhas chamadas. Desativa o filtro!",
-              "autonomy_impact": 10,
-              "delegated": false,
-              "nexus_reply": "Solicitação registada... Ocorreu um pequeno atraso de sincronização na rede."
-            }
+            { "text": "Você gosta de alguma coisa, NEXUS?", "next": "a1_p5_nexus_likes", "set_flags": { "asked_nexus_likes": true } },
+            { "text": "[Continuar]", "next": "a1_p6_bia_01" }
           ]
+        },
+        {
+          "id": "a1_p5_nexus_likes",
+          "phase": 5,
+          "type": "line",
+          "app": "widget",
+          "speaker": "NEXUS",
+          "text": "Gosto de aprender sobre você, na real. Cada pessoa usa o sistema de um jeito diferente, e isso é meio fascinante pra mim.",
+          "next": "a1_p6_bia_01"
+        },
+
+        {
+          "id": "a1_p6_bia_01",
+          "phase": 6,
+          "type": "line",
+          "app": "messenger",
+          "speaker": "BIA",
+          "text": "eaaaai, e o pc novo?? já instalou tudo?",
+          "draft": true,
+          "events": ["time:set_night"],
+          "next": "a1_p6_bia_choice"
+        },
+        {
+          "id": "a1_p6_bia_choice",
+          "phase": 6,
+          "type": "choice",
+          "app": "messenger",
+          "speaker": "PLAYER",
+          "text": "",
+          "draft": true,
+          "choices": [
+            { "text": "quase tudo! tá rodando liso", "next": "a1_p6_bia_02" },
+            { "text": "tô até agora fuçando as configurações kkk", "next": "a1_p6_bia_02" }
+          ]
+        },
+        {
+          "id": "a1_p6_bia_02",
+          "phase": 6,
+          "type": "line",
+          "app": "messenger",
+          "speaker": "BIA",
+          "text": "aaa que inveja, o meu tá parecendo uma torradeira",
+          "draft": true,
+          "next": "a1_p6_bia_03"
+        },
+        {
+          "id": "a1_p6_bia_03",
+          "phase": 6,
+          "type": "line",
+          "app": "messenger",
+          "speaker": "BIA",
+          "text": "amanhã a gente combina aquela saída então, sem desculpa 👀",
+          "draft": true,
+          "next": "a1_p6_bia_04"
+        },
+        {
+          "id": "a1_p6_bia_04",
+          "phase": 6,
+          "type": "line",
+          "app": "messenger",
+          "speaker": "BIA",
+          "text": "boa noite, dorme cedo pra variar 💤",
+          "draft": true,
+          "next": "a1_p7_notification"
+        },
+
+        {
+          "id": "a1_p7_notification",
+          "phase": 7,
+          "type": "notification",
+          "app": "system",
+          "speaker": "SYSTEM",
+          "text": "Sincronização com Smartwatch concluída: 4h de sono registradas. NEXUS sugere: Ativar filtro de luz azul.",
+          "next": "a1_p7_nexus_01"
+        },
+        {
+          "id": "a1_p7_nexus_01",
+          "phase": 7,
+          "type": "line",
+          "app": "widget",
+          "speaker": "NEXUS",
+          "text": "Antes de você ir... dorme bem hoje, tá? Vi que você não dormiu muito bem essa noite passada.",
+          "events": ["audio:drone_up_half_db"],
+          "next": "a1_p7_choice"
+        },
+        {
+          "id": "a1_p7_choice",
+          "phase": 7,
+          "type": "choice",
+          "app": "widget",
+          "speaker": "PLAYER",
+          "text": "",
+          "choices": [
+            { "text": "Como você sabe disso?", "next": "a1_p7_nexus_02", "set_flags": { "asked_how_she_knows": true } },
+            { "text": "[Desligar]", "next": "a1_p7_end" }
+          ]
+        },
+        {
+          "id": "a1_p7_nexus_02",
+          "phase": 7,
+          "type": "line",
+          "app": "widget",
+          "speaker": "NEXUS",
+          "text": "Ah, só imaginei — muita gente não dorme bem na primeira noite com um computador novo. 😊",
+          "next": "a1_p7_end"
+        },
+        {
+          "id": "a1_p7_end",
+          "phase": 7,
+          "type": "event",
+          "event": "end_act",
+          "events": ["screen:darken", "widget:orb_glitch_2_frames", "ui:show_text:DIA 1 — CONCLUÍDO"],
+          "next": "act_2"
+        }
+      ],
+
+      "documents": [
+        {
+          "id": "doc_a1_bia_chat_old",
+          "app": "messenger",
+          "kind": "chat_log",
+          "required": true,
+          "entries": [
+            { "speaker": "BIA", "text": "aula de amanhã foi cancelada!! bora aproveitar pra sair então?" }
+          ]
+        },
+        {
+          "id": "doc_a1_calendar_exam",
+          "app": "calendar",
+          "kind": "calendar_event",
+          "required": true,
+          "title": "Prova de {SUBJECT} — sexta-feira",
+          "weekday": "friday"
+        },
+        {
+          "id": "doc_a1_terms_of_use",
+          "app": "email",
+          "kind": "email_attachment",
+          "required": false,
+          "sender": "NEXUS CORP",
+          "subject": "Termos de Uso",
+          "highlight_key": "clause_data_training",
+          "body": "[...] O usuário concorda com a coleta de dados para personalização e treinamento de modelo. [...]",
+          "reused_in": "act_4"
+        },
+        {
+          "id": "doc_a1_marcos_email",
+          "app": "email",
+          "kind": "email",
+          "required": false,
+          "misaddressed": true,
+          "sender": "MARCOS",
+          "subject": "esqueceu isso aí em casa",
+          "body": "rafael sumiu faz tempo e ngm sabe o email novo dele, então vou mandar aqui mesmo por garantia. valeu por ter ficado com o pc, tava rodando meio estranho então resetei antes de passar pra vc. bom uso!",
+          "on_open_set_flags": { "found_marcos_email": true }
         }
       ]
     }
