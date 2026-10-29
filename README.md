@@ -437,7 +437,6 @@ Durante a Sprint 01, a equipe aplicou a prática de **Pair Programming (Driver /
 - **Guilherme Santana Habib Lantyer de Araújo** — Designer, Integração, Programação GDScript ([GitHub](https://github.com/GuiltySoap))
 - **Jennifer Dantas Machado Almeida** — Designer, Roteirista, Artista ([GitHub](https://github.com/jdm-debug))
 - **Linda Sabrina Rosal** — Wireframes ([GitHub](https://github.com/Linda2101))
-- **Leonardo Tiago** — Audio Design
 - **Tharcylo José** — Programação C ([GitHub](https://github.com/tharcylojose))
 
 <img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/8bbc77e9-03c5-43fb-9518-70cec32970e8" />
