@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bwmhanlaiq201"]
+
+[ext_resource type="Texture2D" uid="uid://c8vusfmgue3wx" path="res://icon.svg" id="1_lk5kp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l8mnm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ncj0n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pelv2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ixi5y"]
+
+[node name="IconeFicheiro" type="MarginContainer" unique_id=1554057975]
+custom_minimum_size = Vector2(100, 120)
+offset_right = 100.0
+offset_bottom = 120.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1917162005]
+layout_mode = 2
+
+[node name="ImagemIcone" type="TextureRect" parent="VBoxContainer" unique_id=1280596753]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_lk5kp")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="NomeFicheiro" type="Label" parent="VBoxContainer" unique_id=1380735206]
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BotaoClique" type="Button" parent="." unique_id=1959121213]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l8mnm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ncj0n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_pelv2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ixi5y")

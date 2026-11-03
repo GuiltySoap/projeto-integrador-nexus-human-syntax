@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://8uaonhgogmof"]
+
+[ext_resource type="Script" uid="uid://dbexmpp13wm78" path="res://AreaDeTrabalho.gd" id="1_k1fb3"]
+[ext_resource type="PackedScene" uid="uid://cxwuo34uvamv3" path="res://UI_Core/WidgetNexus.tscn" id="2_k1fb3"]
+
+[node name="Node2D" type="Node2D" unique_id=228522300]
+
+[node name="OS_Root" type="Control" parent="." unique_id=66790216]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 1924.0
+offset_bottom = 1084.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k1fb3")
+metadata/_edit_use_anchors_ = true
+
+[node name="PapelDeParedeTemporario" type="ColorRect" parent="OS_Root" unique_id=59945582]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.102257125, 0.46475768, 0.9999898, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BarraDeTarefas" type="Panel" parent="OS_Root" unique_id=2128051062]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="OS_Root/BarraDeTarefas" unique_id=88018963]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OS_Root/BarraDeTarefas/MarginContainer" unique_id=1137988228]
+layout_mode = 2
+
+[node name="BtnIniciar" type="Button" parent="OS_Root/BarraDeTarefas/MarginContainer/HBoxContainer" unique_id=1174012835]
+layout_mode = 2
+text = "[NexIcon]"
+
+[node name="BtnEmail" type="Button" parent="OS_Root/BarraDeTarefas/MarginContainer/HBoxContainer" unique_id=1364050920]
+layout_mode = 2
+text = "E-mail
+"
+
+[node name="BtnChat" type="Button" parent="OS_Root/BarraDeTarefas/MarginContainer/HBoxContainer" unique_id=1656672518]
+layout_mode = 2
+text = "Chat"
+
+[node name="BtnNavegador" type="Button" parent="OS_Root/BarraDeTarefas/MarginContainer/HBoxContainer" unique_id=1106752798]
+layout_mode = 2
+text = "Arquivos"
+
+[node name="AreaDeJanelas" type="Control" parent="OS_Root" unique_id=448713981]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.94166666
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CamadaNexus" type="CanvasLayer" parent="OS_Root" unique_id=1330329656]
+
+[node name="WidgetNexus" parent="OS_Root/CamadaNexus" unique_id=1345312041 instance=ExtResource("2_k1fb3")]
+offset_left = 1818.0
+offset_top = 983.0
+offset_right = -22.0
+offset_bottom = -17.0

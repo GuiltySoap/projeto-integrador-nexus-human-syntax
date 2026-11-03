@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://3pyq3xtufav4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ono3"]
+bg_color = Color(0.91764706, 0.09803922, 0.11764706, 1)
+
+[node name="BalaoNexus" type="PanelContainer" unique_id=1009777736]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2ono3")
+
+[node name="Label" type="Label" parent="." unique_id=1139469375]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "Texto de teste"
+autowrap_mode = 2

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cdur7v5i3187"]
+
+[ext_resource type="Script" uid="uid://eh4y4b6121mb" path="res://UI_Core/PopUpNotificacao.gd" id="1_epp62"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8mnm"]
+bg_color = Color(0.15196058, 0.16221958, 0.16221905, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.66771454, 0.15512979, 0.13294676, 1)
+
+[node name="PopUpNotificacao" type="PanelContainer" unique_id=751990292]
+offset_left = 185.0
+offset_top = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_l8mnm")
+script = ExtResource("1_epp62")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=557074614]
+layout_mode = 2
+
+[node name="Titulo" type="Label" parent="VBoxContainer" unique_id=1480075272]
+layout_mode = 2
+text = "⚠️ ALERTA DO SISTEMA"
+
+[node name="Mensagem" type="Label" parent="VBoxContainer" unique_id=338573055]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Anomalia detectada no setor 4."
+autowrap_mode = 2
+
+[node name="BtnOk" type="Button" parent="VBoxContainer" unique_id=744338225]
+layout_mode = 2
+text = "Ok"

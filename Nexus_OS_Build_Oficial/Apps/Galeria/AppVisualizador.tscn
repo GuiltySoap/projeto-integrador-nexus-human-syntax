@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cg7kc8ek861oc"]
+
+[ext_resource type="PackedScene" uid="uid://bf4ua2h07eher" path="res://JanelaBase.tscn" id="1_mcu64"]
+[ext_resource type="Script" uid="uid://dau37g4vwr74v" path="res://Apps/Galeria/AppVisualizador.gd" id="2_0xuue"]
+
+[node name="AppVisualizador" unique_id=158270229 instance=ExtResource("1_mcu64")]
+script = ExtResource("2_0xuue")
+
+[node name="ImagemExibida" type="TextureRect" parent="AreaConteudo" parent_id_path=PackedInt32Array(359831041) index="0" unique_id=1109254823]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5

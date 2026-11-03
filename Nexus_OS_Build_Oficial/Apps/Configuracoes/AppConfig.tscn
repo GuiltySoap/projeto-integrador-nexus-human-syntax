@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://clsbdodij77em"]
+
+[ext_resource type="PackedScene" uid="uid://bf4ua2h07eher" path="res://JanelaBase.tscn" id="1_7r7xe"]
+[ext_resource type="Script" uid="uid://d2kag4wt1h2xb" path="res://Apps/Configuracoes/AppConfig.gd" id="2_7t3be"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8mnm"]
+bg_color = Color(0.32250702, 0.69684273, 0.32769418, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtnrh"]
+
+[node name="AppConfig" unique_id=158270229 instance=ExtResource("1_7r7xe")]
+script = ExtResource("2_7t3be")
+
+[node name="AreaConteudo" parent="." index="1" unique_id=359831041]
+color = Color(0.468777, 0.46877706, 0.468777, 1)
+
+[node name="Label" type="Label" parent="AreaConteudo" index="0" unique_id=779336503]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 0
+offset_left = 55.0
+offset_top = 39.0
+offset_right = 555.0
+offset_bottom = 62.0
+text = "Nexus exige permissões para operar:"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BtnPermitir" type="Button" parent="AreaConteudo" index="1" unique_id=1709745580]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -30.0
+offset_right = 100.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_l8mnm")
+text = "PERMITIR"
+
+[node name="BtnNegar" type="Button" parent="AreaConteudo" index="2" unique_id=64977917]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -10.0
+offset_right = 14.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxFlat_mtnrh")
+text = "negar"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AreaConteudo" index="3" unique_id=845618962]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CheckBox" type="CheckBox" parent="AreaConteudo/VBoxContainer" index="0" unique_id=1684736892]
+layout_mode = 2
+text = "Localização"
+
+[node name="CheckBox2" type="CheckBox" parent="AreaConteudo/VBoxContainer" index="1" unique_id=683124482]
+layout_mode = 2
+text = "Diagnósticos"
+
+[node name="CheckBox3" type="CheckBox" parent="AreaConteudo/VBoxContainer" index="2" unique_id=70595672]
+layout_mode = 2
+text = "Microfone"

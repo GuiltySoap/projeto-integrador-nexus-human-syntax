@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dn6752s6df8if"]
+
+[ext_resource type="Script" uid="uid://bsfexpgip2rss" path="res://UI_Core/TelaBoot.gd" id="1_hhuil"]
+
+[sub_resource type="SystemFont" id="SystemFont_l8mnm"]
+
+[node name="TelaBoot" type="Control" unique_id=1179750464]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hhuil")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=344476472]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LogText" type="RichTextLabel" parent="ColorRect" unique_id=1687247067]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/mono_font = SubResource("SystemFont_l8mnm")
+bbcode_enabled = true

@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bf4ua2h07eher"]
+
+[ext_resource type="Script" uid="uid://bokocv0uhjoqk" path="res://JanelaBase.gd" id="1_xivcv"]
+
+[node name="JanelaBase" type="Panel" unique_id=158270229]
+custom_minimum_size = Vector2(600, 400)
+script = ExtResource("1_xivcv")
+
+[node name="BarraSuperior" type="ColorRect" parent="." unique_id=1312537240]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+color = Color(0.44806695, 0.44806695, 0.44806695, 1)
+
+[node name="BtnFechar" type="Button" parent="BarraSuperior" unique_id=1192063645]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -18.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "X"
+
+[node name="BtnMaximizar" type="Button" parent="BarraSuperior" unique_id=623482594]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -38.0
+offset_right = -19.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "[]"
+
+[node name="BtnMinimizar" type="Button" parent="BarraSuperior" unique_id=1208782569]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -53.0
+offset_top = -1.0
+offset_right = -39.0
+offset_bottom = 30.0
+grow_horizontal = 0
+text = "-"
+
+[node name="TituloApp" type="Label" parent="BarraSuperior" unique_id=1465792766]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AreaConteudo" type="ColorRect" parent="." unique_id=359831041]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="gui_input" from="BarraSuperior" to="." method="_on_barra_superior_gui_input"]
+[connection signal="pressed" from="BarraSuperior/BtnFechar" to="." method="_on_btn_fechar_pressed"]

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://damrqk2ad65l8"]
+
+[ext_resource type="PackedScene" uid="uid://bf4ua2h07eher" path="res://JanelaBase.tscn" id="1_om4ee"]
+[ext_resource type="Script" uid="uid://c5anjlcnp28oc" path="res://Apps/Arquivos/AppNavegador.gd" id="2_0o3dp"]
+
+[node name="AppNavegador" unique_id=158270229 instance=ExtResource("1_om4ee")]
+script = ExtResource("2_0o3dp")
+
+[node name="TituloApp" parent="BarraSuperior" parent_id_path=PackedInt32Array(1312537240) index="1" unique_id=1465792766]
+text = "Nexus Explorer"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="AreaConteudo" parent_id_path=PackedInt32Array(359831041) index="0" unique_id=1277512759]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelEsquerdo" type="PanelContainer" parent="AreaConteudo/HSplitContainer" index="0" unique_id=388173154]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AreaConteudo/HSplitContainer/PanelEsquerdo" index="0" unique_id=1810908735]
+layout_mode = 2
+
+[node name="Sistema" type="Button" parent="AreaConteudo/HSplitContainer/PanelEsquerdo/VBoxContainer" index="0" unique_id=1146597869]
+layout_mode = 2
+text = "Sistema"
+
+[node name="Transferências" type="Button" parent="AreaConteudo/HSplitContainer/PanelEsquerdo/VBoxContainer" index="1" unique_id=78973107]
+layout_mode = 2
+text = "Transferencias"
+
+[node name="Logs" type="Button" parent="AreaConteudo/HSplitContainer/PanelEsquerdo/VBoxContainer" index="2" unique_id=1301437903]
+layout_mode = 2
+text = "Logs"
+
+[node name="PanelDireito" type="PanelContainer" parent="AreaConteudo/HSplitContainer" index="1" unique_id=788685035]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="AreaConteudo/HSplitContainer/PanelDireito" index="0" unique_id=144362442]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="AreaConteudo/HSplitContainer/PanelDireito/ScrollContainer" index="0" unique_id=143964482]
+layout_mode = 2
+columns = 5
