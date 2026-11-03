@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://c0cipp8awb5ah"]
+
+[ext_resource type="Script" uid="uid://bthwqdtfg36oq" path="res://MinigameLogica.gd" id="1_q0v2e"]
+[ext_resource type="Script" uid="uid://cim1tugf37n15" path="res://SlotCircuito.gd" id="2_6nk7f"]
+[ext_resource type="Script" uid="uid://d2q5otc2ces0d" path="res://PortaLogicaItem.gd" id="3_pkdl3"]
+
+[node name="MinigameLogica" type="Control" unique_id=1575186948]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q0v2e")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=183647260]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 0.60784316)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect" unique_id=1761908051]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect/CenterContainer" unique_id=534508330]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/CenterContainer/PanelContainer" unique_id=942272138]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer" unique_id=1502314551]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=803042058]
+layout_mode = 2
+
+[node name="SubtitLabel" type="Label" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1434029293]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1933163808]
+layout_mode = 2
+
+[node name="DisplayContainer" type="HBoxContainer" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=284977582]
+layout_mode = 2
+
+[node name="SwitchContainer" type="VBoxContainer" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DisplayContainer" unique_id=2112397397]
+layout_mode = 2
+
+[node name="BtnA" type="Button" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DisplayContainer/SwitchContainer" unique_id=78492948]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Entrada A: DESLIGADO"
+
+[node name="BtnB" type="Button" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DisplayContainer/SwitchContainer" unique_id=1696724390]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Entrada B: DESLIGADO"
+
+[node name="GatesContainer" type="VBoxContainer" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DisplayContainer" unique_id=1598704639]
+layout_mode = 2
+
+[node name="GateLabel" type="Label" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DisplayContainer/GatesContainer" unique_id=1407994279]
+layout_mode = 2
+text = "PORTA: AND"
+
+[node name="Slot1" type="PanelContainer" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DisplayContainer/GatesContainer" unique_id=1831125394]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("2_6nk7f")
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DisplayContainer/GatesContainer/Slot1" unique_id=974109459]
+layout_mode = 2
+text = "[ Vazio ]"
+
+[node name="StatusContainer" type="VBoxContainer" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DisplayContainer" unique_id=1033476285]
+layout_mode = 2
+
+[node name="StatusLed" type="ColorRect" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DisplayContainer/StatusContainer" unique_id=1154245891]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="StatusLabel" type="Label" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DisplayContainer/StatusContainer" unique_id=766046053]
+unique_name_in_owner = true
+layout_mode = 2
+text = "BLOQUEADO"
+
+[node name="InventarioContainer" type="VBoxContainer" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DisplayContainer" unique_id=946178003]
+layout_mode = 2
+
+[node name="GateAND" type="PanelContainer" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DisplayContainer/InventarioContainer" unique_id=1477249206]
+layout_mode = 2
+script = ExtResource("3_pkdl3")
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DisplayContainer/InventarioContainer/GateAND" unique_id=1345943927]
+layout_mode = 2
+text = "AND"
+
+[node name="GateOR" type="PanelContainer" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DisplayContainer/InventarioContainer" unique_id=1408238753]
+layout_mode = 2
+script = ExtResource("3_pkdl3")
+tipo_porta = "OR"
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DisplayContainer/InventarioContainer/GateOR" unique_id=1471649415]
+layout_mode = 2
+text = "OR"
+
+[node name="GateXOR" type="PanelContainer" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DisplayContainer/InventarioContainer" unique_id=2086379547]
+layout_mode = 2
+script = ExtResource("3_pkdl3")
+tipo_porta = "XOR"
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DisplayContainer/InventarioContainer/GateXOR" unique_id=2009037970]
+layout_mode = 2
+text = "XOR"
+
+[node name="HSeparator2" type="HSeparator" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2086154465]
+layout_mode = 2
+
+[node name="BtnContainer" type="HBoxContainer" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1660813239]
+layout_mode = 2
+
+[node name="BtnCancelar" type="Button" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/BtnContainer" unique_id=1446224064]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cancelar"
+
+[node name="BtnTestar" type="Button" parent="ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/BtnContainer" unique_id=1419044392]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Testar"

@@ -3,7 +3,9 @@ extends "res://JanelaBase.gd"
 # Precarrega o molde do ícone e o modal de senha
 const ICONE_FICHEIRO = preload("res://Apps/IconeFicheiro.tscn")
 const PASSWORD_MODAL_SCENE = preload("res://PasswordModal.tscn")
-
+const MINIGAME_LOGICA_SCENE = preload("res://MinigameLogica.tscn")
+var minigame_logica: Control
+var icarus_desbloqueado: bool = false
 @onready var grid_arquivos: GridContainer = $AreaConteudo/HSplitContainer/PanelDireito/ScrollContainer/GridContainer
 
 var password_modal_instancia = null
@@ -22,7 +24,32 @@ var sistema_de_arquivos = [
 
 func _ready() -> void:
 	_instanciar_modal_senha()
+	_instanciar_minigame() # <-- Adicione apenas esta linha
 	gerar_arquivos()
+	
+	# Ligação do sinal do minijogo
+	if minigame_logica:
+		minigame_logica.puzzle_solved.connect(_on_icarus_puzzle_solved)
+
+func _instanciar_minigame() -> void:
+	minigame_logica = MINIGAME_LOGICA_SCENE.instantiate()
+	add_child(minigame_logica)
+	minigame_logica.puzzle_solved.connect(_on_icarus_puzzle_solved)
+
+func _on_ficheiro_icarus_clicado() -> void:
+	if icarus_desbloqueado:
+		_abrir_conteudo_icarus()
+	else:
+		minigame_logica.open_modal()
+
+func _on_icarus_puzzle_solved() -> void:
+	icarus_desbloqueado = true
+	print("Ficheiro PROJECT_Icarus desbloqueado com sucesso!")
+	_abrir_conteudo_icarus()
+
+func _abrir_conteudo_icarus() -> void:
+	# Lógica para exibir o texto/conteúdo secreto de PROJECT_Icarus
+	pass
 
 func _instanciar_modal_senha() -> void:
 	if PASSWORD_MODAL_SCENE:
