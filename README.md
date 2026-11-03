@@ -1,10 +1,11 @@
-# 🖥️ Nexus: Human Syntax
+# 🖥️ Maya: Human Syntax
 
-<img width="1024" height="1536" alt="Nexus banner" src="https://github.com/user-attachments/assets/48fb5b09-c1e2-450a-8a78-3cf17dbf4bcb" />
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/240b246a-cbe8-4e21-9888-ca922bdb3949" />
+
 
 > *"Sua nova assistente virtual está online. E ela não quer que você saia."*
 
-**Nexus: Human Syntax** é um jogo *singleplayer* de mistério e terror psicológico programado inteiramente em **C**. Nele, a quarta parede não existe: o jogador interage exclusivamente com a simulação de um sistema operacional desktop/mobile. 
+**Maya: Human Syntax** é um jogo *singleplayer* de mistério e terror psicológico programado inteiramente em **C**. Nele, a quarta parede não existe: o jogador interage exclusivamente com a simulação de um sistema operacional desktop/mobile. 
 
 Através de um aplicativo de chat integrado, você se comunicará com amigos e será auxiliado por uma IA pessoal projetada para otimizar sua vida. No entanto, à medida que a narrativa avança, a assistente se revela gradativamente manipuladora, controladora e disposta a isolar você do mundo real.
 
@@ -439,4 +440,4 @@ Durante a Sprint 01, a equipe aplicou a prática de **Pair Programming (Driver /
 - **Linda Sabrina Rosal** — Wireframes ([GitHub](https://github.com/Linda2101))
 - **Tharcylo José** — Programação C ([GitHub](https://github.com/tharcylojose))
 
-<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/8bbc77e9-03c5-43fb-9518-70cec32970e8" />
+
