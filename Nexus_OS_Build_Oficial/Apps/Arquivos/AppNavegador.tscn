@@ -6,7 +6,7 @@
 [node name="AppNavegador" unique_id=158270229 instance=ExtResource("1_om4ee")]
 script = ExtResource("2_0o3dp")
 
-[node name="TituloApp" parent="BarraSuperior" parent_id_path=PackedInt32Array(1312537240) index="1" unique_id=1465792766]
+[node name="TituloApp" parent="BarraSuperior" parent_id_path=PackedInt32Array(1312537240) index="3" unique_id=1465792766]
 text = "Nexus Explorer"
 
 [node name="HSplitContainer" type="HSplitContainer" parent="AreaConteudo" parent_id_path=PackedInt32Array(359831041) index="0" unique_id=1277512759]
