@@ -1,0 +1,8 @@
+{
+  "fase_os": 1,
+  "fala_nexus": "Porque continuas a tentar comunicar? Ninguém vai ler isso.",
+  "opcoes": [
+	{ "id": 1, "texto": "Eu preciso de ajuda." },
+	{ "id": 2, "texto": "Tentar forçar a saída." }
+  ]
+}

@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cxwuo34uvamv3"]
+
+[ext_resource type="Script" uid="uid://co1qtsft6ac50" path="res://UI_Core/WidgetNexus.gd" id="1_mueil"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ncj0n"]
+bg_color = Color(0.7454461, 0.56615293, 0.25427583, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="Animation" id="Animation_yrw5h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OrbeVisual:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g5ghv"]
+resource_name = "pulso_calmo"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OrbeVisual:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_37qf2"]
+_data = {
+&"RESET": SubResource("Animation_yrw5h"),
+&"pulso_calmo": SubResource("Animation_g5ghv")
+}
+
+[node name="WidgetNexus" type="Control" unique_id=1345312041]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1840.0
+offset_bottom = -1000.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mueil")
+
+[node name="OrbeVisual" type="Panel" parent="." unique_id=1973041087]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ncj0n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=474840343]
+libraries/ = SubResource("AnimationLibrary_37qf2")

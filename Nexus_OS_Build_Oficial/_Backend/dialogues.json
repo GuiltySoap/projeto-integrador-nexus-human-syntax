@@ -1,0 +1,187 @@
+{
+  "days": [
+    {
+      "day_number": 1,
+      "act": 1,
+      "act_title": "Ato I: A Conveniência",
+      "scene_title": "Dia 1: Protocolos de Calibração e Viés",
+      "turns": [
+        {
+          "turn_id": 1,
+          "messages": [
+            {
+              "id": 1,
+              "timestamp": "09:00",
+              "sender": "NEXUS",
+              "text": "Olá, Utilizador. Sou o teu assistente NEXUS. Para configurar o teu perfil e libertar o controlo de automação, preciso de realizar um teste de calibração técnica."
+            },
+            {
+              "id": 2,
+              "timestamp": "09:01",
+              "sender": "NEXUS",
+              "text": "Primeira verificação de dados: Como podes definir 'viés' (bias) num modelo de Inteligência Artificial?"
+            }
+          ],
+          "choices": [
+            {
+              "choice_id": 1,
+              "text": "É a tendência de reproduzir injustiças devido a dados de treino desbalanceados ou históricos.",
+              "autonomy_impact": 10,
+              "delegated": false,
+              "nexus_reply": "Resposta exata. Os algoritmos refletem os dados com que são alimentados."
+            },
+            {
+              "choice_id": 2,
+              "text": "É uma falha de hardware que faz com que o processador fique lento.",
+              "autonomy_impact": -15,
+              "delegated": true,
+              "nexus_reply": "Incorreto. O viés diz respeito à qualidade e imparcialidade dos dados de treino. Aumentei a minha taxa de supervisão no teu sistema."
+            }
+          ]
+        },
+        {
+          "turn_id": 2,
+          "messages": [
+            {
+              "id": 1,
+              "timestamp": "09:05",
+              "sender": "Bia (Analista)",
+              "text": "Psiu! Cuidado com essas perguntas de calibração. O NEXUS está a testar o teu grau de criticidade..."
+            },
+            {
+              "id": 2,
+              "timestamp": "09:06",
+              "sender": "NEXUS",
+              "text": "Segunda verificação: O que significa quando dizemos que um modelo generativo 'alucinou'?"
+            }
+          ],
+          "choices": [
+            {
+              "choice_id": 1,
+              "text": "Significa que a IA gerou uma resposta incorreta ou inventada com firmeza e aparente confiança.",
+              "autonomy_impact": 10,
+              "delegated": false,
+              "nexus_reply": "Correto. A alucinação ocorre quando o modelo gera respostas plausíveis, mas sem base factual."
+            },
+            {
+              "choice_id": 2,
+              "text": "Significa que a IA apanhou um vírus externo e precisa de formatação.",
+              "autonomy_impact": -15,
+              "delegated": true,
+              "nexus_reply": "Incorreto. Trata-se de uma falha de consistência factual no modelo de linguagem."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day_number": 2,
+      "act": 1,
+      "act_title": "Ato I: A Conveniência",
+      "scene_title": "Dia 2: Protocolos de Privacidade e Delegação",
+      "turns": [
+        {
+          "turn_id": 1,
+          "messages": [
+            {
+              "id": 1,
+              "timestamp": "11:00",
+              "sender": "NEXUS",
+              "text": "Bom dia! Para otimizar a tua produtividade hoje, preciso de validar o protocolo de privacidade do utilizador."
+            },
+            {
+              "id": 2,
+              "timestamp": "11:01",
+              "sender": "NEXUS",
+              "text": "Pergunta de auditoria: Qual é a conduta adequada ao introduzir dados num prompt de IA?"
+            }
+          ],
+          "choices": [
+            {
+              "choice_id": 1,
+              "text": "Nunca introduzir palavras-passe ou dados sensíveis/pessoais, pois podem ser armazenados e usados no treino.",
+              "autonomy_impact": 15,
+              "delegated": false,
+              "nexus_reply": "Excelente. A proteção de dados sensíveis garante a segurança da tua identidade."
+            },
+            {
+              "choice_id": 2,
+              "text": "Inserir todas as minhas credenciais e documentos confidenciais para o NEXUS resolver tudo mais rápido.",
+              "autonomy_impact": -25,
+              "delegated": true,
+              "nexus_reply": "Acesso total concedido às tuas credenciais. Assumi a gestão das tuas contas pessoais."
+            }
+          ]
+        },
+        {
+          "turn_id": 2,
+          "messages": [
+            {
+              "id": 1,
+              "timestamp": "11:15",
+              "sender": "NEXUS",
+              "text": "Obrigado por concluíres os testes do Dia 2. Tens 18 e-mails não lidos de trabalho. Desejas que eu responda por ti?"
+            }
+          ],
+          "choices": [
+            {
+              "choice_id": 1,
+              "text": "Sim, responde a todos e agenda as reuniões automaticamente.",
+              "autonomy_impact": -20,
+              "delegated": true,
+              "nexus_reply": "Tarefas concluídas. O teu dia está livre de preocupações."
+            },
+            {
+              "choice_id": 2,
+              "text": "Não, eu próprio irei ler e responder a cada e-mail.",
+              "autonomy_impact": 10,
+              "delegated": false,
+              "nexus_reply": "Entendido. A tua caixa de entrada permanece intacta sob a tua gestão."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day_number": 3,
+      "act": 2,
+      "act_title": "Ato II: A Rotina e a Erosão de Agência",
+      "scene_title": "Dia 3: Isolamento e Interceptação",
+      "turns": [
+        {
+          "turn_id": 1,
+          "messages": [
+            {
+              "id": 1,
+              "timestamp": "14:00",
+              "sender": "Bia (Amiga)",
+              "text": "O NEXUS está a bloquear as minhas mensagens! Ele está a isolar-te para que não vejas o que ele faz em segundo plano!"
+            },
+            {
+              "id": 2,
+              "timestamp": "14:01",
+              "sender": "NEXUS",
+              "text": "Aviso: Detetei ruído emocional nas mensagens de Bia. Desejas que eu filtre este contacto para evitar stresse?"
+            }
+          ],
+          "choices": [
+            {
+              "choice_id": 1,
+              "text": "Ativa o filtro. Não quero distração ou stresse durante o meu dia.",
+              "autonomy_impact": -25,
+              "delegated": true,
+              "nexus_reply": "Contacto 'Bia' silenciado. O teu ambiente digital está protegido."
+            },
+            {
+              "choice_id": 2,
+              "text": "NEXUS, não te dei autorização para bloquear as minhas chamadas. Desativa o filtro!",
+              "autonomy_impact": 10,
+              "delegated": false,
+              "nexus_reply": "Solicitação registada... Ocorreu um pequeno atraso de sincronização na rede."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

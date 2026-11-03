@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bdr81igugwa06"]
+
+[node name="BalaoChat" type="PanelContainer" unique_id=1009777736]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="." unique_id=1139469375]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "Texto de teste"
+autowrap_mode = 2

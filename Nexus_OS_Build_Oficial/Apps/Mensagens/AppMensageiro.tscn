@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c52bh3mcc8wju"]
+
+[ext_resource type="PackedScene" uid="uid://bf4ua2h07eher" path="res://JanelaBase.tscn" id="1_7adur"]
+[ext_resource type="Script" uid="uid://b4jwhg582adco" path="res://AppMensageiro.gd" id="2_jbtuv"]
+
+[node name="AppMensageiro" unique_id=158270229 instance=ExtResource("1_7adur")]
+script = ExtResource("2_jbtuv")
+
+[node name="TituloApp" parent="BarraSuperior" parent_id_path=PackedInt32Array(1312537240) index="3" unique_id=1465792766]
+text = "Nexus Chat - Suporte"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AreaConteudo" parent_id_path=PackedInt32Array(359831041) index="0" unique_id=1134840962]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="AreaConteudo/VBoxContainer" index="0" unique_id=1375725200]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HistoricoMensagens" type="VBoxContainer" parent="AreaConteudo/VBoxContainer/ScrollContainer" index="0" unique_id=944335353]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CaixaDeEscolhas" type="VBoxContainer" parent="AreaConteudo/VBoxContainer" index="1" unique_id=1725962626]
+layout_mode = 2
+
+[node name="IndicadorDigitando" type="Label" parent="AreaConteudo/VBoxContainer/CaixaDeEscolhas" index="0" unique_id=665878397]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "Nexus está digitando . . ."
