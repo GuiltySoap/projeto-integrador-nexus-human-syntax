@@ -30,6 +30,8 @@ size_flags_vertical = 3
 text = "Anomalia detectada no setor 4."
 autowrap_mode = 2
 
-[node name="BtnOk" type="Button" parent="VBoxContainer" unique_id=744338225]
+[node name="BtnClicavel" type="Button" parent="." unique_id=106849568]
 layout_mode = 2
-text = "Ok"
+flat = true
+
+[node name="SomNotificacao" type="AudioStreamPlayer" parent="." unique_id=279769648]

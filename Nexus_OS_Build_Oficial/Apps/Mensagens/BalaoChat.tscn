@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://bdr81igugwa06"]
 
+[ext_resource type="Script" uid="uid://cnavof2hlfnvw" path="res://Apps/Mensagens/BalaoChat.gd" id="1_7acvl"]
+
 [node name="BalaoChat" type="PanelContainer" unique_id=1009777736]
 offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 8
+script = ExtResource("1_7acvl")
 
 [node name="Label" type="Label" parent="." unique_id=1139469375]
 custom_minimum_size = Vector2(250, 0)
@@ -12,3 +15,10 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 text = "Texto de teste"
 autowrap_mode = 2
+
+[node name="BtnMiniatura" type="TextureButton" parent="." unique_id=25305638]
+visible = false
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5

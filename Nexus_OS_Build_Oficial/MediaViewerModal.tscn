@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://rj5le0uudiyr"]
+
+[ext_resource type="Script" uid="uid://qr8vxyrg2w4x" path="res://MediaViewerModal.gd" id="1_jnfwx"]
+
+[node name="MediaViewerModal" type="Control" unique_id=2102058072]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jnfwx")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=701008680]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 0.8039216)
+
+[node name="ContainerMidia" type="MarginContainer" parent="." unique_id=270186688]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ImagemExpandida" type="TextureRect" parent="ContainerMidia" unique_id=1844624192]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BtnFechar" type="Button" parent="." unique_id=1443050908]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1898.0
+offset_right = -1880.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "X"
