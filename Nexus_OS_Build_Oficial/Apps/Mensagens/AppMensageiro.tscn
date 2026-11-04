@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://c52bh3mcc8wju"]
 
 [ext_resource type="PackedScene" uid="uid://bf4ua2h07eher" path="res://JanelaBase.tscn" id="1_7adur"]
-[ext_resource type="Script" uid="uid://b4jwhg582adco" path="res://AppMensageiro.gd" id="2_jbtuv"]
+[ext_resource type="Script" uid="uid://b4jwhg582adco" path="res://Apps/Mensagens/AppMensageiro.gd" id="2_jbtuv"]
+[ext_resource type="PackedScene" uid="uid://rj5le0uudiyr" path="res://MediaViewerModal.tscn" id="3_j248v"]
 
 [node name="AppMensageiro" unique_id=158270229 instance=ExtResource("1_7adur")]
 script = ExtResource("2_jbtuv")
@@ -33,3 +34,6 @@ visible = false
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 text = "Nexus está digitando . . ."
+
+[node name="MediaViewerModal" parent="." index="2" unique_id=2102058072 instance=ExtResource("3_j248v")]
+layout_mode = 1

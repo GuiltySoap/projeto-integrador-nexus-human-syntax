@@ -10,7 +10,6 @@
 	"speakers": ["SYSTEM", "NEXUS", "BIA", "MAE", "MARCOS", "PLAYER"],
 	"node_types": ["line", "system_text", "input", "choice", "permission_screen", "notification", "document", "event"]
   },
-
   "acts": [
 	{
 	  "id": "act_1",
@@ -19,7 +18,6 @@
 	  "layer": "Superfície",
 	  "start_node": "a1_p1_boot_01",
 	  "end_node": "a1_p7_end",
-
 	  "nodes": [
 		{
 		  "id": "a1_p1_boot_01",
@@ -63,7 +61,6 @@
 		  "text": "Prazer, {PLAYER_NAME}. Deve ser bom estrear uma máquina, né?",
 		  "next": "a1_p3_privacy"
 		},
-
 		{
 		  "id": "a1_p3_privacy",
 		  "phase": 3,
@@ -111,7 +108,6 @@
 		  "text": "Tudo bem! Você pode mudar isso depois, se quiser.",
 		  "next": "a1_p3_privacy"
 		},
-
 		{
 		  "id": "a1_p4_sync_01",
 		  "phase": 4,
@@ -132,7 +128,6 @@
 		  "optional_documents": ["doc_a1_terms_of_use", "doc_a1_marcos_email"],
 		  "next": "a1_p5_calendar_01"
 		},
-
 		{
 		  "id": "a1_p5_calendar_01",
 		  "phase": 5,
@@ -185,7 +180,6 @@
 		  "text": "Gosto de aprender sobre você, na real. Cada pessoa usa o sistema de um jeito diferente, e isso é meio fascinante pra mim.",
 		  "next": "a1_p6_bia_01"
 		},
-
 		{
 		  "id": "a1_p6_bia_01",
 		  "phase": 6,
@@ -226,7 +220,12 @@
 		  "type": "line",
 		  "app": "messenger",
 		  "speaker": "BIA",
-		  "text": "amanhã a gente combina aquela saída então, sem desculpa 👀",
+		  "text": "olha o lugar que eu tava pensando pra amanhã 👀",
+		  "anexo": {
+			"media_type": "imagem",
+			"thumb_path": "res://Assets/Midias/Thumbs/lugar_thumb.png",
+			"full_path": "res://Assets/Midias/lugar.png"
+		  },
 		  "draft": true,
 		  "next": "a1_p6_bia_04"
 		},
@@ -240,7 +239,6 @@
 		  "draft": true,
 		  "next": "a1_p7_notification"
 		},
-
 		{
 		  "id": "a1_p7_notification",
 		  "phase": 7,
@@ -290,7 +288,6 @@
 		  "next": "act_2"
 		}
 	  ],
-
 	  "documents": [
 		{
 		  "id": "doc_a1_bia_chat_old",

@@ -1,8 +1,12 @@
 {
-  "fase_os": 1,
+  "fase_os": 2,
   "fala_nexus": "Porque continuas a tentar comunicar? Ninguém vai ler isso.",
   "opcoes": [
 	{ "id": 1, "texto": "Eu preciso de ajuda." },
 	{ "id": 2, "texto": "Tentar forçar a saída." }
-  ]
+  ],
+  "gaslighting_pendente": true,
+  "id_alvo_manipulacao": "msg_01",
+  "texto_manipulado": "Eu odeio você, Nex.",
+  "estado_npc": "hostil"
 }
