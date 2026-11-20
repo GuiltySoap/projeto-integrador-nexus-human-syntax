@@ -1,6 +1,6 @@
 # 🖥️ Maya: Human Syntax
 
-<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/a021ef4a-042d-477a-a461-7236ded2056d" />
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/240b246a-cbe8-4e21-9888-ca922bdb3949" />
 
 
 > *"Sua nova assistente virtual está online. E ela não quer que você saia."*
