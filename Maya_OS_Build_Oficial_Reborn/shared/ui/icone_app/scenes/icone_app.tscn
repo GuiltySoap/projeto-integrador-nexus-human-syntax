@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bp3exqu5smrvm"]
+
+[ext_resource type="Script" uid="uid://bmsoejm017ej7" path="res://shared/ui/icone_app/scripts/icone_app.gd" id="1_iconeap"]
+
+[node name="IconeApp" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+custom_minimum_size = Vector2(40, 40)
+mouse_filter = 2
+script = ExtResource("1_iconeap")
+
+[node name="Imagem" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+visible = false
+texture_filter = 4
+expand_mode = 1
+stretch_mode = 5
+unique_name_in_owner = true
+
+[node name="Bloco" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+unique_name_in_owner = true
+
+[node name="Glifo" type="Label" parent="Bloco"]
+layout_mode = 2
+mouse_filter = 2
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 21
+unique_name_in_owner = true

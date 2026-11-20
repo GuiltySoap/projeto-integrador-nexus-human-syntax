@@ -1,0 +1,277 @@
+[gd_scene format=3 uid="uid://bf4ua2h07eher"]
+
+[ext_resource type="Script" uid="uid://bokocv0uhjoqk" path="res://shared/ui/janela_base/scripts/janela_base.gd" id="1_janelab"]
+[ext_resource type="PackedScene" uid="uid://bp3exqu5smrvm" path="res://shared/ui/icone_app/scenes/icone_app.tscn" id="2_iconeap"]
+[ext_resource type="Script" uid="uid://a8xpqk44m8xa5" path="res://shared/ui/janela_base/components/icone_botao/scripts/icone_botao.gd" id="3_iconebo"]
+
+[node name="JanelaBase" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 420.0
+custom_minimum_size = Vector2(320, 220)
+script = ExtResource("1_janelab")
+titulo = "Janela"
+
+[node name="Fundo" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PainelJanela"
+unique_name_in_owner = true
+
+[node name="Layout" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Barra" type="Panel" parent="Layout"]
+layout_mode = 2
+theme_type_variation = &"BarraJanela"
+custom_minimum_size = Vector2(0, 38)
+unique_name_in_owner = true
+
+[node name="MargemBarra" type="MarginContainer" parent="Layout/Barra"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 6
+
+[node name="Linha" type="HBoxContainer" parent="Layout/Barra/MargemBarra"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="IconeTitulo" type="Control" parent="Layout/Barra/MargemBarra/Linha"]
+layout_mode = 2
+mouse_filter = 2
+custom_minimum_size = Vector2(22, 22)
+size_flags_vertical = 4
+unique_name_in_owner = true
+
+[node name="IconeApp" parent="Layout/Barra/MargemBarra/Linha/IconeTitulo" instance=ExtResource("2_iconeap")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+unique_name_in_owner = true
+
+[node name="RotuloTitulo" type="Label" parent="Layout/Barra/MargemBarra/Linha"]
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"RotuloFraco"
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Janela"
+vertical_alignment = 1
+text_overrun_behavior = 3
+unique_name_in_owner = true
+
+[node name="BotaoMinimizar" type="Button" parent="Layout/Barra/MargemBarra/Linha"]
+layout_mode = 2
+theme_type_variation = &"BotaoJanela"
+custom_minimum_size = Vector2(34, 26)
+size_flags_vertical = 4
+focus_mode = 0
+tooltip_text = "Minimizar (Ctrl+M)"
+
+[node name="Icone" type="Control" parent="Layout/Barra/MargemBarra/Linha/BotaoMinimizar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_iconebo")
+tipo = "min"
+
+[node name="BotaoMaximizar" type="Button" parent="Layout/Barra/MargemBarra/Linha"]
+layout_mode = 2
+theme_type_variation = &"BotaoJanela"
+custom_minimum_size = Vector2(34, 26)
+size_flags_vertical = 4
+focus_mode = 0
+tooltip_text = "Maximizar"
+unique_name_in_owner = true
+
+[node name="IconeMaximizar" type="Control" parent="Layout/Barra/MargemBarra/Linha/BotaoMaximizar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_iconebo")
+tipo = "max"
+unique_name_in_owner = true
+
+[node name="BotaoFechar" type="Button" parent="Layout/Barra/MargemBarra/Linha"]
+layout_mode = 2
+theme_type_variation = &"BotaoFechar"
+custom_minimum_size = Vector2(34, 26)
+size_flags_vertical = 4
+focus_mode = 0
+tooltip_text = "Fechar (Ctrl+W)"
+
+[node name="Icone" type="Control" parent="Layout/Barra/MargemBarra/Linha/BotaoFechar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_iconebo")
+tipo = "fechar"
+
+[node name="MargemArea" type="MarginContainer" parent="Layout"]
+layout_mode = 2
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="Area" type="Control" parent="Layout/MargemArea"]
+layout_mode = 2
+mouse_filter = 1
+clip_contents = true
+unique_name_in_owner = true
+
+[node name="Alcas" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+unique_name_in_owner = true
+
+[node name="AlcaNoroeste" type="Control" parent="Alcas"]
+layout_mode = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 6.0
+offset_bottom = 6.0
+mouse_default_cursor_shape = 12
+
+[node name="AlcaNorte" type="Control" parent="Alcas"]
+layout_mode = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = 6.0
+offset_top = 0.0
+offset_right = -6.0
+offset_bottom = 6.0
+mouse_default_cursor_shape = 9
+
+[node name="AlcaNordeste" type="Control" parent="Alcas"]
+layout_mode = 1
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -6.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 6.0
+mouse_default_cursor_shape = 11
+
+[node name="AlcaOeste" type="Control" parent="Alcas"]
+layout_mode = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 6.0
+offset_right = 6.0
+offset_bottom = -6.0
+mouse_default_cursor_shape = 10
+
+[node name="AlcaLeste" type="Control" parent="Alcas"]
+layout_mode = 1
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = 6.0
+offset_right = 0.0
+offset_bottom = -6.0
+mouse_default_cursor_shape = 10
+
+[node name="AlcaSudoeste" type="Control" parent="Alcas"]
+layout_mode = 1
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 0.0
+mouse_default_cursor_shape = 11
+
+[node name="AlcaSul" type="Control" parent="Alcas"]
+layout_mode = 1
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -6.0
+offset_right = -6.0
+offset_bottom = 0.0
+mouse_default_cursor_shape = 9
+
+[node name="AlcaSudeste" type="Control" parent="Alcas"]
+layout_mode = 1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 0.0
+offset_bottom = 0.0
+mouse_default_cursor_shape = 12
+
+[connection signal="resized" from="." to="." method="_ao_redimensionar"]
+[connection signal="gui_input" from="Layout/Barra" to="." method="_ao_barra_input"]
+[connection signal="pressed" from="Layout/Barra/MargemBarra/Linha/BotaoMinimizar" to="." method="_ao_minimizar_pressionado"]
+[connection signal="pressed" from="Layout/Barra/MargemBarra/Linha/BotaoMaximizar" to="." method="_ao_maximizar_pressionado"]
+[connection signal="pressed" from="Layout/Barra/MargemBarra/Linha/BotaoFechar" to="." method="_ao_fechar_pressionado"]
+[connection signal="gui_input" from="Alcas/AlcaNoroeste" to="." method="_ao_alca_input" binds= [Vector2i(-1, -1)]]
+[connection signal="gui_input" from="Alcas/AlcaNorte" to="." method="_ao_alca_input" binds= [Vector2i(0, -1)]]
+[connection signal="gui_input" from="Alcas/AlcaNordeste" to="." method="_ao_alca_input" binds= [Vector2i(1, -1)]]
+[connection signal="gui_input" from="Alcas/AlcaOeste" to="." method="_ao_alca_input" binds= [Vector2i(-1, 0)]]
+[connection signal="gui_input" from="Alcas/AlcaLeste" to="." method="_ao_alca_input" binds= [Vector2i(1, 0)]]
+[connection signal="gui_input" from="Alcas/AlcaSudoeste" to="." method="_ao_alca_input" binds= [Vector2i(-1, 1)]]
+[connection signal="gui_input" from="Alcas/AlcaSul" to="." method="_ao_alca_input" binds= [Vector2i(0, 1)]]
+[connection signal="gui_input" from="Alcas/AlcaSudeste" to="." method="_ao_alca_input" binds= [Vector2i(1, 1)]]

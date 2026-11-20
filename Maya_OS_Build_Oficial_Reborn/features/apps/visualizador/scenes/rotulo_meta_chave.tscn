@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cylcak51ki4pn"]
+
+[node name="RotuloMetaChave" type="Label"]
+layout_mode = 3
+anchors_preset = 0
+theme_type_variation = &"RotuloAcento13"

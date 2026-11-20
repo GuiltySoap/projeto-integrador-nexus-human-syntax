@@ -1,0 +1,19 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Traduções binárias geradas a partir de CSV
+*.translation
+
+# Arquivos temporários de salvamentos interrompidos do editor
+*.tmp
+
+# Exportação do jogo (make export-windows) e binários do backend em C (make backend); backend/output/main.exe é de terceiros e fica
+build/
+backend/output/*.o
+backend/output/maya_backend
+backend/output/maya_backend_win_*.exe
+backend/output/test_backend_*
+
+# Saída das ferramentas de teste visual (fotos e árvores de nós de tests/ui_dump)
+tests/_saida/

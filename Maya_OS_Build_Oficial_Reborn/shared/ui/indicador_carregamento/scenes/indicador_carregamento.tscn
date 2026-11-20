@@ -1,0 +1,71 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://shared/ui/indicador_carregamento/scripts/indicador_carregamento.gd" id="1_indicad"]
+
+[node name="IndicadorCarregamento" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
+script = ExtResource("1_indicad")
+
+[node name="Cortina" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.62)
+
+[node name="Centro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Painel" type="PanelContainer" parent="Centro"]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+theme_type_variation = &"PainelVidro"
+
+[node name="Margem" type="MarginContainer" parent="Centro/Painel"]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 20
+
+[node name="Caixa" type="VBoxContainer" parent="Centro/Painel/Margem"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Rotulo" type="Label" parent="Centro/Painel/Margem/Caixa"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(376, 0)
+layout_mode = 2
+theme_type_variation = &"RotuloTitulo20"
+text = "Carregando…"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Barra" type="ProgressBar" parent="Centro/Painel/Margem/Caixa"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+show_percentage = false

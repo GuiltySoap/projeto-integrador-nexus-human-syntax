@@ -1,0 +1,16 @@
+{
+	"schema_version": 1,
+	"comentario": "Catalogo de escolhas do backend em C (--choice <id>). Os deltas de AUT/CON/DEP sao o espelho do campo \"metricas\" de cada escolha em core/data/narrativa/conversas.json; tools/testar_backend.py confere que os dois lados batem. Valores de balanceamento PROVISORIOS (tecnicos, nao narrativos). Entradas com is_placeholder=true usam texto/narrativa pendentes.",
+	"choices": [
+		{ "id": "choice_fixed_01", "status": "ok", "autonomia": 0, "conformidade": 0, "dependencia": 0, "is_placeholder": true },
+		{ "id": "choice_fixed_02", "status": "ok", "autonomia": 0, "conformidade": 0, "dependencia": 0, "is_placeholder": true },
+		{ "id": "choice_fixed_03", "status": "ok", "autonomia": 0, "conformidade": 0, "dependencia": 0, "is_placeholder": true },
+		{ "id": "choice_injected", "status": "ok", "autonomia": 0, "conformidade": 0, "dependencia": 0, "is_placeholder": true },
+		{ "id": "ok", "status": "ok", "autonomia": -3, "conformidade": 2, "dependencia": 4, "is_placeholder": false },
+		{ "id": "sozinho", "status": "ok", "autonomia": 5, "conformidade": -2, "dependencia": 0, "is_placeholder": false },
+		{ "id": "usar", "status": "ok", "autonomia": -4, "conformidade": 4, "dependencia": 3, "is_placeholder": false },
+		{ "id": "propria", "status": "ok", "autonomia": 5, "conformidade": -3, "dependencia": 0, "is_placeholder": false },
+		{ "id": "ficar", "status": "ok", "autonomia": -10, "conformidade": 6, "dependencia": 10, "is_placeholder": false },
+		{ "id": "recusar", "status": "ok", "autonomia": 10, "conformidade": -6, "dependencia": -5, "is_placeholder": false }
+	]
+}

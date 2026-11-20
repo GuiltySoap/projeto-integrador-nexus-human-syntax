@@ -1,0 +1,7 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://features/shell/monitor_virtual/scenes/monitor_virtual.tscn" id="1_monitor"]
+
+[node name="CenaGameplay" instance=ExtResource("1_monitor")]
+iniciar_no_desktop = true
+clique_fora_devolve_o_foco = false

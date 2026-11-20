@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://ckmbwo1pfwdr4"]
+
+[ext_resource type="Script" path="res://features/shell/barra_de_tarefas/scripts/barra_de_tarefas.gd" id="1_barrade"]
+[ext_resource type="PackedScene" uid="uid://a1je0rgya1tlj" path="res://features/shell/barra_de_tarefas/scenes/botao_tarefa.tscn" id="2_botaota"]
+[ext_resource type="PackedScene" path="res://features/shell/widget_maya/scenes/widget_maya.tscn" id="3_widgetm"]
+
+[node name="BarraTarefas" type="PanelContainer"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"PainelBarra"
+offset_top = -52.0
+custom_minimum_size = Vector2(0, 52)
+script = ExtResource("1_barrade")
+cena_botao = ExtResource("2_botaota")
+
+[node name="Raiz" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BotaoIniciar" type="Button" parent="Raiz"]
+layout_mode = 2
+theme_type_variation = &"BotaoPrimario"
+text = "◆  HumaxOS"
+toggle_mode = true
+custom_minimum_size = Vector2(112, 38)
+size_flags_vertical = 4
+tooltip_text = "Menu Iniciar (F1)"
+unique_name_in_owner = true
+
+[node name="Separador1" type="VSeparator" parent="Raiz"]
+layout_mode = 2
+custom_minimum_size = Vector2(2, 28)
+size_flags_vertical = 4
+
+[node name="CaixaFixados" type="HBoxContainer" parent="Raiz"]
+layout_mode = 2
+theme_override_constants/separation = 4
+unique_name_in_owner = true
+
+[node name="Separador2" type="VSeparator" parent="Raiz"]
+layout_mode = 2
+custom_minimum_size = Vector2(2, 28)
+size_flags_vertical = 4
+
+[node name="CaixaJanelas" type="HBoxContainer" parent="Raiz"]
+layout_mode = 2
+theme_override_constants/separation = 6
+size_flags_horizontal = 3
+clip_contents = true
+unique_name_in_owner = true
+
+[node name="RotuloSeg" type="Label" parent="Raiz"]
+layout_mode = 2
+theme_type_variation = &"RotuloMono13"
+mouse_filter = 1
+vertical_alignment = 1
+tooltip_text = "Segurança do sistema"
+unique_name_in_owner = true
+
+[node name="RotuloCor" type="Label" parent="Raiz"]
+layout_mode = 2
+theme_type_variation = &"RotuloMono13"
+mouse_filter = 1
+vertical_alignment = 1
+tooltip_text = "Corrupção do sistema"
+unique_name_in_owner = true
+
+[node name="RotuloMic" type="Label" parent="Raiz"]
+layout_mode = 2
+theme_type_variation = &"RotuloMono13"
+mouse_filter = 1
+vertical_alignment = 1
+tooltip_text = "Permissão de microfone (Configurações > Privacidade)"
+unique_name_in_owner = true
+
+[node name="Separador3" type="VSeparator" parent="Raiz"]
+layout_mode = 2
+custom_minimum_size = Vector2(2, 28)
+size_flags_vertical = 4
+
+[node name="BotaoNotificacoes" type="Button" parent="Raiz"]
+layout_mode = 2
+theme_type_variation = &"BotaoTarefa"
+text = "🔔"
+custom_minimum_size = Vector2(64, 38)
+size_flags_vertical = 4
+tooltip_text = "Central de notificações"
+unique_name_in_owner = true
+
+[node name="Relogio" type="VBoxContainer" parent="Raiz"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="RotuloHora" type="Label" parent="Raiz/Relogio"]
+layout_mode = 2
+theme_type_variation = &"RotuloMono15"
+text = "00:00"
+horizontal_alignment = 2
+unique_name_in_owner = true
+
+[node name="RotuloData" type="Label" parent="Raiz/Relogio"]
+layout_mode = 2
+theme_type_variation = &"RotuloFraco11"
+horizontal_alignment = 2
+unique_name_in_owner = true
+
+[node name="WidgetMaya" parent="Raiz" instance=ExtResource("3_widgetm")]
+layout_mode = 2
+unique_name_in_owner = true
+
+[connection signal="pressed" from="Raiz/BotaoIniciar" to="." method="_ao_iniciar"]
+[connection signal="pressed" from="Raiz/BotaoNotificacoes" to="." method="_ao_notificacoes"]

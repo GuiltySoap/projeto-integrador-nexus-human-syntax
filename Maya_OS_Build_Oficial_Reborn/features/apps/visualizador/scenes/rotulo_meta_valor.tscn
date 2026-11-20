@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://a10wbiihh1wl2"]
+
+[node name="RotuloMetaValor" type="Label"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+theme_type_variation = &"Rotulo14"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)

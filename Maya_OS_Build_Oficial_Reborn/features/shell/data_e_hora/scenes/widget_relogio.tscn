@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bcc5ry8ap5cgt"]
+
+[ext_resource type="Script" path="res://features/shell/data_e_hora/scripts/widget_relogio.gd" id="1_widgetr"]
+
+[node name="WidgetRelogio" type="PanelContainer"]
+layout_mode = 3
+anchors_preset = 0
+theme_type_variation = &"PainelVidro"
+custom_minimum_size = Vector2(360, 0)
+script = ExtResource("1_widgetr")
+
+[node name="Margem" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_bottom = 14
+
+[node name="Caixa" type="VBoxContainer" parent="Margem"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="RotuloHora" type="Label" parent="Margem/Caixa"]
+layout_mode = 2
+theme_type_variation = &"RotuloTitulo52Mono"
+horizontal_alignment = 2
+unique_name_in_owner = true
+
+[node name="RotuloData" type="Label" parent="Margem/Caixa"]
+layout_mode = 2
+theme_type_variation = &"RotuloFraco14"
+horizontal_alignment = 2
+unique_name_in_owner = true
+
+[node name="RotuloDia" type="Label" parent="Margem/Caixa"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+horizontal_alignment = 2
+unique_name_in_owner = true

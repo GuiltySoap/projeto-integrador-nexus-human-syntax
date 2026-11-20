@@ -1,0 +1,193 @@
+[gd_scene format=3 uid="uid://amkqvjox5rppp"]
+
+[ext_resource type="Script" path="res://features/shell/janela_inicial/scripts/menu_iniciar.gd" id="1_menuini"]
+[ext_resource type="PackedScene" uid="uid://ass15jmfmymrm" path="res://shared/ui/orbe_nexus/scenes/orbe_nexus.tscn" id="2_orbenex"]
+[ext_resource type="PackedScene" uid="uid://ahs0t1axgulgl" path="res://features/shell/janela_inicial/scenes/botao_app_menu.tscn" id="3_botaoap"]
+[ext_resource type="PackedScene" uid="uid://c3cbwivptblxp" path="res://features/shell/janela_inicial/scenes/resultado_busca.tscn" id="4_resulta"]
+
+[node name="MenuIniciar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+visible = false
+script = ExtResource("1_menuini")
+cena_botao_app = ExtResource("3_botaoap")
+cena_resultado = ExtResource("4_resulta")
+
+[node name="Fora" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+color = Color(0, 0, 0, 0.22)
+unique_name_in_owner = true
+
+[node name="Painel" type="PanelContainer" parent="."]
+layout_mode = 1
+theme_type_variation = &"PainelVidro"
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -610.0
+offset_right = 710.0
+offset_bottom = -10.0
+grow_horizontal = 1
+grow_vertical = 0
+unique_name_in_owner = true
+
+[node name="Margem" type="MarginContainer" parent="Painel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Raiz" type="VBoxContainer" parent="Painel/Margem"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Cabecalho" type="HBoxContainer" parent="Painel/Margem/Raiz"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Orbe" parent="Painel/Margem/Raiz/Cabecalho" instance=ExtResource("2_orbenex")]
+layout_mode = 2
+custom_minimum_size = Vector2(56, 56)
+unique_name_in_owner = true
+
+[node name="Textos" type="VBoxContainer" parent="Painel/Margem/Raiz/Cabecalho"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+size_flags_vertical = 4
+
+[node name="RotuloDia" type="Label" parent="Painel/Margem/Raiz/Cabecalho/Textos"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+unique_name_in_owner = true
+
+[node name="RotuloIa" type="Label" parent="Painel/Margem/Raiz/Cabecalho/Textos"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[node name="Campo" type="LineEdit" parent="Painel/Margem/Raiz"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Buscar aplicativos e arquivos…"
+clear_button_enabled = true
+unique_name_in_owner = true
+
+[node name="RolagemApps" type="ScrollContainer" parent="Painel/Margem/Raiz"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+unique_name_in_owner = true
+
+[node name="Grade" type="GridContainer" parent="Painel/Margem/Raiz/RolagemApps"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+unique_name_in_owner = true
+
+[node name="RolagemBusca" type="ScrollContainer" parent="Painel/Margem/Raiz"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+visible = false
+unique_name_in_owner = true
+
+[node name="CaixaBusca" type="VBoxContainer" parent="Painel/Margem/Raiz/RolagemBusca"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="SemResultado" type="Label" parent="Painel/Margem/Raiz/RolagemBusca/CaixaBusca"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+autowrap_mode = 3
+visible = false
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[node name="SecaoApps" type="VBoxContainer" parent="Painel/Margem/Raiz/RolagemBusca/CaixaBusca"]
+layout_mode = 2
+theme_override_constants/separation = 4
+visible = false
+unique_name_in_owner = true
+
+[node name="TituloApps" type="Label" parent="Painel/Margem/Raiz/RolagemBusca/CaixaBusca/SecaoApps"]
+layout_mode = 2
+theme_type_variation = &"RotuloFraco11Mono"
+text = "APLICATIVOS"
+
+[node name="ListaApps" type="VBoxContainer" parent="Painel/Margem/Raiz/RolagemBusca/CaixaBusca/SecaoApps"]
+layout_mode = 2
+theme_override_constants/separation = 4
+unique_name_in_owner = true
+
+[node name="SecaoArquivos" type="VBoxContainer" parent="Painel/Margem/Raiz/RolagemBusca/CaixaBusca"]
+layout_mode = 2
+theme_override_constants/separation = 4
+visible = false
+unique_name_in_owner = true
+
+[node name="TituloArquivos" type="Label" parent="Painel/Margem/Raiz/RolagemBusca/CaixaBusca/SecaoArquivos"]
+layout_mode = 2
+theme_type_variation = &"RotuloFraco11Mono"
+text = "ARQUIVOS"
+
+[node name="ListaArquivos" type="VBoxContainer" parent="Painel/Margem/Raiz/RolagemBusca/CaixaBusca/SecaoArquivos"]
+layout_mode = 2
+theme_override_constants/separation = 4
+unique_name_in_owner = true
+
+[node name="Separador" type="HSeparator" parent="Painel/Margem/Raiz"]
+layout_mode = 2
+
+[node name="Rodape" type="HBoxContainer" parent="Painel/Margem/Raiz"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BotaoDica" type="Button" parent="Painel/Margem/Raiz/Rodape"]
+layout_mode = 2
+tooltip_text = "Pedir ajuda à Maya (Ctrl+Shift+H). Tem um custo: aumenta a sua dependência dela."
+text = "💡 Pedir ajuda"
+
+[node name="BotaoSalvar" type="Button" parent="Painel/Margem/Raiz/Rodape"]
+layout_mode = 2
+text = "💾 Salvar"
+
+[node name="Espacador" type="Control" parent="Painel/Margem/Raiz/Rodape"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="BotaoSair" type="Button" parent="Painel/Margem/Raiz/Rodape"]
+layout_mode = 2
+theme_type_variation = &"BotaoPerigo"
+text = "⏻ Sair"
+
+[connection signal="gui_input" from="Fora" to="." method="_ao_clique_fora"]
+[connection signal="text_changed" from="Painel/Margem/Raiz/Campo" to="." method="_ao_busca"]
+[connection signal="text_submitted" from="Painel/Margem/Raiz/Campo" to="." method="_ao_busca_enviada"]
+[connection signal="pressed" from="Painel/Margem/Raiz/Rodape/BotaoDica" to="." method="_ao_dica"]
+[connection signal="pressed" from="Painel/Margem/Raiz/Rodape/BotaoSalvar" to="." method="_ao_salvar"]
+[connection signal="pressed" from="Painel/Margem/Raiz/Rodape/BotaoSair" to="." method="_ao_sair"]

@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://c66811v1v6qqe"]
+
+[ext_resource type="Script" path="res://features/apps/terminal/scripts/app_terminal.gd" id="1_appterm"]
+
+[node name="AppTerminal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_appterm")
+
+[node name="Raiz" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+
+[node name="PainelSaida" type="PanelContainer" parent="Raiz"]
+layout_mode = 2
+theme_type_variation = &"PainelEscuro"
+size_flags_vertical = 3
+
+[node name="Margem" type="MarginContainer" parent="Raiz/PainelSaida"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Saida" type="RichTextLabel" parent="Raiz/PainelSaida/Margem"]
+layout_mode = 2
+theme_type_variation = &"RichoMono"
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_following = true
+selection_enabled = true
+focus_mode = 1
+unique_name_in_owner = true
+
+[node name="LinhaComando" type="HBoxContainer" parent="Raiz"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="RotuloPrompt" type="Label" parent="Raiz/LinhaComando"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento14Mono"
+vertical_alignment = 1
+unique_name_in_owner = true
+
+[node name="Campo" type="LineEdit" parent="Raiz/LinhaComando"]
+layout_mode = 2
+theme_type_variation = &"CampoMono"
+size_flags_horizontal = 3
+placeholder_text = "digite um comando (help)"
+unique_name_in_owner = true
+
+[connection signal="text_submitted" from="Raiz/LinhaComando/Campo" to="." method="_ao_enviar"]
+[connection signal="gui_input" from="Raiz/LinhaComando/Campo" to="." method="_ao_entrada_campo"]

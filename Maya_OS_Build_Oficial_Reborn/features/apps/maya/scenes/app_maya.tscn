@@ -1,0 +1,134 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://features/apps/maya/scripts/app_maya.gd" id="1_appmaya"]
+[ext_resource type="PackedScene" path="res://shared/ui/logo_marca/scenes/logo_marca.tscn" id="2_logo"]
+[ext_resource type="PackedScene" path="res://features/apps/mensageiro/scenes/item_escolha.tscn" id="3_escolha"]
+
+[node name="AppMaya" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_appmaya")
+cena_escolha = ExtResource("3_escolha")
+
+[node name="Raiz" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Cabecalho" type="HBoxContainer" parent="Raiz"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Logo" parent="Raiz/Cabecalho" instance=ExtResource("2_logo")]
+unique_name_in_owner = true
+layout_mode = 2
+altura = 56.0
+
+[node name="Identidade" type="VBoxContainer" parent="Raiz/Cabecalho"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+
+[node name="RotuloNome" type="Label" parent="Raiz/Cabecalho/Identidade"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"RotuloTitulo"
+text = "Maya"
+
+[node name="RotuloPapel" type="Label" parent="Raiz/Cabecalho/Identidade"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"RotuloFraco11"
+text = "Assistente do HumaxOS"
+
+[node name="AreaDeAcoes" type="HBoxContainer" parent="Raiz"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="AreaDeDialogo" type="PanelContainer" parent="Raiz"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"PainelEscuro"
+
+[node name="Margem" type="MarginContainer" parent="Raiz/AreaDeDialogo"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Coluna" type="VBoxContainer" parent="Raiz/AreaDeDialogo/Margem"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Rolagem" type="ScrollContainer" parent="Raiz/AreaDeDialogo/Margem/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ListaFalas" type="VBoxContainer" parent="Raiz/AreaDeDialogo/Margem/Coluna/Rolagem"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="RotuloFalaAtual" type="Label" parent="Raiz/AreaDeDialogo/Margem/Coluna"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="AreaEscolhas" type="VBoxContainer" parent="Raiz/AreaDeDialogo/Margem/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="RotuloResultado" type="Label" parent="Raiz/AreaDeDialogo/Margem/Coluna"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_type_variation = &"RotuloFraco11"
+autowrap_mode = 3
+
+[node name="BotaoFecharJanelas" type="Button" parent="Raiz/AreaDeAcoes"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fechar janelas"
+tooltip_text = "Fecha as outras janelas e volta para a área de trabalho."
+
+[node name="BotaoAbrirMensageiro" type="Button" parent="Raiz/AreaDeAcoes"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Abrir o Mensageiro"
+tooltip_text = "A resposta está na conversa do Mensageiro."
+visible = false
+
+[node name="RotuloEspera" type="Label" parent="Raiz"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"RotuloFraco11"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+
+[connection signal="pressed" from="Raiz/AreaDeAcoes/BotaoFecharJanelas" to="." method="_ao_fechar_janelas"]
+[connection signal="pressed" from="Raiz/AreaDeAcoes/BotaoAbrirMensageiro" to="." method="_ao_abrir_mensageiro"]

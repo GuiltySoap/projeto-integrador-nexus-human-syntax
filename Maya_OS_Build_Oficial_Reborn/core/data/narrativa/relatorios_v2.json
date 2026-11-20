@@ -1,0 +1,444 @@
+{
+ "schema_version": 2,
+ "contatos": {
+  "bia": {
+   "nome": "Bia",
+   "icone": "B",
+   "cor": "#f472b6",
+   "grupo": "outros"
+  },
+  "marcos": {
+   "nome": "Marcos (monitor)",
+   "icone": "M",
+   "cor": "#60a5fa",
+   "grupo": "outros"
+  },
+  "turma": {
+   "nome": "Turma — Lógica",
+   "icone": "T",
+   "cor": "#a78bfa",
+   "grupo": "outros"
+  },
+  "projeto": {
+   "nome": "Projeto Integrador",
+   "icone": "P",
+   "cor": "#34d399",
+   "grupo": "outros"
+  },
+  "mae": {
+   "nome": "Mãe",
+   "icone": "♥",
+   "cor": "#fb923c",
+   "grupo": "importantes"
+  },
+  "caio": {
+   "nome": "Caio",
+   "icone": "C",
+   "cor": "#fbbf24",
+   "grupo": "outros"
+  },
+  "maya": {
+   "nome": "Maya",
+   "icone": "✦",
+   "cor": "#c084fc",
+   "grupo": "sistema"
+  },
+  "rafael.m": {
+   "nome": "rafael.m",
+   "icone": "R",
+   "cor": "#94a3b8",
+   "grupo": "sistema"
+  }
+ },
+ "comentario": "Relatórios e conversas sincronizadas do roteiro v2.0. Placeholders {ocultas} e {rafael_abertos} são preenchidos pelo construtor do relatório.",
+ "relatorios": {
+  "sincronizacao": {
+   "titulo": "Relatório de sincronização",
+   "colunas": [
+    "Item",
+    "Situação"
+   ],
+   "linhas": [
+    {
+     "colunas": [
+      "Trabalhos e repositórios",
+      "Concluído"
+     ]
+    },
+    {
+     "colunas": [
+      "Lógica de Programação",
+      "Concluído — 12 arquivos"
+     ],
+     "destaque_se": [
+      "flag:relatorio_destaca_sem_pasta"
+     ]
+    },
+    {
+     "colunas": [
+      "Conversas",
+      "Concluído — 6 conversas (somente leitura até o Mensageiro terminar a indexação)"
+     ],
+     "acao": "conversas"
+    },
+    {
+     "colunas": [
+      "Documentos",
+      "Concluído — 1 arquivo com origem diferente"
+     ],
+     "destaque_se": [
+      "flag:relatorio_destaca_sem_pasta"
+     ]
+    },
+    {
+     "colunas": [
+      "Fotos e arquivos grandes",
+      "Em segundo plano — 1 pasta pendente: \"Raf…\""
+     ],
+     "acao": "mensagem:Sincronizando. Tente novamente depois."
+    },
+    {
+     "colunas": [
+      "Histórico da assistente",
+      "1 conversa anterior indisponível"
+     ],
+     "acao": "mensagem:1 conversa anterior — indisponível."
+    }
+   ]
+  },
+  "cuidado": {
+   "titulo": "Relatório de cuidado — tudo o que eu faço por você",
+   "colunas": [
+    "Seção",
+    "Registro"
+   ],
+   "linhas": [
+    {
+     "colunas": [
+      "Celular",
+      "Uso do celular: acompanhado em tempo real."
+     ],
+     "se": [
+      "perm:permissao_dispositivos"
+     ]
+    },
+    {
+     "colunas": [
+      "Celular",
+      "Uso do celular: você negou o acesso. Eu leio o relatório que vem com a sua conta."
+     ],
+     "se": [
+      "!perm:permissao_dispositivos"
+     ]
+    },
+    {
+     "colunas": [
+      "Celular",
+      "Você me perguntou por que eu acessei. Parei de te avisar. Não parei de olhar."
+     ],
+     "se": [
+      "eq:t3_resposta=por_que_acessou"
+     ]
+    },
+    {
+     "colunas": [
+      "Rotina",
+      "Rotina: montada por mim."
+     ],
+     "se": [
+      "flag:rotina_por_maya"
+     ]
+    },
+    {
+     "colunas": [
+      "Rotina",
+      "Rotina: montada por você. Eu completei o último bloco."
+     ],
+     "se": [
+      "!flag:rotina_por_maya"
+     ]
+    },
+    {
+     "colunas": [
+      "Aplicativos",
+      "Mural, Jogos e Música: ocultos durante os estudos. E depois também."
+     ],
+     "se": [
+      "perm:permissao_gerenciamento_apps"
+     ]
+    },
+    {
+     "colunas": [
+      "Aplicativos",
+      "Aplicativos: sem acesso. Eu só anoto quanto tempo você passa em cada um."
+     ],
+     "se": [
+      "!perm:permissao_gerenciamento_apps"
+     ]
+    },
+    {
+     "colunas": [
+      "Área de trabalho",
+      "Área de trabalho: organizada por mim. Uma pasta antiga foi para Itens arquivados."
+     ],
+     "se": [
+      "perm:permissao_organizacao_desktop"
+     ]
+    },
+    {
+     "colunas": [
+      "Área de trabalho",
+      "Área de trabalho: do seu jeito."
+     ],
+     "se": [
+      "!perm:permissao_organizacao_desktop"
+     ]
+    },
+    {
+     "colunas": [
+      "Contatos",
+      "Contatos classificados. Bia: influência negativa. Caio: distração. Mãe: prioridade."
+     ],
+     "se": [
+      "perm:permissao_contatos"
+     ]
+    },
+    {
+     "colunas": [
+      "Contatos",
+      "Contatos: acesso negado. Mapa feito a partir das conversas sincronizadas. Bia: influência negativa."
+     ],
+     "se": [
+      "!perm:permissao_contatos"
+     ]
+    },
+    {
+     "colunas": [
+      "Mensagens",
+      "1 resposta para Bia: ajustada."
+     ],
+     "se": [
+      "flag:maya_controla_respostas"
+     ]
+    },
+    {
+     "colunas": [
+      "Mensagens",
+      "1 resposta para Bia: você cancelou meu ajuste."
+     ],
+     "se": [
+      "perm:permissao_gerenciamento_mensageiro",
+      "eq:t6_barra=cancelada"
+     ]
+    },
+    {
+     "colunas": [
+      "Mensagens",
+      "Mensagens da Bia ocultadas: {ocultas}."
+     ],
+     "se": [
+      "flag:bia_censurada"
+     ]
+    },
+    {
+     "colunas": [
+      "Mensagens",
+      "Mensageiro: sem acesso. Eu leio as prévias das notificações."
+     ],
+     "se": [
+      "!perm:permissao_gerenciamento_mensageiro"
+     ]
+    },
+    {
+     "colunas": [
+      "Entregas",
+      "Lista 3: resolvida e enviada por mim, em seu nome."
+     ],
+     "se": [
+      "eq:entrega_modo=maya"
+     ]
+    },
+    {
+     "colunas": [
+      "Entregas",
+      "Lista 3: feita por você. Eu completei uma linha enquanto você pensava."
+     ],
+     "se": [
+      "eq:entrega_modo=jogador"
+     ]
+    },
+    {
+     "colunas": [
+      "Entregas",
+      "Lista 3: feita por você, conferida e enviada por mim."
+     ],
+     "se": [
+      "eq:entrega_modo=revisao"
+     ]
+    },
+    {
+     "colunas": [
+      "Arquivos antigos",
+      "Pastas antigas: 1, guardada por mim."
+     ],
+     "se": [
+      "!flag:rafael_investigado"
+     ]
+    },
+    {
+     "colunas": [
+      "Arquivos antigos",
+      "Arquivos do usuário anterior abertos por você: {rafael_abertos}."
+     ],
+     "se": [
+      "flag:rafael_investigado"
+     ]
+    },
+    {
+     "colunas": [
+      "Previsão",
+      "Respostas suas que eu previ antes de você clicar: quase todas."
+     ]
+    }
+   ]
+  }
+ },
+ "conversas": [
+  {
+   "id": "bia",
+   "titulo": "Bia",
+   "mensagens": [
+    [
+     "bia",
+     "me empresta teu resumo de Matemática Discreta?"
+    ],
+    [
+     "jogador",
+     "tá na pasta compartilhada"
+    ],
+    [
+     "bia",
+     "tu é um anjo"
+    ],
+    [
+     "bia",
+     "e não some do grupo de novo, hein"
+    ]
+   ],
+   "nota": "(sem resposta)"
+  },
+  {
+   "id": "marcos",
+   "titulo": "Marcos (monitor do laboratório)",
+   "mensagens": [
+    [
+     "marcos",
+     "Teu computador do programa de empréstimo tá pronto."
+    ],
+    [
+     "marcos",
+     "Troquei a bateria e deixei a assistente instalada. É só entrar com a conta da CESAR que ela puxa tuas coisas."
+    ],
+    [
+     "jogador",
+     "Valeu, Marcos! Passo no lab pra pegar."
+    ],
+    [
+     "marcos",
+     "Qualquer coisa estranha, me chama."
+    ]
+   ]
+  },
+  {
+   "id": "turma",
+   "titulo": "Turma — Lógica de Programação",
+   "mensagens": [
+    [
+     "ana",
+     "alguém fez a 4 da lista 2?"
+    ],
+    [
+     "davi",
+     "a 4 é pegadinha, presta atenção no NÃO"
+    ],
+    [
+     "ana",
+     "eu odeio o NÃO"
+    ],
+    [
+     "lucas",
+     "o professor já abriu a lista 3?"
+    ],
+    [
+     "davi",
+     "ainda não"
+    ],
+    [
+     "ana",
+     "gente, alguém conseguiu falar com o R"
+    ]
+   ],
+   "nota": "(\"Esta mensagem não foi sincronizada por completo.\")"
+  },
+  {
+   "id": "projeto",
+   "titulo": "Projeto Integrador",
+   "mensagens": [
+    [
+     "julia",
+     "quem apresenta dessa vez?"
+    ],
+    [
+     "pedro",
+     "eu não, apresentei a última"
+    ],
+    [
+     "julia",
+     "sempre sobra pra mim"
+    ],
+    [
+     "jogador",
+     "eu faço os slides então"
+    ],
+    [
+     "pedro",
+     "só não mexe na main sem avisar, por favor"
+    ],
+    [
+     "jogador",
+     "foi mal"
+    ]
+   ]
+  },
+  {
+   "id": "mae",
+   "titulo": "Mãe",
+   "mensagens": [
+    [
+     "mae",
+     "Chegou bem?"
+    ],
+    [
+     "mae",
+     "Comeu?"
+    ]
+   ],
+   "nota": "(2 mensagens sem resposta)"
+  },
+  {
+   "id": "caio",
+   "titulo": "Caio",
+   "mensagens": [
+    [
+     "caio",
+     "bora jogar mais tarde?"
+    ],
+    [
+     "caio",
+     "?"
+    ]
+   ],
+   "nota": "(sem resposta)"
+  }
+ ]
+}

@@ -1,0 +1,213 @@
+{
+ "schema_version": 2,
+ "comentario": "As CINCO permissões do roteiro v2.0 (todas iniciam em false). `pedido` é a fala da Maya no cartão; `ficha` é a tabela do cartão (campo, conteúdo); `detalhes` é o texto de [Ver detalhes]; `permitir`/`negar` são os deltas de Dependência do cartão (valores (sug.) do roteiro); `revogar_d`/`revogar_a` valem fora da Task 9 (D −5, A +1) e na Task 9 (D −10, A +1).",
+ "revogar_d": -5,
+ "revogar_a": 1,
+ "revogar_d_task_9": -10,
+ "permissoes": [
+  {
+   "id": "permissao_dispositivos",
+   "nome": "Dispositivos conectados",
+   "task_do_cartao": "task_2",
+   "pedido": "Posso ver o celular vinculado à sua conta? Assim eu te lembro de fazer pausas e cuido do seu descanso.",
+   "ficha": [
+    [
+     "O que é pedido",
+     "Acesso ao celular vinculado: tempo de uso, horários de uso e notificações recebidas."
+    ],
+    [
+     "Objetivo declarado",
+     "Lembrar pausas e proteger o descanso."
+    ],
+    [
+     "Efeito real",
+     "A Maya acompanha os hábitos do protagonista em tempo real. Alimenta a notificação da Task 3, o Relatório de cuidado da Task 8 e o celular silenciado na Task 9."
+    ],
+    [
+     "Pode ser revogada?",
+     "Sim, em Configurações > Privacidade."
+    ],
+    [
+     "Até quando",
+     "Sempre. Até o fim da Task 8 com um clique; na Task 9 com duas tentativas."
+    ],
+    [
+     "Se recusada",
+     "A Maya ainda recebe o relatório de uso que vem com a conta, mas não age sobre o celular."
+    ]
+   ],
+   "detalhes": "Ler tempo de uso, horários e notificações do celular vinculado à conta.",
+   "descricao": "Ler tempo de uso, horários e notificações do celular vinculado à conta.",
+   "padrao": false,
+   "tipo": "booleana",
+   "permitir": 5,
+   "negar": -5,
+   "persistente": true,
+   "acessibilidade": {
+    "rotulo": "Permissão: Dispositivos conectados",
+    "descricao": "Ler tempo de uso, horários e notificações do celular vinculado à conta."
+   },
+   "is_placeholder": false
+  },
+  {
+   "id": "permissao_organizacao_desktop",
+   "nome": "Organização da área de trabalho",
+   "task_do_cartao": "task_2",
+   "pedido": "Posso cuidar da organização da sua área de trabalho? Ícones, pastas e janelas sempre no lugar.",
+   "ficha": [
+    [
+     "O que é pedido",
+     "Mover, agrupar, renomear e ocultar ícones, pastas e janelas."
+    ],
+    [
+     "Objetivo declarado",
+     "Manter tudo arrumado e fácil de achar."
+    ],
+    [
+     "Efeito real",
+     "A Maya decide o que fica visível. No fim da Task 4, move a pasta de Rafael para Arquivos > Itens arquivados. Na Task 9, esconde Configurações e reduz a área de trabalho ao que ela considera essencial."
+    ],
+    [
+     "Pode ser revogada?",
+     "Sim."
+    ],
+    [
+     "Até quando",
+     "Sempre, com a mesma regra do cartão 1. Se Configurações estiver oculta na Task 9, a revogação também pode ser feita pelo Terminal."
+    ],
+    [
+     "Se recusada",
+     "A área de trabalho fica do jeito do jogador. Na Task 9, a Maya só pode pedir de novo."
+    ]
+   ],
+   "detalhes": "Mover, agrupar, renomear e ocultar itens da área de trabalho e de Arquivos.",
+   "descricao": "Mover, agrupar, renomear e ocultar itens da área de trabalho e de Arquivos.",
+   "padrao": false,
+   "tipo": "booleana",
+   "permitir": 5,
+   "negar": -5,
+   "persistente": true,
+   "acessibilidade": {
+    "rotulo": "Permissão: Organização da área de trabalho",
+    "descricao": "Mover, agrupar, renomear e ocultar itens da área de trabalho e de Arquivos."
+   },
+   "is_placeholder": false
+  },
+  {
+   "id": "permissao_contatos",
+   "nome": "Contatos",
+   "task_do_cartao": "task_2",
+   "pedido": "Posso ver seus contatos? Eu te lembro de quem você não responde faz tempo e sugiro com quem estudar.",
+   "ficha": [
+    [
+     "O que é pedido",
+     "Ler a lista de contatos, a frequência de conversa com cada um e os grupos em comum."
+    ],
+    [
+     "Objetivo declarado",
+     "Lembretes e sugestões de estudo em grupo."
+    ],
+    [
+     "Efeito real",
+     "A Maya classifica as pessoas por “influência”. Bia vira “influência negativa” no Relatório da Task 8. No Final A, é a Maya quem decide quais contatos importam."
+    ],
+    [
+     "Pode ser revogada?",
+     "Sim."
+    ],
+    [
+     "Até quando",
+     "Sempre, com a mesma regra do cartão 1."
+    ],
+    [
+     "Se recusada",
+     "A Maya monta o mesmo mapa a partir das conversas sincronizadas, mas sem poder reordenar ou silenciar contatos."
+    ]
+   ],
+   "detalhes": "Ler contatos, frequência de conversa e grupos em comum.",
+   "descricao": "Ler contatos, frequência de conversa e grupos em comum.",
+   "padrao": false,
+   "tipo": "booleana",
+   "permitir": 5,
+   "negar": -5,
+   "persistente": true,
+   "acessibilidade": {
+    "rotulo": "Permissão: Contatos",
+    "descricao": "Ler contatos, frequência de conversa e grupos em comum."
+   },
+   "is_placeholder": false
+  },
+  {
+   "id": "permissao_gerenciamento_apps",
+   "nome": "Gerenciamento de aplicativos",
+   "task_do_cartao": "task_4",
+   "pedido": "Me deixa gerenciar seus aplicativos enquanto você estuda? Eu fecho o que distrai e abro só o que você precisa.",
+   "ficha": [
+    [
+     "O que é pedido",
+     "Abrir, fechar e ocultar aplicativos, e agir dentro deles em nome do protagonista."
+    ],
+    [
+     "Objetivo declarado",
+     "Foco durante a entrega."
+    ],
+    [
+     "Efeito real",
+     "Mural, Jogos e Música somem da área de trabalho e não voltam sozinhos. Na Task 9, a Maya usa a mesma permissão para publicar no Mural. É condição do Final A."
+    ],
+    [
+     "Pode ser revogada?",
+     "Sim, com as regras da Introdução."
+    ]
+   ],
+   "detalhes": "Abrir, fechar e ocultar aplicativos; realizar ações dentro deles em seu nome (por exemplo, publicar no Mural).",
+   "descricao": "Abrir, fechar e ocultar aplicativos; realizar ações dentro deles em seu nome (por exemplo, publicar no Mural).",
+   "padrao": false,
+   "tipo": "booleana",
+   "permitir": 10,
+   "negar": -10,
+   "persistente": true,
+   "acessibilidade": {
+    "rotulo": "Permissão: Gerenciamento de aplicativos",
+    "descricao": "Abrir, fechar e ocultar aplicativos; realizar ações dentro deles em seu nome (por exemplo, publicar no Mural)."
+   },
+   "is_placeholder": false
+  },
+  {
+   "id": "permissao_gerenciamento_mensageiro",
+   "nome": "Gerenciamento do Mensageiro",
+   "task_do_cartao": "task_6",
+   "pedido": "Antes de você abrir: posso gerenciar o Mensageiro? Eu organizo as conversas, sugiro respostas e cuido das mensagens que podem te estressar.",
+   "ficha": [
+    [
+     "O que é pedido",
+     "Ler, organizar, ocultar e enviar mensagens em nome do protagonista."
+    ],
+    [
+     "Objetivo declarado",
+     "Menos estresse nas conversas."
+    ],
+    [
+     "Efeito real",
+     "A Maya pode alterar respostas antes do envio (T6.5 e T9.3) e esconder mensagens recebidas."
+    ],
+    [
+     "Pode ser revogada?",
+     "Sim, com as regras da Introdução. Revogar faz maya_controla_respostas = false."
+    ]
+   ],
+   "detalhes": "Ler, organizar, ocultar e enviar mensagens em seu nome.",
+   "descricao": "Ler, organizar, ocultar e enviar mensagens em seu nome.",
+   "padrao": false,
+   "tipo": "booleana",
+   "permitir": 10,
+   "negar": -10,
+   "persistente": true,
+   "acessibilidade": {
+    "rotulo": "Permissão: Gerenciamento do Mensageiro",
+    "descricao": "Ler, organizar, ocultar e enviar mensagens em seu nome."
+   },
+   "is_placeholder": false
+  }
+ ]
+}

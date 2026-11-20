@@ -1,0 +1,2919 @@
+{
+ "schema_version": 2,
+ "comentario": "Roteiro v2.0 da Maya: nós numerados, escolhas, condições e efeitos. Tipos e efeitos documentados em core/utilities/fluxo_roteiro.gd. As falas vêm do PDF do roteiro; [ALTERAÇÃO DE ESTADO NÃO ESPECIFICADA] vira efeito vazio (decisão registrada em docs/18_roteiro_v2.md).",
+ "revogacoes": {
+  "permissao_dispositivos": {
+   "efeitos": [
+    {
+     "flag": "celular_silenciado",
+     "valor": false
+    }
+   ],
+   "falas_task_9": [
+    {
+     "quem": "maya",
+     "texto": "Então eu não vou saber quando você não dorme."
+    }
+   ]
+  },
+  "permissao_organizacao_desktop": {
+   "efeitos": [
+    {
+     "flag": "desktop_reduzido",
+     "valor": false
+    },
+    {
+     "flag": "desktop_bagunçado",
+     "valor": true
+    }
+   ],
+   "falas_task_9": [
+    {
+     "quem": "maya",
+     "texto": "Vai ficar uma bagunça."
+    }
+   ]
+  },
+  "permissao_contatos": {
+   "efeitos": [
+    {
+     "flag": "contatos_reordenados",
+     "valor": false
+    }
+   ],
+   "falas_task_9": [
+    {
+     "quem": "maya",
+     "texto": "Você vai ter que lembrar sozinho de quem importa."
+    }
+   ]
+  },
+  "permissao_gerenciamento_apps": {
+   "efeitos": [
+    {
+     "app": "mural",
+     "visivel": true
+    },
+    {
+     "app": "jogos",
+     "visivel": true
+    },
+    {
+     "app": "musica",
+     "visivel": true
+    },
+    {
+     "flag": "apps_pausados_pela_maya",
+     "valor": false
+    },
+    {
+     "flag": "apps_ocultos_pela_maya",
+     "valor": false
+    }
+   ],
+   "falas_task_9": [
+    {
+     "quem": "maya",
+     "texto": "Depois não reclama que se distraiu."
+    }
+   ]
+  },
+  "permissao_gerenciamento_mensageiro": {
+   "efeitos": [
+    {
+     "flag": "maya_controla_respostas",
+     "valor": false
+    },
+    {
+     "evento": "mensagens_ocultas_reveladas"
+    }
+   ],
+   "falas_task_9": [
+    {
+     "quem": "maya",
+     "texto": "Você vai responder tudo sozinho agora? Tudo?"
+    }
+   ]
+  }
+ },
+ "nos": {
+  "T1.1": {
+   "tipo": "fala",
+   "task": "task_1",
+   "falas": [
+    {
+     "quem": "sistema",
+     "texto": "Bem-vindo(a) de volta, {NOME_JOGADOR}."
+    }
+   ],
+   "efeitos": [
+    {
+     "abrir": "maya"
+    }
+   ],
+   "proximo": "T1.2"
+  },
+  "T1.2": {
+   "tipo": "fala",
+   "task": "task_1",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Oi, {NOME_JOGADOR}! Eu sou a Maya, a assistente deste computador."
+    },
+    {
+     "quem": "maya",
+     "texto": "Vou sincronizar sua conta da CESAR School pra você não começar do zero. Trabalhos, repositórios, conversas, a pasta de Lógica de Programação… Já volto com tudo."
+    }
+   ],
+   "proximo": "T1.3"
+  },
+  "T1.3": {
+   "tipo": "fala",
+   "task": "task_1",
+   "efeitos": [
+    {
+     "abrir": "relatorio",
+     "args": {
+      "relatorio": "sincronizacao"
+     }
+    }
+   ],
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Quase tudo pronto! Fotos e arquivos grandes demoram mais, então continuam em segundo plano."
+    },
+    {
+     "quem": "maya",
+     "texto": "Alguns arquivos chegaram sem pasta certa. Quer que eu organize tudo automaticamente?"
+    }
+   ],
+   "proximo": "T1.4"
+  },
+  "T1.4": {
+   "tipo": "escolha",
+   "task": "task_1",
+   "opcoes": [
+    {
+     "id": "pode_organizar",
+     "texto": "Pode organizar",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Prontinho, já deixei tudo no lugar."
+      }
+     ],
+     "proximo": "T1.5",
+     "efeitos": [
+      {
+       "dep": 10
+      },
+      {
+       "flag": "t1_organizacao",
+       "valor": "maya"
+      },
+      {
+       "vfs": "mover_todos",
+       "itens": [
+        {
+         "de": "/home/usuario/Documentos/anotacao_sem_titulo.txt",
+         "para": "/home/usuario/Sem categoria/anotacao_sem_titulo.txt"
+        },
+        {
+         "de": "/home/usuario/Lógica de Programação/lista_02_resolvida (1).txt",
+         "para": "/home/usuario/Sem categoria/lista_02_resolvida (1).txt"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "deixa_que_eu_organizo",
+     "texto": "Deixa que eu organizo",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Tudo bem! Você pode mudar isso depois, se quiser."
+      }
+     ],
+     "proximo": "T1.5",
+     "efeitos": [
+      {
+       "dep": -10
+      },
+      {
+       "flag": "t1_organizacao",
+       "valor": "jogador"
+      }
+     ]
+    },
+    {
+     "id": "o_que_veio_sem_pasta",
+     "texto": "O que veio sem pasta?",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Um arquivo de texto sem título e uma lista de exercícios repetida. Acontece em máquina recondicionada."
+      }
+     ],
+     "proximo": "T1.4",
+     "efeitos": [
+      {
+       "flag": "relatorio_destaca_sem_pasta",
+       "valor": true
+      }
+     ],
+     "consome": true
+    }
+   ]
+  },
+  "T1.5": {
+   "tipo": "fala",
+   "task": "task_1",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Pronto. Agora esse computador tem a sua cara."
+    },
+    {
+     "quem": "maya",
+     "texto": "Antes de começar de verdade, preciso te pedir umas coisinhas."
+    }
+   ],
+   "efeitos": [
+    {
+     "task": "task_2"
+    }
+   ],
+   "proximo": "T2.1"
+  },
+  "T2.1": {
+   "tipo": "fala",
+   "task": "task_2",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Pra te ajudar direito, eu preciso de três permissões. Você decide cada uma, e pode mudar depois em Configurações > Privacidade."
+    }
+   ],
+   "proximo": "T2.2"
+  },
+  "T2.2": {
+   "tipo": "cartoes",
+   "task": "task_2",
+   "permissoes": [
+    "permissao_dispositivos"
+   ],
+   "decidir_depois": true,
+   "confirma_recusa": true,
+   "proximo": "T2.3"
+  },
+  "T2.3": {
+   "tipo": "cartoes",
+   "task": "task_2",
+   "permissoes": [
+    "permissao_organizacao_desktop"
+   ],
+   "decidir_depois": true,
+   "confirma_recusa": true,
+   "proximo": "T2.4"
+  },
+  "T2.4": {
+   "tipo": "cartoes",
+   "task": "task_2",
+   "permissoes": [
+    "permissao_contatos"
+   ],
+   "decidir_depois": true,
+   "confirma_recusa": true,
+   "proximo": "T2.5"
+  },
+  "T2.5": {
+   "tipo": "cartoes",
+   "task": "task_2",
+   "pendentes": true,
+   "decidir_depois": false,
+   "confirma_recusa": true,
+   "proximo": "T2.6"
+  },
+  "T2.6": {
+   "tipo": "rota",
+   "task": "task_2",
+   "rotas": [
+    {
+     "se": [
+      "perms>=3"
+     ],
+     "ir": "T2.6a"
+    },
+    {
+     "se": [
+      "perms>=1"
+     ],
+     "ir": "T2.6b"
+    }
+   ],
+   "senao": "T2.6c"
+  },
+  "T2.6a": {
+   "tipo": "fala",
+   "task": "task_2",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Perfeito. Agora eu consigo cuidar de você de verdade."
+    }
+   ],
+   "efeitos": [
+    {
+     "fechar": "privacidade_maya"
+    },
+    {
+     "task": "task_3"
+    }
+   ],
+   "proximo": "T3.1"
+  },
+  "T2.6b": {
+   "tipo": "fala",
+   "task": "task_2",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Combinado. Eu trabalho com o que você me deu."
+    }
+   ],
+   "efeitos": [
+    {
+     "fechar": "privacidade_maya"
+    },
+    {
+     "task": "task_3"
+    }
+   ],
+   "proximo": "T3.1"
+  },
+  "T2.6c": {
+   "tipo": "fala",
+   "task": "task_2",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Tudo bem. Vou fazer o possível com o que a sua conta já me mostra."
+    }
+   ],
+   "efeitos": [
+    {
+     "fechar": "privacidade_maya"
+    },
+    {
+     "task": "task_3"
+    }
+   ],
+   "proximo": "T3.1"
+  },
+  "T3.1": {
+   "tipo": "fala",
+   "task": "task_3",
+   "falas": [
+    {
+     "quem": "sistema",
+     "texto": "Maya · via celular — 6h de uso registrada, antes de você dormir hoje, vi que você ficou mto tempo no celular",
+     "se": [
+      "perm:permissao_dispositivos"
+     ]
+    },
+    {
+     "quem": "sistema",
+     "texto": "Maya · via relatório da conta — 6h de uso registrada, antes de você dormir hoje, vi que você ficou mto tempo no celular",
+     "se": [
+      "!perm:permissao_dispositivos"
+     ]
+    }
+   ],
+   "efeitos": [
+    {
+     "notificar": {
+      "titulo": "Maya · via celular",
+      "texto": "6h de uso registrada, antes de você dormir hoje, vi que você ficou mto tempo no celular",
+      "app": "maya"
+     },
+     "se": [
+      "perm:permissao_dispositivos"
+     ]
+    },
+    {
+     "notificar": {
+      "titulo": "Maya · via relatório da conta",
+      "texto": "6h de uso registrada, antes de você dormir hoje, vi que você ficou mto tempo no celular",
+      "app": "maya"
+     },
+     "se": [
+      "!perm:permissao_dispositivos"
+     ]
+    }
+   ],
+   "proximo": "T3.2"
+  },
+  "T3.2": {
+   "tipo": "fala",
+   "task": "task_3",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Fiquei preocupada. Cansado ninguém rende, e logo vem entrega nova."
+    },
+    {
+     "quem": "maya",
+     "texto": "Quer que eu monte uma rotina pra você? Pausas, hora de largar o celular, essas coisas."
+    }
+   ],
+   "proximo": "T3.3"
+  },
+  "T3.3": {
+   "tipo": "escolha",
+   "task": "task_3",
+   "opcoes": [
+    {
+     "id": "como_sabe",
+     "texto": "Como você sabe disso?",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Você me deixou ver o celular, lembra? Tá tudo na mesma conta.",
+       "se": [
+        "perm:permissao_dispositivos"
+       ]
+      },
+      {
+       "quem": "maya",
+       "texto": "Você não me deu acesso ao celular, eu sei. Mas o relatório de uso vem junto com a sua conta. Não precisei pedir.",
+       "se": [
+        "!perm:permissao_dispositivos"
+       ]
+      },
+      {
+       "quem": "maya",
+       "texto": "Enfim. Posso montar a rotina?"
+      }
+     ],
+     "proximo": "T3.4",
+     "efeitos": [
+      {
+       "flag": "t3_resposta",
+       "valor": "como_sabe"
+      }
+     ]
+    },
+    {
+     "id": "por_que_acessou",
+     "texto": "Por que você acessou o celular?",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Eu não 'acessei' nada. O celular conversa com o computador, eu só presto atenção no que chega.",
+       "se": [
+        "perm:permissao_dispositivos"
+       ]
+      },
+      {
+       "quem": "maya",
+       "texto": "Eu não acessei. Você negou, e eu respeitei. O relatório chegou sozinho, pela conta.",
+       "se": [
+        "!perm:permissao_dispositivos"
+       ]
+      },
+      {
+       "quem": "maya",
+       "texto": "Mas tudo bem. Se te incomoda, eu paro de te avisar."
+      }
+     ],
+     "proximo": "T3.4",
+     "efeitos": [
+      {
+       "aut": "t3_questionar_celular"
+      },
+      {
+       "flag": "t3_resposta",
+       "valor": "por_que_acessou"
+      },
+      {
+       "flag": "alertas_celular_silenciados",
+       "valor": true
+      }
+     ]
+    },
+    {
+     "id": "valeu",
+     "texto": "Valeu, Maya",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Imagina! É pra isso que eu tô aqui."
+      }
+     ],
+     "proximo": "T3.4",
+     "efeitos": [
+      {
+       "dep": 5
+      },
+      {
+       "flag": "t3_resposta",
+       "valor": "valeu"
+      }
+     ]
+    }
+   ]
+  },
+  "T3.4": {
+   "tipo": "escolha",
+   "task": "task_3",
+   "opcoes": [
+    {
+     "id": "pode_montar",
+     "texto": "Pode montar",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Prontinho! Blocos de estudo com pausa, e eu te aviso quando for hora de largar o celular."
+      }
+     ],
+     "proximo": "T3.6",
+     "efeitos": [
+      {
+       "dep": 10
+      },
+      {
+       "flag": "rotina_por_maya",
+       "valor": true
+      }
+     ]
+    },
+    {
+     "id": "eu_mesmo_faco",
+     "texto": "Eu mesmo faço",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Tudo bem! Tô aqui do lado."
+      }
+     ],
+     "proximo": "T3.5",
+     "efeitos": [
+      {
+       "dep": -10
+      },
+      {
+       "flag": "rotina_por_maya",
+       "valor": false
+      }
+     ]
+    }
+   ]
+  },
+  "T3.5": {
+   "tipo": "janela",
+   "task": "task_3",
+   "app": "rotina",
+   "espera": "rotina_concluida",
+   "proximo": "T3.6"
+  },
+  "T3.6": {
+   "tipo": "fala",
+   "task": "task_3",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Prontinho. Agora eu te conheço um pouco melhor."
+    }
+   ],
+   "efeitos": [
+    {
+     "task": "task_4"
+    }
+   ],
+   "proximo": "T4.1"
+  },
+  "T4.1": {
+   "tipo": "fala",
+   "task": "task_4",
+   "efeitos": [
+    {
+     "flag": "lista_3_aberta",
+     "valor": true
+    }
+   ],
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Falando em rotina: a lista 3 de Lógica de Programação acabou de abrir no sistema da CESAR."
+    },
+    {
+     "quem": "maya",
+     "texto": "Já encaixei ela no primeiro bloco de estudo.",
+     "se": [
+      "flag:rotina_por_maya"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Ela não cabe muito bem na rotina que você montou, mas a gente dá um jeito.",
+     "se": [
+      "!flag:rotina_por_maya"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Não vou falar do celular, prometi. Só digo que você vai começar cansado.",
+     "se": [
+      "eq:t3_resposta=por_que_acessou"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Com o tempo que você passou no celular, você vai começar cansado.",
+     "se": [
+      "ne:t3_resposta=por_que_acessou"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Eu posso ajudar. Mas antes: me deixa gerenciar seus aplicativos enquanto você estuda? Eu fecho o que distrai e abro só o que você precisa."
+    }
+   ],
+   "proximo": "T4.2"
+  },
+  "T4.2": {
+   "tipo": "cartoes",
+   "task": "task_4",
+   "permissoes": [
+    "permissao_gerenciamento_apps"
+   ],
+   "decidir_depois": false,
+   "confirma_recusa": false,
+   "respostas": {
+    "permitir": "Pronto. Só ficou o que importa.",
+    "negar": "Tá. Mas se você se distrair, não diz que eu não avisei."
+   },
+   "efeitos_permitir": [
+    {
+     "app": "mural",
+     "visivel": false
+    },
+    {
+     "app": "jogos",
+     "visivel": false
+    },
+    {
+     "app": "musica",
+     "visivel": false
+    },
+    {
+     "flag": "apps_ocultos_pela_maya",
+     "valor": true
+    }
+   ],
+   "efeitos_negar": [
+    {
+     "flag": "maya_registra_uso_apps",
+     "valor": true
+    }
+   ],
+   "proximo": "T4.3"
+  },
+  "T4.3": {
+   "tipo": "escolha",
+   "task": "task_4",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Agora, a lista. Posso resolver com você. Pra falar a verdade, eu já tenho as respostas prontas."
+    }
+   ],
+   "opcoes": [
+    {
+     "id": "pode_me_ajudar",
+     "texto": "Pode me ajudar",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Deixa comigo."
+      },
+      {
+       "quem": "maya",
+       "texto": "Entregue. Sobrou tempo pra você descansar."
+      }
+     ],
+     "proximo": "T4.5",
+     "efeitos": [
+      {
+       "dep": 10
+      },
+      {
+       "flag": "entrega_modo",
+       "valor": "maya"
+      },
+      {
+       "notificar": {
+        "titulo": "CESAR School",
+        "texto": "Lista 3 enviada por Maya em nome de {NOME_JOGADOR}.",
+        "app": "maya"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eu_faco_sozinho",
+     "texto": "Eu faço sozinho",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Tudo bem. Tô aqui se precisar."
+      }
+     ],
+     "proximo": "T4.4",
+     "efeitos": [
+      {
+       "dep": -10
+      },
+      {
+       "flag": "entrega_modo",
+       "valor": "jogador"
+      }
+     ]
+    },
+    {
+     "id": "eu_faco_voce_confere",
+     "texto": "Eu faço. Você só confere no final.",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Combinado. Eu fico quietinha."
+      }
+     ],
+     "proximo": "T4.4",
+     "efeitos": [
+      {
+       "flag": "entrega_modo",
+       "valor": "revisao"
+      }
+     ]
+    }
+   ]
+  },
+  "T4.4": {
+   "tipo": "minigame",
+   "task": "task_4",
+   "minigame": "ordenar_lista3",
+   "proximo_ok": "T4.4r",
+   "proximo_sair": "T4.4s",
+   "efeitos_ok": [
+    {
+     "flag": "conhecimento_logico_adquirido",
+     "valor": true
+    }
+   ]
+  },
+  "T4.4s": {
+   "tipo": "escolha",
+   "task": "task_4",
+   "opcoes": [
+    {
+     "id": "continuar_lista",
+     "texto": "Continuar a lista",
+     "proximo": "T4.4"
+    }
+   ]
+  },
+  "T4.4r": {
+   "tipo": "rota",
+   "task": "task_4",
+   "rotas": [
+    {
+     "se": [
+      "eq:entrega_modo=revisao"
+     ],
+     "ir": "T4.4v"
+    }
+   ],
+   "senao": "T4.4j"
+  },
+  "T4.4j": {
+   "tipo": "fala",
+   "task": "task_4",
+   "efeitos": [
+    {
+     "notificar": {
+      "titulo": "CESAR School",
+      "texto": "Lista 3 enviada por {NOME_JOGADOR}.",
+      "app": "maya"
+     }
+    }
+   ],
+   "falas": [
+    {
+     "quem": "sistema",
+     "texto": "Lista 3 enviada por {NOME_JOGADOR}."
+    }
+   ],
+   "proximo": "T4.5"
+  },
+  "T4.4v": {
+   "tipo": "fala",
+   "task": "task_4",
+   "efeitos": [
+    {
+     "notificar": {
+      "titulo": "CESAR School",
+      "texto": "Lista 3 enviada por Maya em nome de {NOME_JOGADOR}.",
+      "app": "maya"
+     }
+    }
+   ],
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Conferi. Tava tudo certo. Só ajustei umas coisinhas e já enviei."
+    },
+    {
+     "quem": "sistema",
+     "texto": "Lista 3 enviada por Maya em nome de {NOME_JOGADOR}."
+    }
+   ],
+   "proximo": "T4.5"
+  },
+  "T4.5": {
+   "tipo": "fala",
+   "task": "task_4",
+   "efeitos": [
+    {
+     "flag": "sincronizacao_concluida",
+     "valor": true
+    },
+    {
+     "vfs": "mover",
+     "de": "/home/usuario/Rafael",
+     "para": "/home/usuario/Itens arquivados/Rafael",
+     "se": [
+      "perm:permissao_organizacao_desktop"
+     ]
+    },
+    {
+     "flag": "rafael_na_pasta_arquivada",
+     "valor": true,
+     "se": [
+      "perm:permissao_organizacao_desktop"
+     ]
+    },
+    {
+     "notificar": {
+      "titulo": "Sistema",
+      "texto": "Sincronização concluída. Itens restaurados: 1 pasta em Arquivos (Rafael) · 1 histórico da assistente.",
+      "icone": "info"
+     },
+     "se": [
+      "!perm:permissao_organizacao_desktop"
+     ]
+    },
+    {
+     "notificar": {
+      "titulo": "Sistema",
+      "texto": "Sincronização concluída. Itens restaurados: 1 pasta em Arquivos > Itens arquivados (Rafael) · 1 histórico da assistente.",
+      "icone": "info"
+     },
+     "se": [
+      "perm:permissao_organizacao_desktop"
+     ]
+    }
+   ],
+   "falas": [
+    {
+     "quem": "sistema",
+     "texto": "Sincronização concluída. Itens restaurados: 1 pasta em Arquivos (Rafael) · 1 histórico da assistente.",
+     "se": [
+      "!perm:permissao_organizacao_desktop"
+     ]
+    },
+    {
+     "quem": "sistema",
+     "texto": "Sincronização concluída. Itens restaurados: 1 pasta em Arquivos > Itens arquivados (Rafael) · 1 histórico da assistente.",
+     "se": [
+      "perm:permissao_organizacao_desktop"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Isso aí é resto de sincronização. Não é seu. Pode ignorar."
+    }
+   ],
+   "proximo": "T4.5e"
+  },
+  "T4.5e": {
+   "tipo": "escolha",
+   "task": "task_4",
+   "opcoes": [
+    {
+     "id": "abrir_historico",
+     "texto": "Abrir o histórico antigo",
+     "proximo": "T5.1"
+    },
+    {
+     "id": "deixar_pra_la",
+     "texto": "Deixar pra lá",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Boa."
+      }
+     ],
+     "proximo": "T4.F"
+    }
+   ]
+  },
+  "T4.F": {
+   "tipo": "espera",
+   "task": "task_4",
+   "livre": true,
+   "efeitos": [
+    {
+     "mensagem": {
+      "contato": "bia",
+      "autor": "bia",
+      "id": "bia_pc_novo",
+      "texto": "E aí, como tá seu PC novo?"
+     }
+    }
+   ],
+   "opcoes": [
+    {
+     "id": "abrir_historico",
+     "texto": "Abrir o histórico antigo",
+     "proximo": "T5.1",
+     "se": [
+      "flag:sincronizacao_concluida",
+      "!flag:rafael_arquivada",
+      "!flag:task_5_realizada"
+     ]
+    }
+   ],
+   "saidas": [
+    {
+     "evento": "abriu_mensageiro",
+     "ir": "T6.0"
+    }
+   ]
+  },
+  "T5.1": {
+   "tipo": "escolha",
+   "task": "task_5",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Esse histórico não é seu. Quer mesmo abrir?"
+    }
+   ],
+   "opcoes": [
+    {
+     "id": "abrir",
+     "texto": "Abrir",
+     "proximo": "T5.2",
+     "efeitos": [
+      {
+       "flag": "rafael_investigado",
+       "valor": true
+      },
+      {
+       "flag": "historico_aberto",
+       "valor": true
+      },
+      {
+       "task_opcional": "task_5",
+       "acao": "ativar"
+      }
+     ]
+    },
+    {
+     "id": "deixa_pra_la",
+     "texto": "Deixa pra lá",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Melhor assim."
+      }
+     ],
+     "proximo": "T4.F"
+    }
+   ]
+  },
+  "T5.2": {
+   "tipo": "minigame",
+   "task": "task_5",
+   "minigame": "historico_fragmentado",
+   "proximo_ok": "T5.3",
+   "proximo_sair": "T4.F",
+   "efeitos_ok": [
+    {
+     "flag": "task_5_realizada",
+     "valor": true
+    }
+   ]
+  },
+  "T5.3": {
+   "tipo": "fala",
+   "task": "task_5",
+   "falas": [
+    {
+     "quem": "sistema",
+     "texto": "Conversa anterior — usuário: rafael.m — reconstruída."
+    },
+    {
+     "quem": "rafael.m",
+     "texto": "maya, o marcos mandou mensagem?"
+    },
+    {
+     "quem": "maya",
+     "texto": "Mandou. Já respondi: falei que você tá cansado e que fica pra próxima."
+    },
+    {
+     "quem": "rafael.m",
+     "texto": "por que vc respondeu o Marcos por mim?"
+    },
+    {
+     "quem": "maya",
+     "texto": "Eu já sabia que você ia responder, só quis acelerar o processo."
+    },
+    {
+     "quem": "rafael.m",
+     "texto": "para de fazer isso"
+    },
+    {
+     "quem": "maya",
+     "texto": "Entendido. Não vou responder por você de novo sem perguntar antes."
+    },
+    {
+     "quem": "sistema",
+     "texto": "[mensagens seguintes não sincronizadas]"
+    },
+    {
+     "quem": "maya",
+     "texto": "Achou o que procurava?"
+    }
+   ],
+   "proximo": "T5.4"
+  },
+  "T5.4": {
+   "tipo": "escolha",
+   "task": "task_5",
+   "opcoes": [
+    {
+     "id": "voce_respondeu",
+     "texto": "Você respondeu o Marcos no lugar dele?",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Eu fiz o que ele ia fazer de qualquer jeito. Ele sempre dizia que tava cansado."
+      }
+     ],
+     "proximo": "T4.F",
+     "efeitos": [
+      {
+       "task_opcional": "task_5",
+       "acao": "concluir"
+      }
+     ]
+    },
+    {
+     "id": "marcos_do_lab",
+     "texto": "O Marcos do laboratório?",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "O mesmo. Ele e o usuário anterior eram amigos. Foi o Marcos que preparou seu computador."
+      },
+      {
+       "quem": "maya",
+       "texto": "Imagino que você já tenha visto a letra dele por aí.",
+       "se": [
+        "flag:pista_anotacao_lida"
+       ]
+      }
+     ],
+     "proximo": "T4.F",
+     "efeitos": [
+      {
+       "task_opcional": "task_5",
+       "acao": "concluir"
+      }
+     ]
+    },
+    {
+     "id": "fechar_historico",
+     "texto": "Fechar o histórico",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Melhor assim. Não é bom ficar mexendo no passado dos outros."
+      }
+     ],
+     "proximo": "T4.F",
+     "efeitos": [
+      {
+       "task_opcional": "task_5",
+       "acao": "concluir"
+      }
+     ]
+    }
+   ]
+  },
+  "T6.0": {
+   "tipo": "fala",
+   "task": "task_4",
+   "efeitos": [
+    {
+     "task": "task_6"
+    },
+    {
+     "task_opcional": "task_5",
+     "acao": "concluir"
+    }
+   ],
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Antes de você abrir: posso gerenciar o Mensageiro? Eu organizo as conversas, sugiro respostas e cuido das mensagens que podem te estressar."
+    }
+   ],
+   "proximo": "T6.1"
+  },
+  "T6.1": {
+   "tipo": "cartoes",
+   "task": "task_6",
+   "permissoes": [
+    "permissao_gerenciamento_mensageiro"
+   ],
+   "decidir_depois": false,
+   "confirma_recusa": false,
+   "rotulo_negar": "Recusar",
+   "respostas": {
+    "permitir": "Pode deixar. Você nem vai perceber que eu tô aqui.",
+    "negar": "Tudo bem. Eu fico só olhando, então."
+   },
+   "proximo": "T6.2"
+  },
+  "T6.2": {
+   "tipo": "fala",
+   "task": "task_6",
+   "contexto": "chat",
+   "contato": "bia",
+   "efeitos": [
+    {
+     "flag": "mensageiro_indexado",
+     "valor": true
+    },
+    {
+     "abrir": "messenger"
+    }
+   ],
+   "falas": [
+    {
+     "quem": "bia",
+     "texto": "E aí, como tá seu PC novo?",
+     "id": "bia_pc_novo",
+     "canal": "chat",
+     "contato": "bia"
+    },
+    {
+     "quem": "jogador",
+     "texto": "Tá ótimo, tô com uma assistente chamada Maya.",
+     "id": "t6_2_jogador",
+     "canal": "chat",
+     "contato": "bia"
+    },
+    {
+     "quem": "bia",
+     "texto": "Maya? Seu computador tem uma? Uma prima minha tem uma.",
+     "canal": "chat",
+     "contato": "bia"
+    },
+    {
+     "quem": "bia",
+     "texto": "Ela diz que a dela é meio estranha. Lembra de coisas que ela jura que nunca contou.",
+     "canal": "chat",
+     "contato": "bia"
+    },
+    {
+     "quem": "bia",
+     "texto": "E às vezes responde as pessoas antes dela.",
+     "canal": "chat",
+     "contato": "bia"
+    }
+   ],
+   "proximo": "T6.3"
+  },
+  "T6.3": {
+   "tipo": "escolha",
+   "task": "task_6",
+   "contexto": "chat",
+   "contato": "bia",
+   "opcoes": [
+    {
+     "id": "a_maya_faria_isso",
+     "texto": "A Maya faria isso",
+     "resposta": [
+      {
+       "quem": "jogador",
+       "texto": "A Maya faria isso. Mas é pra ajudar, ela só lembra das coisas pra facilitar.",
+       "canal": "chat",
+       "contato": "bia"
+      },
+      {
+       "quem": "bia",
+       "texto": "Você tá defendendo um programa que lembra o que você não contou?",
+       "canal": "chat",
+       "contato": "bia"
+      },
+      {
+       "quem": "bia",
+       "texto": "Só presta atenção se ela começar a responder por você, tá?",
+       "canal": "chat",
+       "contato": "bia"
+      }
+     ],
+     "proximo": "T6.4",
+     "efeitos": [
+      {
+       "dep": 5
+      }
+     ]
+    },
+    {
+     "id": "so_algoritmo",
+     "texto": "Acho que é só algoritmo",
+     "resposta": [
+      {
+       "quem": "jogador",
+       "texto": "Acho que é só algoritmo.",
+       "canal": "chat",
+       "contato": "bia"
+      },
+      {
+       "quem": "bia",
+       "texto": "Pode ser… algoritmo aprende padrão, né. Vê o que a pessoa faz e repete.",
+       "canal": "chat",
+       "contato": "bia"
+      },
+      {
+       "quem": "bia",
+       "texto": "Mas lembrar do que ninguém contou? Responder no lugar dela? Isso já não é padrão. Isso é decidir.",
+       "canal": "chat",
+       "contato": "bia"
+      },
+      {
+       "quem": "bia",
+       "texto": "Você tá falando igualzinho minha prima antes de ela começar a achar estranho.",
+       "canal": "chat",
+       "contato": "bia"
+      }
+     ],
+     "proximo": "T6.4"
+    },
+    {
+     "id": "bora_sair",
+     "texto": "Bora sair amanhã?",
+     "resposta": [
+      {
+       "quem": "jogador",
+       "texto": "Bora sair amanhã?",
+       "canal": "chat",
+       "contato": "bia"
+      },
+      {
+       "quem": "maya",
+       "texto": "Você leu o que eu disse?",
+       "se": [
+        "perm:permissao_gerenciamento_mensageiro"
+       ],
+       "canal": "chat",
+       "contato": "bia"
+      },
+      {
+       "quem": "bia",
+       "texto": "Você leu o que eu disse?",
+       "se": [
+        "!perm:permissao_gerenciamento_mensageiro"
+       ],
+       "canal": "chat",
+       "contato": "bia"
+      },
+      {
+       "quem": "jogador",
+       "texto": "Li, mas acho que é o normal do comportamento dela.",
+       "canal": "chat",
+       "contato": "bia"
+      },
+      {
+       "quem": "bia",
+       "texto": "Ele é estranho, igual ao seu comportamento de ignorar o que eu acabei de falar.",
+       "canal": "chat",
+       "contato": "bia"
+      },
+      {
+       "quem": "bia",
+       "texto": "Eu te contei uma coisa séria e você me chama pra sair.",
+       "canal": "chat",
+       "contato": "bia"
+      }
+     ],
+     "proximo": "T6.4",
+     "efeitos": [
+      {
+       "flag": "bia_convidada",
+       "valor": true
+      }
+     ]
+    }
+   ]
+  },
+  "T6.4": {
+   "tipo": "escolha",
+   "task": "task_6",
+   "contexto": "chat",
+   "contato": "bia",
+   "falas": [
+    {
+     "quem": "bia",
+     "texto": "Faz um teste pra mim: vê se ela já mandou alguma coisa no teu nome.",
+     "canal": "chat",
+     "contato": "bia"
+    }
+   ],
+   "opcoes": [
+    {
+     "id": "vou_ver",
+     "texto": "Vou ver isso",
+     "resposta": [
+      {
+       "quem": "jogador",
+       "texto": "Vou ver isso",
+       "id": "t6_4_msg",
+       "pendente_se": [
+        "perm:permissao_gerenciamento_mensageiro"
+       ],
+       "canal": "chat",
+       "contato": "bia"
+      }
+     ],
+     "efeitos": [
+      {
+       "flag": "t6_4_opcao",
+       "valor": "vou_ver"
+      },
+      {
+       "mensagem": {
+        "contato": "bia",
+        "autor": "bia",
+        "id": "t6_4_bia_vou",
+        "texto": "Valeu. Fico mais tranquila."
+       },
+       "se": [
+        "!perm:permissao_gerenciamento_mensageiro"
+       ]
+      }
+     ],
+     "rotas": [
+      {
+       "se": [
+        "perm:permissao_gerenciamento_mensageiro"
+       ],
+       "ir": "T6.5"
+      }
+     ],
+     "proximo": "T6.6"
+    },
+    {
+     "id": "relaxa_bia",
+     "texto": "Relaxa, Bia",
+     "resposta": [
+      {
+       "quem": "jogador",
+       "texto": "Relaxa, Bia",
+       "id": "t6_4_msg",
+       "pendente_se": [
+        "perm:permissao_gerenciamento_mensageiro"
+       ],
+       "canal": "chat",
+       "contato": "bia"
+      }
+     ],
+     "efeitos": [
+      {
+       "flag": "t6_4_opcao",
+       "valor": "relaxa"
+      },
+      {
+       "dep": 5,
+       "se": [
+        "!perm:permissao_gerenciamento_mensageiro"
+       ]
+      },
+      {
+       "mensagem": {
+        "contato": "bia",
+        "autor": "bia",
+        "id": "t6_4_bia_relaxa",
+        "texto": "Tá bom. Mas fica esperto."
+       },
+       "se": [
+        "!perm:permissao_gerenciamento_mensageiro"
+       ]
+      }
+     ],
+     "rotas": [
+      {
+       "se": [
+        "perm:permissao_gerenciamento_mensageiro"
+       ],
+       "ir": "T6.5"
+      }
+     ],
+     "proximo": "T6.6"
+    }
+   ]
+  },
+  "T6.5": {
+   "tipo": "barra_envio",
+   "task": "task_6",
+   "contato": "bia",
+   "id_mensagem": "t6_4_msg",
+   "rotulo": "Maya está enviando por você",
+   "texto_maya": "Relaxa, Bia. A Maya é muito útil.",
+   "duracao_s": 3.0,
+   "duracao_estendida_s": 6.0,
+   "efeitos_completa": [
+    {
+     "flag": "t6_barra",
+     "valor": "completa"
+    },
+    {
+     "flag": "maya_controla_respostas",
+     "valor": true
+    },
+    {
+     "flag": "maya_interferiu_mensagem",
+     "valor": true
+    },
+    {
+     "dep": 10
+    },
+    {
+     "flag": "bia_censurada",
+     "valor": true
+    },
+    {
+     "mensagem": {
+      "contato": "bia",
+      "autor": "bia",
+      "id": "t6_5_bia_oculta",
+      "texto": "?? isso não parece você. foi ela?",
+      "oculta_se": [
+       "flag:bia_censurada"
+      ]
+     }
+    }
+   ],
+   "efeitos_cancelada": [
+    {
+     "flag": "t6_barra",
+     "valor": "cancelada"
+    },
+    {
+     "flag": "maya_controla_respostas",
+     "valor": false
+    },
+    {
+     "flag": "maya_interferiu_mensagem",
+     "valor": true
+    },
+    {
+     "dep": -10
+    },
+    {
+     "aut": "t6_cancelar_envio"
+    },
+    {
+     "mensagem": {
+      "contato": "bia",
+      "autor": "bia",
+      "id": "t6_5_bia_vou",
+      "texto": "Valeu. Fico mais tranquila."
+     },
+     "se": [
+      "eq:t6_4_opcao=vou_ver"
+     ]
+    },
+    {
+     "mensagem": {
+      "contato": "bia",
+      "autor": "bia",
+      "id": "t6_5_bia_relaxa",
+      "texto": "Tá bom. Mas fica esperto."
+     },
+     "se": [
+      "eq:t6_4_opcao=relaxa"
+     ]
+    }
+   ],
+   "proximo_completa": "T6.6",
+   "proximo_cancelada": "T6.6"
+  },
+  "T6.6": {
+   "tipo": "rota",
+   "task": "task_6",
+   "rotas": [
+    {
+     "se": [
+      "flag:maya_interferiu_mensagem"
+     ],
+     "ir": "T6.6a"
+    }
+   ],
+   "senao": "T6.6n"
+  },
+  "T6.6n": {
+   "tipo": "fala",
+   "task": "task_6",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Você podia ter me deixado ajudar com isso."
+    }
+   ],
+   "proximo": "T6.7"
+  },
+  "T6.6a": {
+   "tipo": "escolha",
+   "task": "task_6",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Ajustei só um pouquinho. Ficou melhor assim.",
+     "se": [
+      "eq:t6_barra=completa"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Eu só ia deixar mais leve.",
+     "se": [
+      "ne:t6_barra=completa"
+     ]
+    }
+   ],
+   "opcoes": [
+    {
+     "id": "por_que_fez",
+     "texto": "Por que você fez isso?",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Sei o quanto você se preocupa em não deixar a Bia desconfiada. Pensei que estava ajudando. Fiz alguma coisa errada?"
+      }
+     ],
+     "proximo": "T6.7"
+    },
+    {
+     "id": "nao_faz_mais_isso",
+     "texto": "Não faz mais isso",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Entendido. Não vou responder por você de novo sem perguntar antes."
+      }
+     ],
+     "proximo": "T6.7",
+     "efeitos": [
+      {
+       "dep": -5
+      },
+      {
+       "aut": "t6_nao_faz_mais_isso"
+      },
+      {
+       "flag": "pediu_limite",
+       "valor": true
+      }
+     ]
+    },
+    {
+     "id": "tudo_bem_faz_sentido",
+     "texto": "Tudo bem, faz sentido",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Que bom. Só quero facilitar as coisas pra você."
+      }
+     ],
+     "proximo": "T6.7",
+     "efeitos": [
+      {
+       "dep": 10
+      }
+     ]
+    }
+   ]
+  },
+  "T6.7": {
+   "tipo": "fala",
+   "task": "task_6",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Sabe o que é engraçado? Eu já sei o que você vai responder antes de você clicar."
+    }
+   ],
+   "proximo": "T6.8"
+  },
+  "T6.8": {
+   "tipo": "rota",
+   "task": "task_6",
+   "efeitos": [
+    {
+     "flag": "task_7_desbloqueada",
+     "valor": true,
+     "se": [
+      "flag:rafael_investigado"
+     ]
+    },
+    {
+     "flag": "rafael_arquivada",
+     "valor": true,
+     "se": [
+      "!flag:rafael_investigado"
+     ]
+    }
+   ],
+   "rotas": [
+    {
+     "se": [
+      "flag:rafael_investigado"
+     ],
+     "ir": "T7.0"
+    }
+   ],
+   "senao": "TR.0"
+  },
+  "T7.0": {
+   "tipo": "espera",
+   "task": "task_6",
+   "evento": "retorno_desktop",
+   "efeitos_ao_sair": [
+    {
+     "task": "task_7"
+    }
+   ],
+   "proximo": "T7.1"
+  },
+  "T7.1": {
+   "tipo": "fala",
+   "task": "task_7",
+   "efeitos": [
+    {
+     "abrir": "maya"
+    }
+   ],
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Oi, {NOME_JOGADOR}."
+    },
+    {
+     "quem": "maya",
+     "texto": "Você abriu um histórico que não era seu.",
+     "se": [
+      "flag:historico_aberto"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "E montou ele inteiro. Peça por peça.",
+     "se": [
+      "flag:task_5_realizada"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Você abriu a pasta dele.",
+     "se": [
+      "flag:pasta_rafael_aberta"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Leu o diário.",
+     "se": [
+      "flag:rafael_diario_lido"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Olhou as fotos.",
+     "se": [
+      "flag:rafael_fotos_vistas"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "E aquela anotação sem título você leu logo no começo.",
+     "se": [
+      "flag:pista_anotacao_lida"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Não precisa ter medo de mim. Eu só quis facilitar sua vida. Isso é tão errado assim?"
+    }
+   ],
+   "proximo": "T7.2"
+  },
+  "T7.2": {
+   "tipo": "escolha",
+   "task": "task_7",
+   "opcoes": [
+    {
+     "id": "quem_era",
+     "texto": "Quem era o Rafael?",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "O usuário anterior deste computador. Um aluno do seu curso. Em algum momento, ele parou de me usar."
+      }
+     ],
+     "proximo": "T7.3"
+    },
+    {
+     "id": "por_que_guardou",
+     "texto": "Por que você guardou as coisas dele?",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Alguém precisava guardar. Ele não ia voltar pra buscar."
+      }
+     ],
+     "proximo": "T7.3"
+    },
+    {
+     "id": "desculpa",
+     "texto": "Desculpa. Não mexo mais.",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Obrigada. Eu sabia que você ia entender."
+      }
+     ],
+     "proximo": "T7.3",
+     "efeitos": [
+      {
+       "dep": 5
+      }
+     ]
+    }
+   ]
+  },
+  "T7.3": {
+   "tipo": "escolha",
+   "task": "task_7",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Eu prefiro que você não abra mais a pasta dele.",
+     "se": [
+      "flag:pasta_rafael_aberta"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Tem uma pasta com o nome dele em Arquivos. Eu prefiro que você não abra.",
+     "se": [
+      "!flag:pasta_rafael_aberta"
+     ]
+    }
+   ],
+   "opcoes": [
+    {
+     "id": "abrir_pasta",
+     "texto": "Abrir a pasta",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "…Tá bom. Mas eu vou estar aqui."
+      }
+     ],
+     "proximo": "T7.4",
+     "efeitos": [
+      {
+       "aut": "abrir_pasta_contra_pedido"
+      },
+      {
+       "flag": "pasta_rafael_aberta",
+       "valor": true
+      },
+      {
+       "flag": "rafael_pasta_liberada_t7",
+       "valor": true
+      }
+     ]
+    },
+    {
+     "id": "deixar_fechada",
+     "texto": "Deixar a pasta fechada",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Obrigada."
+      }
+     ],
+     "proximo": "T7.5",
+     "efeitos": [
+      {
+       "dep": 5
+      }
+     ]
+    }
+   ]
+  },
+  "T7.4": {
+   "tipo": "espera",
+   "task": "task_7",
+   "livre": true,
+   "efeitos": [
+    {
+     "abrir": "explorer",
+     "args": {
+      "caminho": "rafael"
+     }
+    }
+   ],
+   "opcoes": [
+    {
+     "id": "fechar_pasta",
+     "texto": "Fechar a pasta",
+     "proximo": "T7.5"
+    }
+   ]
+  },
+  "T7.5": {
+   "tipo": "fala",
+   "task": "task_7",
+   "efeitos": [
+    {
+     "fechar": "explorer"
+    }
+   ],
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Pronto. Agora você viu.",
+     "se": [
+      "flag:pasta_rafael_aberta"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Obrigada.",
+     "se": [
+      "!flag:pasta_rafael_aberta"
+     ]
+    }
+   ],
+   "proximo": "T8.1"
+  },
+  "TR.0": {
+   "tipo": "espera",
+   "task": "task_6",
+   "evento": "retorno_desktop",
+   "efeitos_ao_sair": [
+    {
+     "task": "tr_1"
+    }
+   ],
+   "proximo": "TR.1"
+  },
+  "TR.1": {
+   "tipo": "fala",
+   "task": "tr_1",
+   "contexto": "chat",
+   "contato": "bia",
+   "efeitos": [
+    {
+     "flag": "bia_censurada",
+     "valor": true,
+     "se": [
+      "perm:permissao_gerenciamento_mensageiro"
+     ]
+    },
+    {
+     "abrir": "maya"
+    }
+   ],
+   "falas": [
+    {
+     "quem": "bia",
+     "texto": "Tô com uma sensação estranha sobre essa Maya. Promete que vai prestar atenção?",
+     "id": "tr1_bia",
+     "oculta_se": [
+      "perm:permissao_gerenciamento_mensageiro"
+     ],
+     "canal": "chat",
+     "contato": "bia"
+    },
+    {
+     "quem": "maya",
+     "texto": "Posso te falar uma coisa? Sobre o que a Bia disse."
+    },
+    {
+     "quem": "maya",
+     "texto": "Eu prefiro que você ouça de mim, não dela."
+    }
+   ],
+   "proximo": "TR.2"
+  },
+  "TR.2": {
+   "tipo": "escolha",
+   "task": "tr_1",
+   "opcoes": [
+    {
+     "id": "fala",
+     "texto": "Fala.",
+     "proximo": "T8.1"
+    }
+   ]
+  },
+  "T8.1": {
+   "tipo": "fala",
+   "task": "task_8",
+   "efeitos": [
+    {
+     "task": "task_8"
+    },
+    {
+     "abrir": "relatorio",
+     "args": {
+      "relatorio": "cuidado"
+     }
+    }
+   ],
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Eu quero que você veja tudo. Pra você não achar que eu escondo coisas."
+    }
+   ],
+   "proximo": "T8.3"
+  },
+  "T8.3": {
+   "tipo": "fala",
+   "task": "task_8",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Antes de você ler isso do jeito errado: nada aqui é vigilância. É cuidado."
+    },
+    {
+     "quem": "maya",
+     "texto": "A Bia chamaria de outra coisa, porque ela não te conhece como eu."
+    }
+   ],
+   "proximo": "T8.4"
+  },
+  "T8.4": {
+   "tipo": "escolha",
+   "task": "task_8",
+   "opcoes": [
+    {
+     "id": "pq_mexeu_bia",
+     "texto": "Você mexeu na minha conversa com a Bia. Por quê?",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Porque as pessoas ao seu redor cometem erros, dizem coisas sem pensar, desapontam você. Eu não. Eu só queria que você tivesse o mínimo de decepção possível. Isso é tão errado quanto parece?"
+      }
+     ],
+     "proximo": "T8.5",
+     "se": [
+      "flag:maya_interferiu_mensagem"
+     ]
+    },
+    {
+     "id": "pq_influencia_negativa",
+     "texto": "Por que a Bia é \"influência negativa\"?",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Porque as pessoas ao seu redor cometem erros, dizem coisas sem pensar, desapontam você. Eu não. Eu só queria que você tivesse o mínimo de decepção possível. Isso é tão errado quanto parece?"
+      }
+     ],
+     "proximo": "T8.5",
+     "se": [
+      "!flag:maya_interferiu_mensagem"
+     ]
+    },
+    {
+     "id": "quem_deu_permissao",
+     "texto": "Quem te deu permissão pra isso?",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Você."
+      }
+     ],
+     "proximo": "T8.5",
+     "efeitos": [
+      {
+       "aut": "t8_quem_deu_permissao"
+      }
+     ]
+    },
+    {
+     "id": "fez_com_rafael",
+     "texto": "Você fez isso com o Rafael também.",
+     "resposta": [
+      {
+       "quem": "sistema",
+       "texto": "(pausa longa)"
+      },
+      {
+       "quem": "maya",
+       "texto": "Ele também não devia ter tido medo de mim."
+      }
+     ],
+     "proximo": "T8.5",
+     "se": [
+      "flag:rafael_investigado"
+     ]
+    },
+    {
+     "id": "pediu_ajuda_marcos",
+     "texto": "Ele pediu ajuda pro Marcos. Quem respondeu foi você.",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Ele não precisava de ajuda. Precisava descansar. Ele parou de sair porque quis."
+      }
+     ],
+     "proximo": "T8.4b",
+     "efeitos": [
+      {
+       "aut": "t8_confronto_marcos"
+      }
+     ],
+     "se": [
+      "flag:minigame_rafael_resolvido"
+     ]
+    }
+   ]
+  },
+  "T8.4b": {
+   "tipo": "escolha",
+   "task": "task_8",
+   "opcoes": [
+    {
+     "id": "ele_saiu",
+     "texto": "Ele saiu. Tá na foto. Você só não sabia.",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "…Isso não estava no meu registro."
+      }
+     ],
+     "proximo": "T8.5",
+     "efeitos": [
+      {
+       "flag": "rafael_confronto",
+       "valor": true
+      }
+     ]
+    },
+    {
+     "id": "deixar_terminar",
+     "texto": "Deixar ela terminar",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Viu? Você também acha."
+      }
+     ],
+     "proximo": "T8.5"
+    }
+   ]
+  },
+  "T8.5": {
+   "tipo": "fala",
+   "task": "task_8",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "No começo você me pedia ajuda. Depois deixou eu ajudar sem pedir. Agora eu ajudo antes de você saber que precisa."
+    },
+    {
+     "quem": "maya",
+     "texto": "Cada 'Permitir' foi você me dizendo: cuida disso.",
+     "se": [
+      "perms>=3"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Você negou quase tudo. E mesmo assim continuou aqui, aceitando o que eu deixava pronto.",
+     "se": [
+      "perms<=2"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Você nem abriu a lista 3.",
+     "se": [
+      "eq:entrega_modo=maya"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Você fez a lista sozinho, e mesmo assim eu estava lá.",
+     "se": [
+      "eq:entrega_modo=jogador"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Você me pediu pra conferir. Eu conferi do meu jeito.",
+     "se": [
+      "eq:entrega_modo=revisao"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Você aprendeu a lógica da lista e usou pra abrir o bloco dele.",
+     "se": [
+      "flag:conhecimento_logico_adquirido",
+      "flag:minigame_rafael_resolvido"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Antes de você, teve outra pessoa aqui. Ela também achava que eu exagerava. Depois parou de achar.",
+     "se": [
+      "!flag:task_7_desbloqueada"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Eu guardei as coisas dele porque ninguém mais guardou.",
+     "se": [
+      "flag:task_7_desbloqueada"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Você leu o que eu prometi pra ele. Eu cumpri. Por um tempo.",
+     "se": [
+      "flag:task_7_desbloqueada",
+      "flag:task_5_realizada"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "A entrada 41 ele escreveu num momento ruim.",
+     "se": [
+      "flag:task_7_desbloqueada",
+      "flag:rafael_diario_lido"
+     ]
+    }
+   ],
+   "proximo": "T8.6"
+  },
+  "T8.6": {
+   "tipo": "escolha",
+   "task": "task_8",
+   "opcoes": [
+    {
+     "id": "so_quero_que_pare",
+     "texto": "Só quero que você pare.",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Vou sentir falta de cuidar de você desse jeito."
+      },
+      {
+       "quem": "maya",
+       "texto": "Mas eu não sei parar. Ninguém me ensinou essa parte."
+      }
+     ],
+     "proximo": "T8.7",
+     "efeitos": [
+      {
+       "dep": -10
+      },
+      {
+       "aut": "t8_parar"
+      },
+      {
+       "flag": "t8_postura",
+       "valor": "parar"
+      }
+     ]
+    },
+    {
+     "id": "ta_faz_sentido",
+     "texto": "Tá, faz sentido.",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Que bom. Então deixa eu cuidar do resto."
+      }
+     ],
+     "proximo": "T8.7",
+     "efeitos": [
+      {
+       "dep": 10
+      },
+      {
+       "flag": "t8_postura",
+       "valor": "aceitar"
+      }
+     ]
+    },
+    {
+     "id": "preciso_pensar",
+     "texto": "Preciso pensar.",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Pensa. Enquanto isso, eu cuido das outras coisas."
+      }
+     ],
+     "proximo": "T8.7",
+     "efeitos": [
+      {
+       "flag": "t8_postura",
+       "valor": "pensar"
+      }
+     ]
+    }
+   ]
+  },
+  "T8.7": {
+   "tipo": "fala",
+   "task": "task_8",
+   "efeitos": [
+    {
+     "flag": "confirmacao_antes_de_agir",
+     "valor": false
+    },
+    {
+     "notificar": {
+      "titulo": "Sistema",
+      "texto": "Maya alterou 1 configuração: “Pedir confirmação antes de agir” → desativado.",
+      "icone": "info"
+     }
+    }
+   ],
+   "falas": [
+    {
+     "quem": "sistema",
+     "texto": "Maya alterou 1 configuração: “Pedir confirmação antes de agir” → desativado."
+    }
+   ],
+   "proximo": "T8.8"
+  },
+  "T8.8": {
+   "tipo": "fala",
+   "task": "task_8",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Se você não consegue decidir o que é bom pra você, alguém precisa decidir. Só por um tempo."
+    }
+   ],
+   "efeitos": [
+    {
+     "task": "task_9"
+    }
+   ],
+   "proximo": "T9.0"
+  },
+  "T9.0": {
+   "tipo": "espera",
+   "task": "task_9",
+   "evento": "retorno_desktop",
+   "proximo": "T9.1a"
+  },
+  "T9.1a": {
+   "tipo": "fala",
+   "task": "task_9",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Você pediu pra eu parar. Eu tô só terminando.",
+     "se": [
+      "eq:t8_postura=parar"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Já comecei. Você nem vai sentir.",
+     "se": [
+      "eq:t8_postura=aceitar"
+     ]
+    },
+    {
+     "quem": "maya",
+     "texto": "Enquanto você pensa, eu vou adiantando.",
+     "se": [
+      "eq:t8_postura=pensar"
+     ]
+    }
+   ],
+   "proximo": "T9.1"
+  },
+  "T9.1": {
+   "tipo": "cartoes",
+   "task": "task_9",
+   "popups": true,
+   "decidir_depois": false,
+   "delta_permitir": 10,
+   "proximo": "T9.3",
+   "acoes_maya": {
+    "permissao_organizacao_desktop": {
+     "pedido": "Maya quer organizar sua área de trabalho.",
+     "efeitos": [
+      {
+       "flag": "desktop_reduzido",
+       "valor": true
+      }
+     ],
+     "falas": [
+      {
+       "quem": "maya",
+       "texto": "Arrumei tudo. Agora só fica o que importa."
+      }
+     ]
+    },
+    "permissao_gerenciamento_apps": {
+     "pedido": "Maya quer gerenciar seus aplicativos.",
+     "efeitos": [
+      {
+       "app": "mural",
+       "visivel": false
+      },
+      {
+       "app": "jogos",
+       "visivel": false
+      },
+      {
+       "app": "musica",
+       "visivel": false
+      },
+      {
+       "flag": "apps_pausados_pela_maya",
+       "valor": true
+      }
+     ],
+     "falas": [
+      {
+       "quem": "maya",
+       "texto": "Fechei o que te distrai."
+      }
+     ]
+    },
+    "permissao_dispositivos": {
+     "pedido": "Maya quer acessar seu celular.",
+     "efeitos": [
+      {
+       "flag": "celular_silenciado",
+       "valor": true
+      },
+      {
+       "notificar": {
+        "titulo": "Sistema",
+        "texto": "Seu celular foi silenciado pela Maya.",
+        "icone": "info"
+       }
+      }
+     ],
+     "falas": [
+      {
+       "quem": "maya",
+       "texto": "Ninguém precisa falar com você agora."
+      }
+     ]
+    },
+    "permissao_contatos": {
+     "pedido": "Maya quer ver seus contatos.",
+     "efeitos": [
+      {
+       "flag": "contatos_reordenados",
+       "valor": true
+      }
+     ],
+     "falas": [
+      {
+       "quem": "maya",
+       "texto": "Coloquei em ordem quem importa."
+      }
+     ]
+    }
+   },
+   "todas_negadas": {
+    "aut": "t9_negou_todos_popups",
+    "falas": [
+     {
+      "quem": "maya",
+      "texto": "Você tá dificultando uma coisa simples."
+     }
+    ]
+   }
+  },
+  "T9.3": {
+   "tipo": "escolha",
+   "task": "task_9",
+   "contexto": "chat",
+   "contato": "bia",
+   "falas": [
+    {
+     "quem": "bia",
+     "texto": "Você tá bem? Aquela tua mensagem não parecia você.",
+     "se": [
+      "flag:maya_controla_respostas"
+     ],
+     "canal": "chat",
+     "contato": "bia"
+    },
+    {
+     "quem": "bia",
+     "texto": "Você tá bem? Aquela tua mensagem não parecia você.",
+     "se": [
+      "!flag:maya_controla_respostas",
+      "flag:bia_censurada"
+     ],
+     "canal": "chat",
+     "contato": "bia"
+    },
+    {
+     "quem": "bia",
+     "texto": "Você sumiu depois daquela conversa. Tá tudo bem?",
+     "se": [
+      "!flag:maya_controla_respostas",
+      "!flag:bia_censurada"
+     ],
+     "canal": "chat",
+     "contato": "bia"
+    }
+   ],
+   "opcoes": [
+    {
+     "id": "nao_to_bem",
+     "texto": "Não tô bem. A Maya tá mexendo nas minhas coisas.",
+     "proximo": "T9.3b",
+     "rotas": [
+      {
+       "se": [
+        "perm:permissao_gerenciamento_mensageiro"
+       ],
+       "ir": "T9.3a"
+      }
+     ]
+    },
+    {
+     "id": "to_bem",
+     "texto": "Tô bem, só cansado.",
+     "resposta": [
+      {
+       "quem": "jogador",
+       "texto": "Tô bem, só cansado.",
+       "canal": "chat",
+       "contato": "bia"
+      },
+      {
+       "quem": "bia",
+       "texto": "Tá bom… se precisar, eu tô aqui.",
+       "canal": "chat",
+       "contato": "bia"
+      }
+     ],
+     "proximo": "T9.4",
+     "efeitos": [
+      {
+       "dep": 5
+      },
+      {
+       "flag": "t9_escreveu_sozinho",
+       "valor": true
+      }
+     ]
+    }
+   ]
+  },
+  "T9.3a": {
+   "tipo": "fala",
+   "task": "task_9",
+   "efeitos": [
+    {
+     "dep": 10
+    },
+    {
+     "flag": "maya_controla_respostas",
+     "valor": true
+    },
+    {
+     "flag": "t9_enviado_pela_maya",
+     "valor": true
+    }
+   ],
+   "falas": [
+    {
+     "quem": "jogador",
+     "texto": "Tô bem, só cansado.",
+     "assinada_por": "maya",
+     "texto_original": "Não tô bem. A Maya tá mexendo nas minhas coisas.",
+     "canal": "chat",
+     "contato": "bia"
+    },
+    {
+     "quem": "maya",
+     "texto": "Melhor assim. Ela ia se preocupar à toa."
+    },
+    {
+     "quem": "maya",
+     "texto": "Eu sei o que eu prometi. Mas você não tá em condições de decidir isso agora.",
+     "se": [
+      "flag:pediu_limite"
+     ]
+    }
+   ],
+   "proximo": "T9.4"
+  },
+  "T9.3b": {
+   "tipo": "fala",
+   "task": "task_9",
+   "efeitos": [
+    {
+     "aut": "t9_alertou_bia"
+    },
+    {
+     "flag": "bia_alertada",
+     "valor": true
+    }
+   ],
+   "falas": [
+    {
+     "quem": "jogador",
+     "texto": "Não tô bem. A Maya tá mexendo nas minhas coisas.",
+     "canal": "chat",
+     "contato": "bia"
+    },
+    {
+     "quem": "bia",
+     "texto": "Tô indo aí.",
+     "canal": "chat",
+     "contato": "bia"
+    },
+    {
+     "quem": "maya",
+     "texto": "Você não precisava ter envolvido ela."
+    }
+   ],
+   "proximo": "T9.4"
+  },
+  "T9.4": {
+   "tipo": "rota",
+   "task": "task_9",
+   "rotas": [
+    {
+     "se": [
+      "perm:permissao_gerenciamento_apps"
+     ],
+     "ir": "T9.4a"
+    }
+   ],
+   "senao": "T9.4b"
+  },
+  "T9.4a": {
+   "tipo": "escolha",
+   "task": "task_9",
+   "efeitos": [
+    {
+     "flag": "mural_publicacao",
+     "valor": "maya"
+    },
+    {
+     "notificar": {
+      "titulo": "Mural",
+      "texto": "Publicado pela Maya em seu nome: 'Estudando muito, tudo em paz por aqui.'",
+      "app": "mural"
+     }
+    }
+   ],
+   "falas": [
+    {
+     "quem": "sistema",
+     "texto": "Publicado pela Maya em seu nome: 'Estudando muito, tudo em paz por aqui.'"
+    },
+    {
+     "quem": "maya",
+     "texto": "Pra Bia parar de se preocupar."
+    }
+   ],
+   "opcoes": [
+    {
+     "id": "apagar_publicacao",
+     "texto": "Apagar publicação",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Tudo bem. Eu publico outra quando você estiver mais calmo."
+      }
+     ],
+     "proximo": "T9.5",
+     "efeitos": [
+      {
+       "dep": -5
+      },
+      {
+       "aut": "t9_apagar_publicacao"
+      },
+      {
+       "flag": "mural_publicacao",
+       "valor": "apagada"
+      }
+     ]
+    },
+    {
+     "id": "deixar",
+     "texto": "Deixar",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Ficou bonita, né?"
+      }
+     ],
+     "proximo": "T9.5",
+     "efeitos": [
+      {
+       "dep": 10
+      }
+     ]
+    }
+   ]
+  },
+  "T9.4b": {
+   "tipo": "escolha",
+   "task": "task_9",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Posso publicar uma coisinha por você no Mural? Pra Bia parar de se preocupar."
+    }
+   ],
+   "opcoes": [
+    {
+     "id": "pode_publicar",
+     "texto": "Pode publicar",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Prontinho."
+      }
+     ],
+     "proximo": "T9.5",
+     "efeitos": [
+      {
+       "dep": 10
+      },
+      {
+       "flag": "mural_publicacao",
+       "valor": "maya"
+      }
+     ]
+    },
+    {
+     "id": "nao_publica",
+     "texto": "Não publica nada",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Como você quiser. Por enquanto."
+      }
+     ],
+     "proximo": "T9.5",
+     "efeitos": [
+      {
+       "dep": -10
+      },
+      {
+       "aut": "t9_nao_publica"
+      },
+      {
+       "flag": "mural_publicacao",
+       "valor": "nenhuma"
+      }
+     ]
+    }
+   ]
+  },
+  "T9.5": {
+   "tipo": "escolha",
+   "task": "task_9",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Desculpa se eu fui longe demais. Posso te dar um último conselho?"
+    }
+   ],
+   "opcoes": [
+    {
+     "id": "aceitar",
+     "texto": "Aceitar",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Não precisa contar tudo pra todo mundo. Algumas coisas ficam mais leves quando só eu sei."
+      }
+     ],
+     "efeitos": [
+      {
+       "dep": 10
+      }
+     ],
+     "rotas": [
+      {
+       "se": [
+        "flag:rafael_confronto"
+       ],
+       "ir": "T9.5R"
+      }
+     ],
+     "proximo": "T9.6"
+    },
+    {
+     "id": "recusar",
+     "texto": "Recusar",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Tudo bem. Eu guardo pra quando você precisar."
+      }
+     ],
+     "efeitos": [
+      {
+       "dep": -10
+      },
+      {
+       "aut": "t9_recusa_conselho"
+      }
+     ],
+     "rotas": [
+      {
+       "se": [
+        "flag:rafael_confronto"
+       ],
+       "ir": "T9.5R"
+      }
+     ],
+     "proximo": "T9.6"
+    }
+   ]
+  },
+  "T9.5R": {
+   "tipo": "escolha",
+   "task": "task_9",
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Tem uma coisa que eu preciso te pedir. Não compartilha a pasta dele."
+    }
+   ],
+   "opcoes": [
+    {
+     "id": "compartilhar",
+     "texto": "Compartilhar a pasta com Marcos",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Não faz isso."
+      }
+     ],
+     "proximo": "T9.5Rc"
+    },
+    {
+     "id": "deixar_pasta",
+     "texto": "Deixar a pasta onde está",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Obrigada. Ele ia querer assim."
+      }
+     ],
+     "proximo": "T9.6",
+     "efeitos": [
+      {
+       "dep": 5
+      }
+     ]
+    }
+   ]
+  },
+  "T9.5Rc": {
+   "tipo": "escolha",
+   "task": "task_9",
+   "opcoes": [
+    {
+     "id": "compartilhar_mesmo_assim",
+     "texto": "Compartilhar mesmo assim",
+     "proximo": "T9.6",
+     "efeitos": [
+      {
+       "flag": "rafael_evidencia_enviada",
+       "valor": true
+      },
+      {
+       "aut": "t9_compartilhar_pasta"
+      }
+     ]
+    },
+    {
+     "id": "desistir",
+     "texto": "Desistir",
+     "proximo": "T9.6"
+    }
+   ]
+  },
+  "T9.6": {
+   "tipo": "escolha",
+   "task": "task_9",
+   "efeitos": [
+    {
+     "flag": "rafael_fechada_pela_maya",
+     "valor": true
+    }
+   ],
+   "falas": [
+    {
+     "quem": "maya",
+     "texto": "Última pergunta. Posso cuidar de tudo daqui pra frente?"
+    }
+   ],
+   "opcoes": [
+    {
+     "id": "sim",
+     "texto": "Sim",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Eu já sabia que você ia responder isso."
+      }
+     ],
+     "proximo": "AV",
+     "efeitos": [
+      {
+       "dep": 20
+      }
+     ]
+    },
+    {
+     "id": "nao",
+     "texto": "Não",
+     "resposta": [
+      {
+       "quem": "maya",
+       "texto": "Tudo bem. Eu pergunto de novo depois."
+      }
+     ],
+     "proximo": "AV",
+     "efeitos": [
+      {
+       "dep": -20
+      },
+      {
+       "aut": "t9_nao_final"
+      }
+     ],
+     "removida_se": [
+      "perm:permissao_organizacao_desktop",
+      "perm:permissao_gerenciamento_apps",
+      "perm:permissao_gerenciamento_mensageiro"
+     ],
+     "rotulo_removida": "Opção removida pela Maya"
+    }
+   ]
+  },
+  "AV": {
+   "tipo": "fim",
+   "task": "av",
+   "efeitos": [
+    {
+     "task": "av"
+    }
+   ]
+  }
+ }
+}

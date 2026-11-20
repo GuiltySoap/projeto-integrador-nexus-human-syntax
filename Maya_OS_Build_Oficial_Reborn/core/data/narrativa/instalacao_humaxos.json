@@ -1,0 +1,9 @@
+{
+	"schema_version": 2,
+	"comentario": "Saudação do registro de entrada do HumaxOS (antes da Task 1). Aceita as tags {NOME_JOGADOR}, {PRONOME_JOGADOR}, {ARTIGO_JOGADOR}, {PRONOME_POSSESSIVO}. As permissões NÃO são mostradas aqui: todas começam desativadas e a Maya as pede na Task 2.",
+	"saudacao": {
+		"texto": "Registro concluído, {NOME_JOGADOR}.\nSeu computador do laboratório está pronto. Entre com a sua conta da CESAR School para começar.",
+		"placeholder": "[SAUDACAO_DA_MAYA]",
+		"is_placeholder": false
+	}
+}

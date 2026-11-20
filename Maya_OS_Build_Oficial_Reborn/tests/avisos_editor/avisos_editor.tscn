@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c7w3p4n5e9kqd"]
+
+[ext_resource type="Script" path="res://tests/avisos_editor/avisos_editor.gd" id="1_avisos"]
+
+[node name="AvisosEditor" type="Node"]
+script = ExtResource("1_avisos")

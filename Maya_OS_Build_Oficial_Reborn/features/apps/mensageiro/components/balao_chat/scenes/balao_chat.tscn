@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://bgqtvg055f8tu"]
+
+[ext_resource type="Script" uid="uid://cnavof2hlfnvw" path="res://features/apps/mensageiro/components/balao_chat/scripts/balao_chat.gd" id="1_balaoch"]
+
+[node name="BalaoChat" type="HBoxContainer"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+mouse_filter = 2
+script = ExtResource("1_balaoch")
+
+[node name="Bolha" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_type_variation = &"BolhaPadrao"
+mouse_filter = 2
+unique_name_in_owner = true
+
+[node name="Coluna" type="VBoxContainer" parent="Bolha"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="RotuloEtiqueta" type="Label" parent="Bolha/Coluna"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento11"
+visible = false
+unique_name_in_owner = true
+
+[node name="RotuloTexto" type="Label" parent="Bolha/Coluna"]
+layout_mode = 2
+theme_type_variation = &"Rotulo15"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[node name="AreaAnexos" type="VBoxContainer" parent="Bolha/Coluna"]
+layout_mode = 2
+theme_override_constants/separation = 2
+visible = false
+unique_name_in_owner = true
+
+[node name="Rodape" type="HBoxContainer" parent="Bolha/Coluna"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RotuloHora" type="Label" parent="Bolha/Coluna/Rodape"]
+layout_mode = 2
+theme_type_variation = &"RotuloFraco11"
+visible = false
+unique_name_in_owner = true
+
+[node name="RotuloStatus" type="Label" parent="Bolha/Coluna/Rodape"]
+layout_mode = 2
+theme_type_variation = &"RotuloFraco11"
+visible = false
+unique_name_in_owner = true
+
+[node name="RotuloIndicador" type="Label" parent="Bolha/Coluna/Rodape"]
+layout_mode = 2
+theme_type_variation = &"RotuloFraco11"
+visible = false
+tooltip_text = "A Maya aplicou um filtro automático a esta mensagem."
+mouse_filter = 0
+unique_name_in_owner = true
+
+[node name="BotaoReenviar" type="Button" parent="Bolha/Coluna/Rodape"]
+layout_mode = 2
+theme_type_variation = &"BotaoPlano"
+visible = false
+text = "Reenviar"
+tooltip_text = "Tenta enviar esta mensagem de novo."
+unique_name_in_owner = true
+
+[node name="BotaoOriginal" type="Button" parent="Bolha/Coluna/Rodape"]
+layout_mode = 2
+theme_type_variation = &"BotaoPlano"
+visible = false
+text = "Ver original"
+tooltip_text = "Mostra o que você realmente escreveu antes de a Maya editar a mensagem."
+unique_name_in_owner = true
+
+[connection signal="pressed" from="Bolha/Coluna/Rodape/BotaoOriginal" to="." method="_ao_alternar_original"]
+[connection signal="pressed" from="Bolha/Coluna/Rodape/BotaoReenviar" to="." method="_ao_reenviar"]

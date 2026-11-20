@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://aqhgtvwpvcxwq"]
+
+[ext_resource type="Script" path="res://features/shell/area_de_trabalho/scripts/painel_debug.gd" id="1_paineld"]
+
+[node name="PainelDebug" type="PanelContainer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 490.0
+theme_type_variation = &"PainelVidro"
+visible = false
+custom_minimum_size = Vector2(470, 0)
+script = ExtResource("1_paineld")
+
+[node name="Margem" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Raiz" type="VBoxContainer" parent="Margem"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Cabecalho" type="HBoxContainer" parent="Margem/Raiz"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Titulo" type="Label" parent="Margem/Raiz/Cabecalho"]
+layout_mode = 2
+theme_type_variation = &"RotuloTitulo16"
+text = "Painel de testes (F9)"
+
+[node name="Espaco" type="Control" parent="Margem/Raiz/Cabecalho"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="BotaoFechar" type="Button" parent="Margem/Raiz/Cabecalho"]
+layout_mode = 2
+text = "Fechar"
+
+[node name="RotuloEstado" type="Label" parent="Margem/Raiz"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco12Mono"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[node name="Grade" type="GridContainer" parent="Margem/Raiz"]
+layout_mode = 2
+columns = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+
+[node name="BotaoDepMais" type="Button" parent="Margem/Raiz/Grade"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Dependência +10"
+
+[node name="BotaoDepMenos" type="Button" parent="Margem/Raiz/Grade"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Dependência −10"
+
+[node name="BotaoToastInfo" type="Button" parent="Margem/Raiz/Grade"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Toast: informação"
+
+[node name="BotaoSalvar" type="Button" parent="Margem/Raiz/Grade"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Salvar agora"
+
+[node name="LinhaNo" type="HBoxContainer" parent="Margem/Raiz"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TituloNo" type="Label" parent="Margem/Raiz/LinhaNo"]
+layout_mode = 2
+theme_type_variation = &"Rotulo13"
+text = "Ir para o nó"
+
+[node name="CampoNo" type="LineEdit" parent="Margem/Raiz/LinhaNo"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "T6.3, T9.1, AV..."
+unique_name_in_owner = true
+
+[node name="BotaoIr" type="Button" parent="Margem/Raiz/LinhaNo"]
+layout_mode = 2
+text = "Ir"
+
+[node name="TituloFlags" type="Label" parent="Margem/Raiz"]
+layout_mode = 2
+theme_type_variation = &"RotuloFraco11Mono"
+text = "FLAGS ATIVAS"
+
+[node name="ListaFlags" type="RichTextLabel" parent="Margem/Raiz"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"RichoMono"
+focus_mode = 1
+custom_minimum_size = Vector2(0, 170)
+bbcode_enabled = true
+selection_enabled = true
+unique_name_in_owner = true
+
+[connection signal="pressed" from="Margem/Raiz/Cabecalho/BotaoFechar" to="." method="alternar"]
+[connection signal="pressed" from="Margem/Raiz/LinhaNo/BotaoIr" to="." method="_ao_ir_para_no"]
+[connection signal="pressed" from="Margem/Raiz/Grade/BotaoDepMais" to="." method="_ao_dependencia_mais"]
+[connection signal="pressed" from="Margem/Raiz/Grade/BotaoDepMenos" to="." method="_ao_dependencia_menos"]
+[connection signal="pressed" from="Margem/Raiz/Grade/BotaoToastInfo" to="." method="_ao_toast_info"]
+[connection signal="pressed" from="Margem/Raiz/Grade/BotaoSalvar" to="." method="_ao_salvar"]

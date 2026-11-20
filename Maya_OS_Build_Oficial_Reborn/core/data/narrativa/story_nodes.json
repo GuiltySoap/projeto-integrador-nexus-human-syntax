@@ -1,0 +1,266 @@
+{
+ "schema_version": 2,
+ "comentario": "Story Nodes de nível de Task do roteiro v2.0. Os nós numerados (T1.1...) e os diálogos ficam em roteiro_v2.json (FluxoRoteiro), que ativa e conclui estes nós conforme as condições de saída. Task 5 é opcional (não é principal: não muda a Task atual). A Task 8 é liberada pela Task 7 OU por TR.1.",
+ "nos": {
+  "task_1": {
+   "titulo": "Task 1 — Sincronização",
+   "subtitulo": "Estágio 1 · Assistente",
+   "tipo": "task",
+   "principal": true,
+   "requisitos": {},
+   "gatilhos": [
+    {
+     "tipo": "inicio"
+    }
+   ],
+   "conclusao": {},
+   "efeitos_ao_ativar": [],
+   "efeitos_ao_concluir": [],
+   "dialogos": [],
+   "escolhas": [],
+   "eventos": [],
+   "proximos": [
+    "task_2"
+   ],
+   "repetivel": false,
+   "is_placeholder": false
+  },
+  "task_2": {
+   "titulo": "Task 2 — Permissões",
+   "subtitulo": "Estágio 1 · Assistente",
+   "tipo": "task",
+   "principal": true,
+   "requisitos": {},
+   "gatilhos": [
+    {
+     "tipo": "evento",
+     "evento": "roteiro_manual"
+    }
+   ],
+   "conclusao": {},
+   "efeitos_ao_ativar": [],
+   "efeitos_ao_concluir": [],
+   "dialogos": [],
+   "escolhas": [],
+   "eventos": [],
+   "proximos": [
+    "task_3"
+   ],
+   "repetivel": false,
+   "is_placeholder": false
+  },
+  "task_3": {
+   "titulo": "Task 3 — Monitoramento",
+   "subtitulo": "Estágio 1 · Assistente",
+   "tipo": "task",
+   "principal": true,
+   "requisitos": {},
+   "gatilhos": [
+    {
+     "tipo": "evento",
+     "evento": "roteiro_manual"
+    }
+   ],
+   "conclusao": {},
+   "efeitos_ao_ativar": [],
+   "efeitos_ao_concluir": [],
+   "dialogos": [],
+   "escolhas": [],
+   "eventos": [],
+   "proximos": [
+    "task_4"
+   ],
+   "repetivel": false,
+   "is_placeholder": false
+  },
+  "task_4": {
+   "titulo": "Task 4 — Nova entrega",
+   "subtitulo": "Estágio 2 · Controladora",
+   "tipo": "task",
+   "principal": true,
+   "requisitos": {},
+   "gatilhos": [
+    {
+     "tipo": "evento",
+     "evento": "roteiro_manual"
+    }
+   ],
+   "conclusao": {},
+   "efeitos_ao_ativar": [],
+   "efeitos_ao_concluir": [],
+   "dialogos": [],
+   "escolhas": [],
+   "eventos": [],
+   "proximos": [
+    "task_6"
+   ],
+   "repetivel": false,
+   "is_placeholder": false
+  },
+  "task_5": {
+   "titulo": "Task 5 — Chat de Rafael (opcional)",
+   "subtitulo": "Estágio 2 · Controladora",
+   "tipo": "task",
+   "principal": false,
+   "requisitos": {},
+   "gatilhos": [
+    {
+     "tipo": "evento",
+     "evento": "roteiro_manual"
+    }
+   ],
+   "conclusao": {},
+   "efeitos_ao_ativar": [],
+   "efeitos_ao_concluir": [],
+   "dialogos": [],
+   "escolhas": [],
+   "eventos": [],
+   "proximos": [],
+   "repetivel": false,
+   "is_placeholder": false
+  },
+  "task_6": {
+   "titulo": "Task 6 — Mensagem de Bia",
+   "subtitulo": "Estágio 2 · Controladora",
+   "tipo": "task",
+   "principal": true,
+   "requisitos": {},
+   "gatilhos": [
+    {
+     "tipo": "evento",
+     "evento": "roteiro_manual"
+    }
+   ],
+   "conclusao": {},
+   "efeitos_ao_ativar": [],
+   "efeitos_ao_concluir": [],
+   "dialogos": [],
+   "escolhas": [],
+   "eventos": [],
+   "proximos": [
+    "task_7",
+    "tr_1"
+   ],
+   "repetivel": false,
+   "is_placeholder": false
+  },
+  "tr_1": {
+   "titulo": "TR.1 — Transição (Task 6 para Task 8)",
+   "subtitulo": "Estágio 3 · Root",
+   "tipo": "task",
+   "principal": true,
+   "requisitos": {},
+   "gatilhos": [
+    {
+     "tipo": "evento",
+     "evento": "roteiro_manual"
+    }
+   ],
+   "conclusao": {},
+   "efeitos_ao_ativar": [],
+   "efeitos_ao_concluir": [],
+   "dialogos": [],
+   "escolhas": [],
+   "eventos": [],
+   "proximos": [
+    "task_8"
+   ],
+   "repetivel": false,
+   "is_placeholder": false
+  },
+  "task_7": {
+   "titulo": "Task 7 — O Confronto",
+   "subtitulo": "Estágio 3 · Root",
+   "tipo": "task",
+   "principal": true,
+   "requisitos": {},
+   "gatilhos": [
+    {
+     "tipo": "evento",
+     "evento": "roteiro_manual"
+    }
+   ],
+   "conclusao": {},
+   "efeitos_ao_ativar": [],
+   "efeitos_ao_concluir": [],
+   "dialogos": [],
+   "escolhas": [],
+   "eventos": [],
+   "proximos": [
+    "task_8"
+   ],
+   "repetivel": false,
+   "is_placeholder": false
+  },
+  "task_8": {
+   "titulo": "Task 8 — Confissão",
+   "subtitulo": "Estágio 3 · Root",
+   "tipo": "task",
+   "principal": true,
+   "requisitos": {},
+   "gatilhos": [
+    {
+     "tipo": "evento",
+     "evento": "roteiro_manual"
+    }
+   ],
+   "conclusao": {},
+   "efeitos_ao_ativar": [],
+   "efeitos_ao_concluir": [],
+   "dialogos": [],
+   "escolhas": [],
+   "eventos": [],
+   "proximos": [
+    "task_9"
+   ],
+   "repetivel": false,
+   "is_placeholder": false
+  },
+  "task_9": {
+   "titulo": "Task 9 — Controle progressivo",
+   "subtitulo": "Estágio 3 · Root",
+   "tipo": "task",
+   "principal": true,
+   "requisitos": {},
+   "gatilhos": [
+    {
+     "tipo": "evento",
+     "evento": "roteiro_manual"
+    }
+   ],
+   "conclusao": {},
+   "efeitos_ao_ativar": [],
+   "efeitos_ao_concluir": [],
+   "dialogos": [],
+   "escolhas": [],
+   "eventos": [],
+   "proximos": [
+    "av"
+   ],
+   "repetivel": false,
+   "is_placeholder": false
+  },
+  "av": {
+   "titulo": "AV — Avaliação dos finais",
+   "subtitulo": "Estágio 3 · Root",
+   "tipo": "task",
+   "principal": true,
+   "requisitos": {},
+   "gatilhos": [
+    {
+     "tipo": "evento",
+     "evento": "roteiro_manual"
+    }
+   ],
+   "conclusao": {},
+   "efeitos_ao_ativar": [],
+   "efeitos_ao_concluir": [],
+   "dialogos": [],
+   "escolhas": [],
+   "eventos": [],
+   "proximos": [],
+   "repetivel": false,
+   "is_placeholder": false
+  }
+ }
+}

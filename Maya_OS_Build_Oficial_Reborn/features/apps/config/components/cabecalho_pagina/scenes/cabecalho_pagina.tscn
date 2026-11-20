@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://aavjmqedvu0y6"]
+
+[ext_resource type="Script" path="res://features/apps/config/components/cabecalho_pagina/scripts/cabecalho_pagina.gd" id="1_cabecal"]
+
+[node name="CabecalhoPagina" type="VBoxContainer"]
+layout_mode = 3
+anchors_preset = 0
+theme_override_constants/separation = 12
+script = ExtResource("1_cabecal")
+
+[node name="RotuloTitulo" type="Label" parent="."]
+layout_mode = 2
+theme_type_variation = &"RotuloTitulo22"
+text = "Título da página"
+unique_name_in_owner = true
+
+[node name="RotuloSubtitulo" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[node name="Separador" type="HSeparator" parent="."]
+layout_mode = 2

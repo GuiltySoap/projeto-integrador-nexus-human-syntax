@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://c52bh3mcc8wju"]
+
+[ext_resource type="Script" uid="uid://b4jwhg582adco" path="res://features/apps/mensageiro/scripts/app_mensageiro.gd" id="1_appmens"]
+[ext_resource type="PackedScene" uid="uid://bbdu66okmlghc" path="res://features/apps/mensageiro/scenes/item_contato.tscn" id="2_itemcon"]
+[ext_resource type="PackedScene" uid="uid://bgqtvg055f8tu" path="res://features/apps/mensageiro/components/balao_chat/scenes/balao_chat.tscn" id="3_balaoch"]
+[ext_resource type="PackedScene" uid="uid://bn0ynkjb1llw4" path="res://features/apps/mensageiro/scenes/item_escolha.tscn" id="4_itemesc"]
+
+[node name="AppMensageiro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_appmens")
+cena_contato = ExtResource("2_itemcon")
+cena_balao = ExtResource("3_balaoch")
+cena_escolha = ExtResource("4_itemesc")
+
+[node name="Raiz" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+
+[node name="BarraContatos" type="PanelContainer" parent="Raiz"]
+layout_mode = 2
+theme_type_variation = &"PainelEscuro"
+custom_minimum_size = Vector2(236, 0)
+
+[node name="Margem" type="MarginContainer" parent="Raiz/BarraContatos"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="RolagemContatos" type="ScrollContainer" parent="Raiz/BarraContatos/Margem"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ListaContatos" type="VBoxContainer" parent="Raiz/BarraContatos/Margem/RolagemContatos"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+unique_name_in_owner = true
+
+[node name="PainelConversa" type="VBoxContainer" parent="Raiz"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+unique_name_in_owner = true
+
+[node name="Cabecalho" type="PanelContainer" parent="Raiz/PainelConversa"]
+layout_mode = 2
+theme_type_variation = &"PainelCartao"
+
+[node name="Margem" type="MarginContainer" parent="Raiz/PainelConversa/Cabecalho"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Coluna" type="VBoxContainer" parent="Raiz/PainelConversa/Cabecalho/Margem"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="RotuloNome" type="Label" parent="Raiz/PainelConversa/Cabecalho/Margem/Coluna"]
+layout_mode = 2
+theme_type_variation = &"RotuloTitulo18"
+unique_name_in_owner = true
+
+[node name="RotuloStatus" type="Label" parent="Raiz/PainelConversa/Cabecalho/Margem/Coluna"]
+layout_mode = 2
+theme_type_variation = &"RotuloFraco12"
+unique_name_in_owner = true
+
+[node name="AreaMensagens" type="PanelContainer" parent="Raiz/PainelConversa"]
+layout_mode = 2
+theme_type_variation = &"PainelEscuro"
+size_flags_vertical = 3
+
+[node name="Rolagem" type="ScrollContainer" parent="Raiz/PainelConversa/AreaMensagens"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+unique_name_in_owner = true
+
+[node name="Margem" type="MarginContainer" parent="Raiz/PainelConversa/AreaMensagens/Rolagem"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ListaMensagens" type="VBoxContainer" parent="Raiz/PainelConversa/AreaMensagens/Rolagem/Margem"]
+layout_mode = 2
+theme_override_constants/separation = 8
+unique_name_in_owner = true
+
+[node name="RotuloVazio" type="Label" parent="Raiz/PainelConversa/AreaMensagens/Rolagem/Margem/ListaMensagens"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+text = "Nenhuma mensagem ainda. As respostas aparecem aqui quando houver o que responder."
+autowrap_mode = 3
+visible = false
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[node name="AreaEscolhas" type="VBoxContainer" parent="Raiz/PainelConversa"]
+layout_mode = 2
+theme_override_constants/separation = 6
+visible = false
+unique_name_in_owner = true
+
+[node name="RotuloEscolher" type="Label" parent="Raiz/PainelConversa/AreaEscolhas"]
+layout_mode = 2
+theme_type_variation = &"RotuloFraco12"
+text = "Escolha como responder (não há digitação livre):"
+
+[node name="RotuloDica" type="Label" parent="Raiz/PainelConversa"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+text = "A Maya bloqueou este contato “para a sua proteção”. Mensagens enviadas não serão entregues."
+autowrap_mode = 3
+visible = false
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true

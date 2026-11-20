@@ -1,0 +1,180 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://shared/ui/painel_opcoes/scripts/painel_opcoes.gd" id="1_painelo"]
+[ext_resource type="PackedScene" uid="uid://aawmf1axwut7d" path="res://features/apps/config/components/linha_slider/scenes/linha_slider.tscn" id="3_linhasl"]
+[ext_resource type="PackedScene" uid="uid://bnmr2okbfuw0v" path="res://features/apps/config/components/linha_check/scenes/linha_check.tscn" id="4_linhach"]
+[ext_resource type="PackedScene" uid="uid://ck0b311ii245h" path="res://features/apps/config/components/linha_opcao/scenes/linha_opcao.tscn" id="5_linhaop"]
+
+[node name="PainelOpcoes" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_painelo")
+
+[node name="Cortina" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="Centro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Painel" type="PanelContainer" parent="Centro"]
+custom_minimum_size = Vector2(820, 0)
+layout_mode = 2
+theme_type_variation = &"PainelVidro"
+
+[node name="Margem" type="MarginContainer" parent="Centro/Painel"]
+layout_mode = 2
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 26
+theme_override_constants/margin_bottom = 22
+
+[node name="Caixa" type="VBoxContainer" parent="Centro/Painel/Margem"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="RotuloTitulo" type="Label" parent="Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_type_variation = &"RotuloTitulo22"
+text = "Opções"
+
+[node name="RotuloAjuda" type="Label" parent="Centro/Painel/Margem/Caixa"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+text = "As mudanças valem na hora e ficam salvas. Elas não alteram o seu progresso na campanha."
+autowrap_mode = 3
+
+[node name="Rolagem" type="ScrollContainer" parent="Centro/Painel/Margem/Caixa"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 520)
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="Linhas" type="VBoxContainer" parent="Centro/Painel/Margem/Caixa/Rolagem"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="TituloAudio" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "ÁUDIO"
+[node name="VolumeGeral" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas" instance=ExtResource("3_linhasl")]
+layout_mode = 2
+chave = "volume_master"
+titulo = "Volume geral"
+[node name="VolumeMusica" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas" instance=ExtResource("3_linhasl")]
+layout_mode = 2
+chave = "volume_bgm"
+titulo = "Música ambiente"
+[node name="VolumeEfeitos" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas" instance=ExtResource("3_linhasl")]
+layout_mode = 2
+chave = "volume_sfx"
+titulo = "Efeitos sonoros"
+[node name="Separador1" type="HSeparator" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas"]
+layout_mode = 2
+[node name="TituloTela" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "TELA E LEITURA"
+[node name="BotaoTelaCheia" type="Button" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Tela cheia"
+
+[node name="OpcaoTamanhoTexto" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas" instance=ExtResource("5_linhaop")]
+layout_mode = 2
+chave = "tamanho_texto"
+titulo = "Tamanho do texto"
+rotulos = PackedStringArray("Pequeno", "Normal", "Grande", "Muito grande")
+valores = [0.9, 1.0, 1.2, 1.4]
+[node name="OpcaoAltoContraste" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas" instance=ExtResource("4_linhach")]
+layout_mode = 2
+chave = "alto_contraste"
+titulo = "Alto contraste"
+descricao = "Texto branco sobre fundo preto, com bordas mais fortes."
+[node name="Separador2" type="HSeparator" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas"]
+layout_mode = 2
+[node name="TituloAcessibilidade" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "ACESSIBILIDADE"
+[node name="OpcaoConforto" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas" instance=ExtResource("4_linhach")]
+layout_mode = 2
+chave = "modo_conforto"
+titulo = "Modo conforto"
+descricao = "Liga de uma vez as cinco reduções abaixo. Ctrl+Shift+D faz o mesmo a qualquer momento."
+[node name="OpcaoReduzirAnimacoes" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas" instance=ExtResource("4_linhach")]
+layout_mode = 2
+chave = "reduzir_animacoes"
+titulo = "Reduzir animações"
+descricao = "Transições instantâneas, sem fades nem movimentos."
+[node name="OpcaoReduzirGlitch" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas" instance=ExtResource("4_linhach")]
+layout_mode = 2
+chave = "reduzir_glitch"
+titulo = "Reduzir efeitos de glitch"
+descricao = "Desliga as distorções de tela e o texto embaralhado."
+[node name="OpcaoReduzirTremor" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas" instance=ExtResource("4_linhach")]
+layout_mode = 2
+chave = "reduzir_tremor"
+titulo = "Reduzir tremor das janelas"
+descricao = "As janelas deixam de balançar quando a Maya reage."
+[node name="OpcaoSemFlashes" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas" instance=ExtResource("4_linhach")]
+layout_mode = 2
+chave = "sem_flashes"
+titulo = "Sem flashes de luz"
+descricao = "Remove qualquer clarão ou piscar rápido de cor."
+[node name="OpcaoReduzirRuido" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas" instance=ExtResource("4_linhach")]
+layout_mode = 2
+chave = "reduzir_ruido"
+titulo = "Reduzir ruído e chiado"
+descricao = "Troca sons de estática por tons suaves."
+[node name="Separador3" type="HSeparator" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas"]
+layout_mode = 2
+[node name="TituloJogo" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "JOGO"
+[node name="OpcaoDificuldade" parent="Centro/Painel/Margem/Caixa/Rolagem/Linhas" instance=ExtResource("5_linhaop")]
+layout_mode = 2
+chave = "dificuldade_processo"
+titulo = "Velocidade do processo malicioso"
+rotulos = PackedStringArray("Relaxado (mais tempo)", "Normal", "Intenso (menos tempo)")
+valores = ["relaxado", "normal", "intenso"]
+
+[node name="Rodape" type="HBoxContainer" parent="Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+alignment = 2
+
+[node name="BotaoVoltar" type="Button" parent="Centro/Painel/Margem/Caixa/Rodape"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 46)
+layout_mode = 2
+theme_type_variation = &"BotaoPrimario"
+text = "Voltar"
+
+[connection signal="pressed" from="Centro/Painel/Margem/Caixa/Rolagem/Linhas/BotaoTelaCheia" to="." method="_ao_tela_cheia"]
+[connection signal="pressed" from="Centro/Painel/Margem/Caixa/Rodape/BotaoVoltar" to="." method="_ao_voltar"]

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bl6n3n4skggsk"]
+
+[ext_resource type="Script" path="res://features/shell/efeito_glitch/scripts/efeito_glitch.gd" id="1_efeitog"]
+[ext_resource type="Shader" path="res://shared/assets/shaders/efeito_glitch.gdshader" id="2_efeitog"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tr6j5"]
+resource_local_to_scene = true
+shader = ExtResource("2_efeitog")
+shader_parameter/intensidade = 0.0
+shader_parameter/animar = 1.0
+
+[node name="EfeitoGlitch" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_efeitog")
+
+[node name="Retangulo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+visible = false
+material = SubResource("ShaderMaterial_tr6j5")
+color = Color(1, 1, 1, 1)
+unique_name_in_owner = true

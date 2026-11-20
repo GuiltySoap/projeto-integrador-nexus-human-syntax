@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://tests/monitor_virtual/monitor_virtual.gd" id="1_teste"]
+
+[node name="TesteMonitorVirtual" type="Node"]
+script = ExtResource("1_teste")

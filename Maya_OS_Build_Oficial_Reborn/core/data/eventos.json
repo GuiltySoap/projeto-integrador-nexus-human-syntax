@@ -1,0 +1,117 @@
+{
+ "eventos": {
+  "permissao_alterada": {
+   "descricao": "Uma das cinco permissões da Maya foi concedida ou revogada.",
+   "origem_padrao": "permissoes",
+   "destino": "global",
+   "unico": false,
+   "exige_dados": [
+    "id",
+    "ativa"
+   ],
+   "condicoes": [],
+   "efeitos": []
+  },
+  "permissao_revogada": {
+   "descricao": "Uma permissão foi revogada nas Configurações (ou pelo Terminal).",
+   "origem_padrao": "permissoes",
+   "destino": "global",
+   "unico": false,
+   "exige_dados": [
+    "id",
+    "origem"
+   ],
+   "condicoes": [],
+   "efeitos": []
+  },
+  "revogacao_adiada": {
+   "descricao": "A Maya adiou uma revogação na Task 9 (tentativa 1 de 2).",
+   "origem_padrao": "permissoes",
+   "destino": "global",
+   "unico": false,
+   "exige_dados": [
+    "id",
+    "origem",
+    "tentativa"
+   ],
+   "condicoes": [],
+   "efeitos": []
+  },
+  "arquivo_aberto": {
+   "descricao": "Um arquivo do sistema de arquivos virtual foi aberto.",
+   "origem_padrao": "arquivos",
+   "destino": "global",
+   "unico": false,
+   "exige_dados": [
+    "caminho",
+    "chave"
+   ],
+   "condicoes": [],
+   "efeitos": [
+    {
+     "tipo": "flag",
+     "nome": "arquivo_aberto:$chave",
+     "valor": true
+    }
+   ]
+  },
+  "comando_executado": {
+   "descricao": "Um comando foi executado no Terminal.",
+   "origem_padrao": "terminal",
+   "destino": "global",
+   "unico": false,
+   "exige_dados": [
+    "comando",
+    "ok"
+   ],
+   "condicoes": [],
+   "efeitos": []
+  },
+  "no_ativado": {
+   "descricao": "Um nó do roteiro foi ativado.",
+   "origem_padrao": "nos",
+   "destino": "global",
+   "unico": false,
+   "exige_dados": [
+    "id"
+   ],
+   "condicoes": [],
+   "efeitos": []
+  },
+  "no_concluido": {
+   "descricao": "Um nó do roteiro foi concluído.",
+   "origem_padrao": "nos",
+   "destino": "global",
+   "unico": false,
+   "exige_dados": [
+    "id"
+   ],
+   "condicoes": [],
+   "efeitos": []
+  },
+  "aplicativo_bloqueado": {
+   "descricao": "Tentaram abrir um aplicativo oculto, pausado ou ainda não liberado.",
+   "origem_padrao": "janelas",
+   "destino": "global",
+   "unico": false,
+   "exige_dados": [
+    "app",
+    "motivo"
+   ],
+   "condicoes": [],
+   "efeitos": []
+  },
+  "final_alcancado": {
+   "descricao": "A história chegou a um dos seis finais.",
+   "origem_padrao": "narrativa",
+   "destino": "global",
+   "unico": true,
+   "exige_dados": [
+    "final"
+   ],
+   "condicoes": [],
+   "efeitos": [],
+   "chave_dedup": "final"
+  }
+ }
+}

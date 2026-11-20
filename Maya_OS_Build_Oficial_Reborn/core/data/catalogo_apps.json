@@ -1,0 +1,348 @@
+{
+ "apps_comentario": "Catálogo do roteiro v2.0. Na área de trabalho: Arquivos, Mensageiro, Mural, Jogos, Música, Configurações, Terminal, Lixeira e Painel da Maya. `pausavel`: o Mural, Jogos e Música que a Maya pode pausar (T9.1). `sistema`: janelas do próprio roteiro (cartões, relatórios, rotina, minigames). `args_padrao`: argumentos de abertura. Quem aparece nos ícones/menus é decidido por GerenciadorJanelas (flags app_oculto:<id> e desktop_reduzido).",
+ "apps": [
+  {
+   "id": "explorer",
+   "nome": "Arquivos",
+   "icone": "📁",
+   "cor": "#f59e0b",
+   "cena": "res://features/apps/explorador/scenes/app_explorador.tscn",
+   "processo": "humax_explorer.exe",
+   "tamanho": [
+    920,
+    580
+   ],
+   "tamanho_min": [
+    640,
+    420
+   ],
+   "multiplas_instancias": true,
+   "area_de_trabalho": true,
+   "menu_iniciar": true,
+   "fixado": true
+  },
+  {
+   "id": "messenger",
+   "nome": "Mensageiro",
+   "icone": "💬",
+   "cor": "#60a5fa",
+   "cena": "res://features/apps/mensageiro/scenes/app_mensageiro.tscn",
+   "processo": "humax_chat.exe",
+   "tamanho": [
+    960,
+    640
+   ],
+   "tamanho_min": [
+    700,
+    460
+   ],
+   "multiplas_instancias": false,
+   "area_de_trabalho": true,
+   "menu_iniciar": true,
+   "fixado": true,
+   "aliases": [
+    "mensageiro"
+   ]
+  },
+  {
+   "id": "mural",
+   "nome": "Mural",
+   "icone": "📌",
+   "cor": "#ec4899",
+   "cena": "res://features/apps/basico/scenes/app_basico.tscn",
+   "processo": "humax_mural.exe",
+   "tamanho": [
+    560,
+    520
+   ],
+   "tamanho_min": [
+    420,
+    360
+   ],
+   "multiplas_instancias": false,
+   "area_de_trabalho": true,
+   "menu_iniciar": true,
+   "fixado": false,
+   "pausavel": true
+  },
+  {
+   "id": "jogos",
+   "nome": "Jogos",
+   "icone": "🎮",
+   "cor": "#22c55e",
+   "cena": "res://features/apps/basico/scenes/app_basico.tscn",
+   "processo": "humax_jogos.exe",
+   "tamanho": [
+    560,
+    480
+   ],
+   "tamanho_min": [
+    420,
+    340
+   ],
+   "multiplas_instancias": false,
+   "area_de_trabalho": true,
+   "menu_iniciar": true,
+   "fixado": false,
+   "pausavel": true
+  },
+  {
+   "id": "musica",
+   "nome": "Música",
+   "icone": "🎵",
+   "cor": "#38bdf8",
+   "cena": "res://features/apps/basico/scenes/app_basico.tscn",
+   "processo": "humax_musica.exe",
+   "tamanho": [
+    520,
+    460
+   ],
+   "tamanho_min": [
+    400,
+    320
+   ],
+   "multiplas_instancias": false,
+   "area_de_trabalho": true,
+   "menu_iniciar": true,
+   "fixado": false,
+   "pausavel": true
+  },
+  {
+   "id": "settings",
+   "nome": "Configurações",
+   "icone": "⚙",
+   "cor": "#94a3b8",
+   "cena": "res://features/apps/config/scenes/app_config.tscn",
+   "processo": "humax_settings.exe",
+   "tamanho": [
+    860,
+    600
+   ],
+   "tamanho_min": [
+    680,
+    460
+   ],
+   "multiplas_instancias": false,
+   "area_de_trabalho": true,
+   "menu_iniciar": true,
+   "fixado": true
+  },
+  {
+   "id": "terminal",
+   "nome": "Terminal",
+   "icone": "⌨",
+   "cor": "#4ade80",
+   "cena": "res://features/apps/terminal/scenes/app_terminal.tscn",
+   "processo": "humax_term.exe",
+   "tamanho": [
+    860,
+    540
+   ],
+   "tamanho_min": [
+    560,
+    360
+   ],
+   "multiplas_instancias": false,
+   "area_de_trabalho": true,
+   "menu_iniciar": true,
+   "fixado": false
+  },
+  {
+   "id": "trash",
+   "nome": "Lixeira",
+   "icone": "🗑",
+   "cor": "#64748b",
+   "cena": "res://features/apps/explorador/scenes/app_explorador.tscn",
+   "processo": "humax_lixeira.exe",
+   "tamanho": [
+    760,
+    480
+   ],
+   "tamanho_min": [
+    560,
+    360
+   ],
+   "multiplas_instancias": true,
+   "args_padrao": {
+    "caminho": "/lixeira"
+   },
+   "area_de_trabalho": true,
+   "menu_iniciar": false,
+   "fixado": false
+  },
+  {
+   "id": "maya",
+   "nome": "Painel da Maya",
+   "icone": "✦",
+   "icone_arquivo": "res://shared/assets/icons/icone_maya.png",
+   "cor": "#8b5cf6",
+   "cena": "res://features/apps/maya/scenes/app_maya.tscn",
+   "processo": "humax_maya.exe",
+   "tamanho": [
+    560,
+    640
+   ],
+   "tamanho_min": [
+    420,
+    460
+   ],
+   "multiplas_instancias": false,
+   "area_de_trabalho": true,
+   "menu_iniciar": true,
+   "fixado": true,
+   "sistema": true
+  },
+  {
+   "id": "text_reader",
+   "nome": "Leitor de Texto",
+   "icone": "📄",
+   "cor": "#94a3b8",
+   "cena": "res://features/apps/leitor_texto/scenes/app_leitor_texto.tscn",
+   "processo": "humax_leitor.exe",
+   "tamanho": [
+    620,
+    520
+   ],
+   "tamanho_min": [
+    420,
+    320
+   ],
+   "multiplas_instancias": true,
+   "area_de_trabalho": false,
+   "menu_iniciar": false,
+   "fixado": false
+  },
+  {
+   "id": "text_editor",
+   "nome": "Bloco de Notas",
+   "icone": "📝",
+   "cor": "#38bdf8",
+   "cena": "res://features/apps/bloco_de_notas/scenes/app_bloco_de_notas.tscn",
+   "processo": "humax_notepad.exe",
+   "tamanho": [
+    720,
+    520
+   ],
+   "tamanho_min": [
+    480,
+    320
+   ],
+   "multiplas_instancias": true,
+   "area_de_trabalho": false,
+   "menu_iniciar": false,
+   "fixado": false,
+   "aliases": [
+    "editor",
+    "bloco-de-notas"
+   ]
+  },
+  {
+   "id": "media_viewer",
+   "nome": "Galeria",
+   "icone": "🖼",
+   "cor": "#f472b6",
+   "cena": "res://features/apps/visualizador/scenes/app_visualizador.tscn",
+   "processo": "humax_media.exe",
+   "tamanho": [
+    860,
+    620
+   ],
+   "tamanho_min": [
+    600,
+    440
+   ],
+   "multiplas_instancias": true,
+   "area_de_trabalho": false,
+   "menu_iniciar": false,
+   "fixado": false,
+   "aliases": [
+    "visualizador",
+    "galeria"
+   ]
+  },
+  {
+   "id": "privacidade_maya",
+   "nome": "Privacidade — pedido da Maya",
+   "icone": "✦",
+   "cor": "#8b5cf6",
+   "cena": "res://features/apps/privacidade_maya/scenes/app_privacidade_maya.tscn",
+   "processo": "humax_privacidade_maya.exe",
+   "tamanho": [
+    560,
+    520
+   ],
+   "tamanho_min": [
+    420,
+    300
+   ],
+   "multiplas_instancias": false,
+   "area_de_trabalho": false,
+   "menu_iniciar": false,
+   "fixado": false,
+   "sistema": true
+  },
+  {
+   "id": "relatorio",
+   "nome": "Relatório",
+   "icone": "✦",
+   "cor": "#8b5cf6",
+   "cena": "res://features/apps/relatorio/scenes/app_relatorio.tscn",
+   "processo": "humax_relatorio.exe",
+   "tamanho": [
+    720,
+    540
+   ],
+   "tamanho_min": [
+    420,
+    300
+   ],
+   "multiplas_instancias": false,
+   "area_de_trabalho": false,
+   "menu_iniciar": false,
+   "fixado": false,
+   "sistema": true
+  },
+  {
+   "id": "rotina",
+   "nome": "Montar rotina",
+   "icone": "✦",
+   "cor": "#8b5cf6",
+   "cena": "res://features/apps/rotina/scenes/app_rotina.tscn",
+   "processo": "humax_rotina.exe",
+   "tamanho": [
+    640,
+    520
+   ],
+   "tamanho_min": [
+    420,
+    300
+   ],
+   "multiplas_instancias": false,
+   "area_de_trabalho": false,
+   "menu_iniciar": false,
+   "fixado": false,
+   "sistema": true
+  },
+  {
+   "id": "minigame_logica",
+   "nome": "Lógica",
+   "icone": "✦",
+   "cor": "#8b5cf6",
+   "cena": "res://features/minigames/logica/scenes/app_minigame_logica.tscn",
+   "processo": "humax_minigame_logica.exe",
+   "tamanho": [
+    760,
+    600
+   ],
+   "tamanho_min": [
+    420,
+    300
+   ],
+   "multiplas_instancias": false,
+   "area_de_trabalho": false,
+   "menu_iniciar": false,
+   "fixado": false,
+   "sistema": true
+  }
+ ]
+}

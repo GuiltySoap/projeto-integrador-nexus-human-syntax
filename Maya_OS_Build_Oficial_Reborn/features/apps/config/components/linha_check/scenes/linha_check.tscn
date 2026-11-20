@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bnmr2okbfuw0v"]
+
+[ext_resource type="Script" path="res://features/apps/config/components/linha_check/scripts/linha_check.gd" id="1_linhach"]
+
+[node name="LinhaCheck" type="VBoxContainer"]
+layout_mode = 3
+anchors_preset = 0
+theme_override_constants/separation = 2
+script = ExtResource("1_linhach")
+
+[node name="Caixa" type="CheckBox" parent="."]
+layout_mode = 2
+text = "Título"
+unique_name_in_owner = true
+
+[node name="RecuoDescricao" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+unique_name_in_owner = true
+
+[node name="RotuloDescricao" type="Label" parent="RecuoDescricao"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[connection signal="toggled" from="Caixa" to="." method="_ao_alternar"]

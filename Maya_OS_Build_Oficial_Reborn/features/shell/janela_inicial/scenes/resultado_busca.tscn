@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://c3cbwivptblxp"]
+
+[ext_resource type="Script" path="res://features/shell/janela_inicial/scripts/resultado_busca.gd" id="1_resulta"]
+[ext_resource type="PackedScene" uid="uid://bp3exqu5smrvm" path="res://shared/ui/icone_app/scenes/icone_app.tscn" id="2_iconeap"]
+
+[node name="ResultadoBusca" type="Button"]
+layout_mode = 3
+anchors_preset = 0
+theme_type_variation = &"BotaoPlano"
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 48)
+script = ExtResource("1_resulta")
+
+[node name="Linha" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+offset_left = 10.0
+offset_right = -8.0
+
+[node name="Icone" parent="Linha" instance=ExtResource("2_iconeap")]
+layout_mode = 2
+lado = 28
+size_flags_vertical = 4
+unique_name_in_owner = true
+
+[node name="Emoji" type="Label" parent="Linha"]
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Rotulo20"
+custom_minimum_size = Vector2(28, 28)
+horizontal_alignment = 1
+size_flags_vertical = 4
+visible = false
+unique_name_in_owner = true
+
+[node name="Textos" type="VBoxContainer" parent="Linha"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+size_flags_vertical = 4
+
+[node name="Titulo" type="Label" parent="Linha/Textos"]
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Rotulo14"
+text_overrun_behavior = 3
+unique_name_in_owner = true
+
+[node name="Detalhe" type="Label" parent="Linha/Textos"]
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"RotuloFraco11Mono"
+text_overrun_behavior = 3
+unique_name_in_owner = true

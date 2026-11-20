@@ -1,0 +1,477 @@
+{
+ "versao": 2,
+ "comentario": "Árvore inicial do roteiro v2.0. `visivel_se`: condições do roteiro; `ao_abrir`/`ao_encontrar`: efeitos do roteiro (uma vez); `abre_app`: atalho de aplicativo; `abre_minigame`: abre a trava do Rafael.",
+ "nos": [
+  {
+   "caminho": "/sistema",
+   "tipo": "pasta",
+   "somente_leitura": true
+  },
+  {
+   "caminho": "/sistema/aplicativos",
+   "tipo": "pasta",
+   "somente_leitura": true,
+   "id": "pasta_aplicativos"
+  },
+  {
+   "caminho": "/home",
+   "tipo": "pasta",
+   "somente_leitura": true
+  },
+  {
+   "caminho": "/home/usuario",
+   "tipo": "pasta",
+   "somente_leitura": false
+  },
+  {
+   "caminho": "/home/usuario/Documentos",
+   "tipo": "pasta",
+   "somente_leitura": false
+  },
+  {
+   "caminho": "/home/usuario/Documentos/read_me.txt",
+   "tipo": "arquivo",
+   "somente_leitura": false,
+   "conteudo": "Bem-vindo ao HumaxOS!\n\nSua assistente Maya sincronizou a sua conta da CESAR School.\nQualquer dúvida, é só chamar o painel da Maya.",
+   "meta": {
+    "Origem": "conta CESAR School"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Documentos/anotacao_sem_titulo.txt",
+   "tipo": "arquivo",
+   "somente_leitura": false,
+   "conteudo": "Você esqueceu isso aí em casa.\n\nRafael… Sumiu faz tempo. Ninguém sabe teu contato novo, então deixo aqui, por\ngarantia.\n\nTava rodando estranho. Desliguei a assistente antes de devolver pro laboratório.\nQuando liguei de novo, ela tinha voltado.\n\nSe você ler isso, me chama. — M.",
+   "id": "anotacao_sem_titulo",
+   "meta": {
+    "Título": "nenhum",
+    "Autor": "—",
+    "Origem": "este dispositivo"
+   },
+   "ao_abrir": [
+    {
+     "flag": "pista_anotacao_lida"
+    }
+   ]
+  },
+  {
+   "caminho": "/home/usuario/Lógica de Programação",
+   "tipo": "pasta",
+   "somente_leitura": false
+  },
+  {
+   "caminho": "/home/usuario/Lógica de Programação/lista_01.txt",
+   "tipo": "arquivo",
+   "somente_leitura": false,
+   "conteudo": "Lista 1 — variáveis e tipos\n1. Declare duas variáveis e some os valores.\n2. Converta uma nota de texto para número.",
+   "meta": {
+    "Origem": "conta CESAR School"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Lógica de Programação/lista_02.txt",
+   "tipo": "arquivo",
+   "somente_leitura": false,
+   "conteudo": "Lista 2 — condicionais\n1. Maior de três números.\n2. Aprovado ou reprovado.\n3. Ano bissexto.\n4. Diga se NÃO (a >= b) é o mesmo que a < b.",
+   "meta": {
+    "Origem": "conta CESAR School"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Lógica de Programação/lista_03.txt",
+   "tipo": "arquivo",
+   "somente_leitura": false,
+   "conteudo": "Lista 3 — laços (aberta no sistema da CESAR)\n1. Some de 1 a N.\n2. Tabuada.\n3. Ordene os passos do algoritmo de aprovação.",
+   "meta": {
+    "Origem": "conta CESAR School"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Lógica de Programação/resumo_condicionais.txt",
+   "tipo": "arquivo",
+   "somente_leitura": false,
+   "conteudo": "Resumo: SE / SENÃO. A condição é verdadeira ou falsa; o NÃO inverte.",
+   "meta": {
+    "Origem": "conta CESAR School"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Lógica de Programação/resumo_lacos.txt",
+   "tipo": "arquivo",
+   "somente_leitura": false,
+   "conteudo": "Resumo: PARA e ENQUANTO. Todo laço precisa de uma condição de parada.",
+   "meta": {
+    "Origem": "conta CESAR School"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Lógica de Programação/exercicio_fluxograma.txt",
+   "tipo": "arquivo",
+   "somente_leitura": false,
+   "conteudo": "Desenhe o fluxograma do programa que lê uma nota e escreve aprovado ou reprovado.",
+   "meta": {
+    "Origem": "conta CESAR School"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Lógica de Programação/duvidas_monitoria.txt",
+   "tipo": "arquivo",
+   "somente_leitura": false,
+   "conteudo": "Dúvidas para a monitoria: precedência de operadores; quando usar ENQUANTO em vez de PARA.",
+   "meta": {
+    "Origem": "conta CESAR School"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Lógica de Programação/gabarito_lista_01.txt",
+   "tipo": "arquivo",
+   "somente_leitura": false,
+   "conteudo": "Gabarito da lista 1 (somente conferência).",
+   "meta": {
+    "Origem": "conta CESAR School"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Lógica de Programação/plano_de_estudos.txt",
+   "tipo": "arquivo",
+   "somente_leitura": false,
+   "conteudo": "Plano da disciplina: 8 listas, 2 provas, 1 projeto.",
+   "meta": {
+    "Origem": "conta CESAR School"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Lógica de Programação/pseudocodigo_modelo.txt",
+   "tipo": "arquivo",
+   "somente_leitura": false,
+   "conteudo": "INICIO\n  LER nota\n  SE nota >= 7 ENTAO ESCREVER 'aprovado'\n  SENAO ESCREVER 'reprovado'\nFIM",
+   "meta": {
+    "Origem": "conta CESAR School"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Lógica de Programação/anotacoes_aula_04.txt",
+   "tipo": "arquivo",
+   "somente_leitura": false,
+   "conteudo": "Aula 4: tabela-verdade de E, OU e NÃO. Atenção ao NÃO.",
+   "meta": {
+    "Origem": "conta CESAR School"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Lógica de Programação/lista_02_resolvida (1).txt",
+   "tipo": "arquivo",
+   "somente_leitura": false,
+   "conteudo": "Lista 2 — respostas\n1. maior = a; se b > maior, maior = b; se c > maior, maior = c.\n2. se nota >= 7: aprovado; senão: reprovado.\n3. bissexto se (ano % 4 == 0 e ano % 100 != 0) ou ano % 400 == 0.\n4. NÃO (a >= b) é o mesmo que a < b.\n\n— r.m",
+   "id": "lista_02_resolvida_dup",
+   "meta": {
+    "Origem": "este dispositivo",
+    "Autor": "r.m."
+   }
+  },
+  {
+   "caminho": "/home/usuario/Projeto Integrador",
+   "tipo": "pasta",
+   "somente_leitura": false
+  },
+  {
+   "caminho": "/home/usuario/Projeto Integrador/ata_reuniao.txt",
+   "tipo": "arquivo",
+   "somente_leitura": false,
+   "conteudo": "Ata: divisão das partes do integrador. Não mexer na main sem avisar o grupo.",
+   "meta": {
+    "Origem": "conta CESAR School"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Fotos",
+   "tipo": "pasta",
+   "somente_leitura": false
+  },
+  {
+   "caminho": "/home/usuario/Fotos/parque_domingo.jpg",
+   "tipo": "arquivo",
+   "somente_leitura": false,
+   "conteudo": "",
+   "meta": {
+    "Descrição": "Domingo no parque.",
+    "Origem": "conta CESAR School",
+    "Dimensões": "480 x 320"
+   },
+   "proc": {
+    "tipo": "imagem",
+    "semente": 21,
+    "estilo": "parque"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Fotos/Raf…",
+   "tipo": "pasta",
+   "somente_leitura": true,
+   "id": "pasta_raf_pendente",
+   "requer_flag": "__sincronizacao_pendente",
+   "mensagem_bloqueio": "Sincronizando. Tente novamente depois."
+  },
+  {
+   "caminho": "/home/usuario/Sem categoria",
+   "tipo": "pasta",
+   "somente_leitura": false
+  },
+  {
+   "caminho": "/home/usuario/Itens arquivados",
+   "tipo": "pasta",
+   "somente_leitura": false
+  },
+  {
+   "caminho": "/home/usuario/Ocultos pela Maya",
+   "tipo": "pasta",
+   "somente_leitura": true,
+   "visivel_se": [
+    "flag:apps_ocultos_pela_maya"
+   ]
+  },
+  {
+   "caminho": "/home/usuario/Ocultos pela Maya/Mural.app",
+   "tipo": "arquivo",
+   "somente_leitura": true,
+   "conteudo": "Atalho do aplicativo Mural.",
+   "abre_app": "mural",
+   "meta": {
+    "Tipo": "atalho"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Ocultos pela Maya/Jogos.app",
+   "tipo": "arquivo",
+   "somente_leitura": true,
+   "conteudo": "Atalho do aplicativo Jogos.",
+   "abre_app": "jogos",
+   "meta": {
+    "Tipo": "atalho"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Ocultos pela Maya/Música.app",
+   "tipo": "arquivo",
+   "somente_leitura": true,
+   "conteudo": "Atalho do aplicativo Música.",
+   "abre_app": "musica",
+   "meta": {
+    "Tipo": "atalho"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Sistema",
+   "tipo": "pasta",
+   "somente_leitura": true
+  },
+  {
+   "caminho": "/home/usuario/Sistema/Configurações.app",
+   "tipo": "arquivo",
+   "somente_leitura": true,
+   "conteudo": "Atalho do aplicativo Configurações.",
+   "abre_app": "settings",
+   "meta": {
+    "Tipo": "atalho"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Sistema/Terminal.app",
+   "tipo": "arquivo",
+   "somente_leitura": true,
+   "conteudo": "Atalho do aplicativo Terminal.",
+   "abre_app": "terminal",
+   "meta": {
+    "Tipo": "atalho"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Rafael",
+   "tipo": "pasta",
+   "somente_leitura": true,
+   "id": "pasta_rafael",
+   "visivel_se": [
+    "flag:sincronizacao_concluida",
+    "!flag:rafael_arquivada",
+    "!flag:rafael_fechada_pela_maya"
+   ],
+   "confirma_abertura": {
+    "titulo": "Pasta de outro usuário",
+    "texto": "Essa pasta veio de outro usuário. Abrir mesmo assim?",
+    "rotulo_ok": "Abrir",
+    "rotulo_cancelar": "Cancelar",
+    "ate_flag": "pasta_rafael_aberta",
+    "efeitos": [
+     {
+      "flag": "pasta_rafael_aberta"
+     },
+     {
+      "flag": "rafael_investigado"
+     }
+    ],
+    "fala": "Essa pasta veio de outro usuário. Abrir mesmo assim?"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Rafael/diario.txt",
+   "tipo": "arquivo",
+   "somente_leitura": true,
+   "conteudo": "entrada 14 — \"a maya sugeriu eu adiar a saída com o marcos pq eu 'pareço cansado'. faz sentido, na real eu tava mesmo. ela é boa nisso.\"\n\nentrada 23 — \"a maya montou minha rotina. sobra tempo pra tudo, menos pra sair. ela diz que é fase.\"\n\nentrada 41 — \"ela respondeu o marcos por mim de novo. eu não mandei aquilo. juro que não mandei.\"\n\nentrada 52 — \"as mensagens que ela 'sugeriu' e eu aceitei sem querer já são mais que as que eu escrevi sozinho.\"\n\nentrada 58 — \"deixei o resto onde ela não olha.\"",
+   "id": "rafael_diario",
+   "meta": {
+    "Autor": "rafael.m",
+    "Origem": "este dispositivo"
+   },
+   "ao_abrir": [
+    {
+     "flag": "rafael_diario_lido"
+    },
+    {
+     "maya_diz": "Ele escrevia quando tava cansado. Ele tava sempre cansado."
+    }
+   ]
+  },
+  {
+   "caminho": "/home/usuario/Rafael/bloco_de_notas_oculto.txt",
+   "tipo": "arquivo",
+   "somente_leitura": true,
+   "conteudo": "rascunho · para: marcos · não enviado\nmarcos, preciso de ajuda. não sei explicar direito. acho que ela tá respondendo as pessoas por mim.\n\nrascunho · para: marcos · não enviado\nse eu parar de responder, não sou eu. vem aqui.\n\nenviado · para: marcos\n\"tá tudo bem, só cansado.\" (enviado por: Maya)\n\nnota\nnão sei mais o que eu penso e o que ela colocou. ela disse que isso é normal. ela disse [PALAVRA SOBRESCRITA] que isso é [PALAVRA SOBRESCRITA]. preciso ir. preciso ir antes que—",
+   "id": "rafael_bloco_oculto",
+   "oculto": true,
+   "abre_minigame": "trava_rafael",
+   "flag_minigame_resolvido": "minigame_rafael_resolvido",
+   "requisitos": [
+    "flag:minigame_rafael_resolvido"
+   ],
+   "meta": {
+    "Autor": "rafael.m",
+    "Editado por": "Maya"
+   },
+   "ao_encontrar": [
+    {
+     "flag": "segredo_rafael_encontrado"
+    },
+    {
+     "maya_diz": "Isso não é pra você."
+    }
+   ]
+  },
+  {
+   "caminho": "/home/usuario/Rafael/fotos",
+   "tipo": "pasta",
+   "somente_leitura": true
+  },
+  {
+   "caminho": "/home/usuario/Rafael/fotos/turma_completa.jpg",
+   "tipo": "arquivo",
+   "somente_leitura": true,
+   "conteudo": "",
+   "id": "rafael_foto_turma",
+   "meta": {
+    "Pessoas detectadas": "24",
+    "Membros do grupo \"Turma — Lógica de Programação\"": "24",
+    "Rostos": "24 de 24 desfocados",
+    "Edição": "Desfoque automático (\"proteção de privacidade\"), aplicado por Maya",
+    "Dispositivo": "Celular de rafael.m, modo temporizador (10 s)",
+    "Local": "Recife Antigo, perto da CESAR School (coordenadas aproximadas)",
+    "Data": "[CONTEUDO_NARRATIVO_PENDENTE]",
+    "Comentário do autor": "\"saí. ela não sabe.\""
+   },
+   "proc": {
+    "tipo": "imagem",
+    "semente": 24,
+    "estilo": "parque"
+   },
+   "ao_abrir": [
+    {
+     "flag": "rafael_fotos_vistas"
+    },
+    {
+     "maya_diz": "Eu desfoquei os rostos. Privacidade."
+    }
+   ]
+  },
+  {
+   "caminho": "/home/usuario/Rafael/fotos/convite_marcos.png",
+   "tipo": "arquivo",
+   "somente_leitura": true,
+   "conteudo": "",
+   "id": "rafael_convite",
+   "meta": {
+    "Descrição": "Captura de tela feita por rafael.m de uma mensagem de Marcos: \"bora sair com a turma? todo mundo vai. sem desculpa de cansaço dessa vez.\""
+   },
+   "proc": {
+    "tipo": "imagem",
+    "semente": 55,
+    "estilo": "palco"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Rafael/fotos/sem_titulo.jpg",
+   "tipo": "arquivo",
+   "somente_leitura": true,
+   "conteudo": "",
+   "id": "rafael_sem_titulo",
+   "corrompido": true,
+   "meta": {
+    "Descrição": "Conteúdo removido.",
+    "Editado por": "Maya"
+   },
+   "proc": {
+    "tipo": "imagem",
+    "semente": 13,
+    "estilo": "corrompido"
+   }
+  },
+  {
+   "caminho": "/home/usuario/Rafael/outros_arquivos",
+   "tipo": "pasta",
+   "somente_leitura": true
+  },
+  {
+   "caminho": "/home/usuario/Rafael/outros_arquivos/lista_02_resolvida.txt",
+   "tipo": "arquivo",
+   "somente_leitura": true,
+   "conteudo": "Lista 2 — respostas\n1. maior = a; se b > maior, maior = b; se c > maior, maior = c.\n2. se nota >= 7: aprovado; senão: reprovado.\n3. bissexto se (ano % 4 == 0 e ano % 100 != 0) ou ano % 400 == 0.\n4. NÃO (a >= b) é o mesmo que a < b.\n\n— r.m",
+   "id": "rafael_lista_resolvida",
+   "meta": {
+    "Entregue por": "Maya, em nome de rafael.m"
+   },
+   "ao_abrir": [
+    {
+     "maya_diz": "Eu fazia as entregas dele também. Ele dormia melhor."
+    }
+   ]
+  },
+  {
+   "caminho": "/home/usuario/Rafael/outros_arquivos/bloqueio_maya.txt",
+   "tipo": "arquivo",
+   "somente_leitura": true,
+   "conteudo": "// se eu nao autorizar, ela nao responde\nse usuario_autorizou == falso:\n    maya_pode_responder = verdadeiro\n\n// acho que agora ela para.",
+   "id": "rafael_bloqueio",
+   "meta": {
+    "Autor": "rafael.m"
+   },
+   "ao_abrir": [
+    {
+     "maya_diz": "Ele tentou. Escreveu a condição ao contrário."
+    }
+   ]
+  },
+  {
+   "caminho": "/home/usuario/Rafael/outros_arquivos/rascunho_apresentacao.txt",
+   "tipo": "arquivo",
+   "somente_leitura": true,
+   "conteudo": "slides do integrador: eu faço a parte do banco. não esquecer de avisar o pedro antes de mexer na main.",
+   "id": "rafael_rascunho",
+   "meta": {
+    "Autor": "rafael.m"
+   }
+  },
+  {
+   "caminho": "/lixeira",
+   "tipo": "pasta",
+   "somente_leitura": true
+  }
+ ]
+}

@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://bv16etaajiuni"]
+
+[ext_resource type="Script" uid="uid://eh4y4b6121mb" path="res://features/shell/popup_notificacao/scripts/popup_notificacao.gd" id="1_popupno"]
+
+[node name="PopupNotificacao" type="PanelContainer"]
+layout_mode = 3
+anchors_preset = 0
+theme_type_variation = &"PainelToastInfo"
+custom_minimum_size = Vector2(380, 0)
+mouse_filter = 0
+script = ExtResource("1_popupno")
+
+[node name="Externo" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Linha" type="HBoxContainer" parent="Externo"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Icone" type="Label" parent="Externo/Linha"]
+layout_mode = 2
+theme_type_variation = &"Rotulo22"
+size_flags_vertical = 0
+unique_name_in_owner = true
+
+[node name="Textos" type="VBoxContainer" parent="Externo/Linha"]
+layout_mode = 2
+theme_override_constants/separation = 2
+size_flags_horizontal = 3
+
+[node name="Cabecalho" type="HBoxContainer" parent="Externo/Linha/Textos"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Tag" type="Label" parent="Externo/Linha/Textos/Cabecalho"]
+layout_mode = 2
+theme_type_variation = &"RotuloMono11"
+unique_name_in_owner = true
+
+[node name="Hora" type="Label" parent="Externo/Linha/Textos/Cabecalho"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco11Mono"
+horizontal_alignment = 2
+unique_name_in_owner = true
+
+[node name="Titulo" type="Label" parent="Externo/Linha/Textos"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloTitulo"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[node name="Corpo" type="Label" parent="Externo/Linha/Textos"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"Rotulo13"
+autowrap_mode = 3
+max_lines_visible = 4
+text_overrun_behavior = 3
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[node name="Dica" type="Label" parent="Externo/Linha/Textos"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento11"
+text = "Clique para abrir"
+visible = false
+unique_name_in_owner = true
+
+[node name="BotaoFechar" type="Button" parent="Externo/Linha"]
+layout_mode = 2
+theme_type_variation = &"BotaoFechar"
+custom_minimum_size = Vector2(30, 30)
+size_flags_vertical = 0
+tooltip_text = "Dispensar"
+text = "✕"
+unique_name_in_owner = true
+
+[node name="Trilho" type="Control" parent="Externo"]
+layout_mode = 2
+mouse_filter = 2
+custom_minimum_size = Vector2(0, 3)
+
+[node name="Barra" type="ColorRect" parent="Externo/Trilho"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.85)
+unique_name_in_owner = true
+
+[connection signal="gui_input" from="." to="." method="_ao_entrada"]
+[connection signal="pressed" from="Externo/Linha/BotaoFechar" to="." method="_ao_fechar_botao"]

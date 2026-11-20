@@ -1,0 +1,179 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://features/shell/monitor_virtual/scripts/monitor_virtual.gd" id="1_monitor"]
+[ext_resource type="Shader" path="res://shared/assets/shaders/desfoque_fundo.gdshader" id="2_desfoque"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_desfoque"]
+shader = ExtResource("2_desfoque")
+shader_parameter/raio = 2.0
+shader_parameter/escurecer = 0.25
+
+[node name="MonitorVirtual" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+process_mode = 3
+script = ExtResource("1_monitor")
+
+[node name="FundoFisico" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+unique_name_in_owner = true
+
+[node name="DesfoqueFundo" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_desfoque")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+unique_name_in_owner = true
+
+[node name="RotuloCenario" type="Label" parent="."]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 640.0
+offset_bottom = 34.0
+mouse_filter = 2
+theme_type_variation = &"RotuloFraco"
+visible = false
+text = ""
+unique_name_in_owner = true
+
+[node name="Mesa" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.3, 0.24, 0.19, 1)
+unique_name_in_owner = true
+
+[node name="BaseMonitor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -56.0
+offset_right = 150.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.16, 0.16, 0.19, 1)
+unique_name_in_owner = true
+
+[node name="PeMonitor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -88.0
+offset_right = 45.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.12, 0.12, 0.15, 1)
+unique_name_in_owner = true
+
+[node name="Moldura" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 20.0
+offset_right = -24.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"PainelEscuro"
+unique_name_in_owner = true
+
+[node name="Margem" type="MarginContainer" parent="Moldura"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="AreaTela" type="Control" parent="Moldura/Margem"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+clip_contents = true
+unique_name_in_owner = true
+
+[node name="ContainerTela" type="SubViewportContainer" parent="Moldura/Margem/AreaTela"]
+layout_mode = 0
+unique_name_in_owner = true
+
+[node name="Desktop" type="SubViewport" parent="Moldura/Margem/AreaTela/ContainerTela"]
+handle_input_locally = true
+gui_disable_input = true
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+unique_name_in_owner = true
+
+[node name="AvisoFoco" type="Label" parent="Moldura/Margem/AreaTela"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -48.0
+offset_right = 260.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_type_variation = &"RotuloAcento"
+horizontal_alignment = 1
+text = "Clique na tela ou pressione F8 para usar o computador"
+unique_name_in_owner = true
+
+[node name="IndicadorFoco" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -48.0
+offset_right = -16.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_type_variation = &"RotuloFraco"
+horizontal_alignment = 1
+unique_name_in_owner = true
