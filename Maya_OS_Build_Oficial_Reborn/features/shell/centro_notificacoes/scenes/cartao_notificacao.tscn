@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bfn2edl13hj40"]
+
+[ext_resource type="Script" path="res://features/shell/centro_notificacoes/scripts/cartao_notificacao.gd" id="1_cartaon"]
+
+[node name="CartaoNotificacao" type="PanelContainer"]
+layout_mode = 3
+anchors_preset = 0
+theme_type_variation = &"PainelCartao"
+script = ExtResource("1_cartaon")
+
+[node name="Margem" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Coluna" type="VBoxContainer" parent="Margem"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Cabecalho" type="HBoxContainer" parent="Margem/Coluna"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Tag" type="Label" parent="Margem/Coluna/Cabecalho"]
+layout_mode = 2
+theme_type_variation = &"RotuloMono11"
+unique_name_in_owner = true
+
+[node name="Nova" type="Label" parent="Margem/Coluna/Cabecalho"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento11Mono"
+text = "● NOVA"
+visible = false
+unique_name_in_owner = true
+
+[node name="Hora" type="Label" parent="Margem/Coluna/Cabecalho"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco11Mono"
+horizontal_alignment = 2
+unique_name_in_owner = true
+
+[node name="Titulo" type="Label" parent="Margem/Coluna"]
+layout_mode = 2
+size_flags_horizontal = 3
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[node name="Corpo" type="Label" parent="Margem/Coluna"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco13"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[node name="BotaoAbrir" type="Button" parent="Margem/Coluna"]
+layout_mode = 2
+size_flags_horizontal = 0
+visible = false
+unique_name_in_owner = true
+
+[connection signal="pressed" from="Margem/Coluna/BotaoAbrir" to="." method="_ao_abrir"]

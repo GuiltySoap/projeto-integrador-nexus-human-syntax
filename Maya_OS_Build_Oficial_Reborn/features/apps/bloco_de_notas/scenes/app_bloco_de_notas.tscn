@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://aiga2rpahofau"]
+
+[ext_resource type="Script" path="res://features/apps/bloco_de_notas/scripts/app_bloco_de_notas.gd" id="1_appbloc"]
+
+[node name="AppBlocoDeNotas" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_appbloc")
+
+[node name="Raiz" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+
+[node name="Barra" type="HBoxContainer" parent="Raiz"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="BotaoNovo" type="Button" parent="Raiz/Barra"]
+layout_mode = 2
+text = "Novo"
+tooltip_text = "Novo documento (Ctrl+N)"
+
+[node name="BotaoAbrir" type="Button" parent="Raiz/Barra"]
+layout_mode = 2
+text = "Abrir…"
+tooltip_text = "Abrir arquivo (Ctrl+O)"
+
+[node name="BotaoSalvar" type="Button" parent="Raiz/Barra"]
+layout_mode = 2
+theme_type_variation = &"BotaoPrimario"
+text = "Salvar"
+tooltip_text = "Salvar (Ctrl+S)"
+
+[node name="BotaoSalvarComo" type="Button" parent="Raiz/Barra"]
+layout_mode = 2
+text = "Salvar como…"
+tooltip_text = "Salvar uma cópia com outro nome (Ctrl+Shift+S)"
+
+[node name="RotuloArquivo" type="Label" parent="Raiz/Barra"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloMono13"
+horizontal_alignment = 2
+text_overrun_behavior = 3
+unique_name_in_owner = true
+
+[node name="RotuloAviso" type="Label" parent="Raiz"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloAcento"
+text = "Arquivo somente leitura: use “Salvar como…” para criar uma cópia editável."
+autowrap_mode = 3
+visible = false
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[node name="Editor" type="TextEdit" parent="Raiz"]
+layout_mode = 2
+theme_type_variation = &"TextoMono15"
+size_flags_horizontal = 3
+size_flags_vertical = 3
+wrap_mode = 1
+placeholder_text = "Escreva aqui…"
+unique_name_in_owner = true
+
+[node name="Rodape" type="HBoxContainer" parent="Raiz"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="RotuloEstado" type="Label" parent="Raiz/Rodape"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco12"
+unique_name_in_owner = true
+
+[node name="RotuloPosicao" type="Label" parent="Raiz/Rodape"]
+layout_mode = 2
+theme_type_variation = &"RotuloFraco12Mono"
+unique_name_in_owner = true
+
+[connection signal="pressed" from="Raiz/Barra/BotaoNovo" to="." method="_ao_novo"]
+[connection signal="pressed" from="Raiz/Barra/BotaoAbrir" to="." method="_ao_abrir"]
+[connection signal="pressed" from="Raiz/Barra/BotaoSalvar" to="." method="_ao_salvar"]
+[connection signal="pressed" from="Raiz/Barra/BotaoSalvarComo" to="." method="_ao_salvar_como"]
+[connection signal="text_changed" from="Raiz/Editor" to="." method="_ao_texto_alterado"]
+[connection signal="caret_changed" from="Raiz/Editor" to="." method="_atualizar_posicao"]
+[connection signal="gui_input" from="Raiz/Editor" to="." method="_ao_entrada_editor"]

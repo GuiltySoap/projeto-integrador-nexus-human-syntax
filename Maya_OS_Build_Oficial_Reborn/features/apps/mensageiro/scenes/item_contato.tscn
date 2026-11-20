@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bbdu66okmlghc"]
+
+[ext_resource type="Script" path="res://features/apps/mensageiro/scripts/item_contato.gd" id="1_itemcon"]
+
+[node name="ItemContato" type="Button"]
+layout_mode = 3
+anchors_preset = 0
+theme_type_variation = &"BotaoPlano"
+size_flags_horizontal = 3
+toggle_mode = true
+alignment = 0
+clip_text = true
+text_overrun_behavior = 3
+custom_minimum_size = Vector2(0, 54)
+script = ExtResource("1_itemcon")
+
+[connection signal="pressed" from="." to="." method="_ao_pressionado"]

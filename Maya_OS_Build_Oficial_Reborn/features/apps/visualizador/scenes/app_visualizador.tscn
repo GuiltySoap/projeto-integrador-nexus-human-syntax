@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://cg7kc8ek861oc"]
+
+[ext_resource type="Script" uid="uid://dau37g4vwr74v" path="res://features/apps/visualizador/scripts/app_visualizador.gd" id="1_appvisu"]
+[ext_resource type="PackedScene" uid="uid://cylcak51ki4pn" path="res://features/apps/visualizador/scenes/rotulo_meta_chave.tscn" id="2_rotulom"]
+[ext_resource type="PackedScene" uid="uid://a10wbiihh1wl2" path="res://features/apps/visualizador/scenes/rotulo_meta_valor.tscn" id="3_rotulom"]
+
+[node name="AppVisualizador" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_appvisu")
+cena_meta_chave = ExtResource("2_rotulom")
+cena_meta_valor = ExtResource("3_rotulom")
+
+[node name="Raiz" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+
+[node name="Topo" type="HBoxContainer" parent="Raiz"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="BotaoAnterior" type="Button" parent="Raiz/Topo"]
+layout_mode = 2
+text = "◀"
+tooltip_text = "Arquivo anterior da pasta"
+unique_name_in_owner = true
+
+[node name="BotaoProximo" type="Button" parent="Raiz/Topo"]
+layout_mode = 2
+text = "▶"
+tooltip_text = "Próximo arquivo da pasta"
+unique_name_in_owner = true
+
+[node name="RotuloNome" type="Label" parent="Raiz/Topo"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloTitulo16"
+text_overrun_behavior = 3
+unique_name_in_owner = true
+
+[node name="BotaoMeta" type="Button" parent="Raiz/Topo"]
+layout_mode = 2
+text = "ⓘ Metadados"
+tooltip_text = "Mostra as propriedades do arquivo (data, local, descrição…)"
+unique_name_in_owner = true
+
+[node name="PainelImagem" type="PanelContainer" parent="Raiz"]
+layout_mode = 2
+theme_type_variation = &"PainelEscuro"
+size_flags_vertical = 3
+
+[node name="Imagem" type="TextureRect" parent="Raiz/PainelImagem"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 160)
+expand_mode = 1
+stretch_mode = 5
+unique_name_in_owner = true
+
+[node name="CaixaAudio" type="VBoxContainer" parent="Raiz"]
+layout_mode = 2
+theme_override_constants/separation = 10
+visible = false
+unique_name_in_owner = true
+
+[node name="TituloAudio" type="Label" parent="Raiz/CaixaAudio"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento18"
+text = "🔊 Arquivo de áudio"
+
+[node name="LinhaAudio" type="HBoxContainer" parent="Raiz/CaixaAudio"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BotaoTocar" type="Button" parent="Raiz/CaixaAudio/LinhaAudio"]
+layout_mode = 2
+theme_type_variation = &"BotaoPrimario"
+text = "▶ Reproduzir"
+unique_name_in_owner = true
+
+[node name="BarraAudio" type="ProgressBar" parent="Raiz/CaixaAudio/LinhaAudio"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 16)
+show_percentage = false
+unique_name_in_owner = true
+
+[node name="RotuloAudio" type="Label" parent="Raiz/CaixaAudio/LinhaAudio"]
+layout_mode = 2
+theme_type_variation = &"RotuloFraco13Mono"
+text = "0:00 / 0:00"
+unique_name_in_owner = true
+
+[node name="RotuloLegenda" type="Label" parent="Raiz"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[node name="PainelMeta" type="PanelContainer" parent="Raiz"]
+layout_mode = 2
+theme_type_variation = &"PainelCartao"
+visible = false
+unique_name_in_owner = true
+
+[node name="Margem" type="MarginContainer" parent="Raiz/PainelMeta"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GradeMeta" type="GridContainer" parent="Raiz/PainelMeta/Margem"]
+layout_mode = 2
+columns = 2
+theme_override_constants/h_separation = 18
+theme_override_constants/v_separation = 4
+unique_name_in_owner = true
+
+[node name="Tocador" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+unique_name_in_owner = true
+
+[node name="Temporizador" type="Timer" parent="."]
+wait_time = 0.1
+unique_name_in_owner = true
+
+[connection signal="pressed" from="Raiz/Topo/BotaoAnterior" to="." method="_ao_anterior"]
+[connection signal="pressed" from="Raiz/Topo/BotaoProximo" to="." method="_ao_proximo"]
+[connection signal="pressed" from="Raiz/Topo/BotaoMeta" to="." method="_ao_alternar_meta"]
+[connection signal="pressed" from="Raiz/CaixaAudio/LinhaAudio/BotaoTocar" to="." method="_ao_alternar_audio"]
+[connection signal="finished" from="Tocador" to="." method="_ao_audio_terminou"]
+[connection signal="timeout" from="Temporizador" to="." method="_atualizar_progresso"]

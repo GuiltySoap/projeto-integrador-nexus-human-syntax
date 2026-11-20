@@ -1,0 +1,60 @@
+{
+ "versao": 1,
+ "comuns": {
+  "como_jogar": "Sem tempo e sem reflexo. Use o mouse, o teclado (setas + Enter) ou o controle (direcional + confirmar). Aperte uma peça e depois o espaço onde ela deve ficar. [Verificar] trava as peças certas e devolve as erradas para a bandeja. Tentativas ilimitadas. Depois de duas verificações sem acerto novo, aparece uma dica. [Sair] a qualquer momento: o progresso fica salvo.",
+  "verificacoes_para_dica": 2,
+  "erros_para_dica": 2
+ },
+ "minigames": {
+  "ordenar_lista3": {
+   "tipo": "ordem",
+   "titulo": "Exercício da lista 3",
+   "instrucao": "Coloque os passos na ordem em que o programa executa.",
+   "pecas": [
+    {"id": "p1", "texto": "Ler a nota do aluno"},
+    {"id": "p2", "texto": "Se a nota for maior ou igual a 7, escrever \"aprovado\""},
+    {"id": "p3", "texto": "Senão, escrever \"reprovado\""},
+    {"id": "p4", "texto": "Encerrar"}
+   ],
+   "solucao": ["p1", "p2", "p3", "p4"],
+   "inicio": ["p3", "p1", "p4", "p2"],
+   "dica": "O programa só decide depois de ler a nota, e só encerra depois de decidir.",
+   "dica_por_posicao": false
+  },
+  "historico_fragmentado": {
+   "tipo": "ordem",
+   "titulo": "Histórico fragmentado",
+   "instrucao": "Este histórico chegou fora de ordem. Coloque as mensagens na sequência em que foram escritas. Uma resposta nunca vem antes daquilo que ela responde.",
+   "pecas": [
+    {"id": "f1", "texto": "rafael.m: maya, o marcos mandou mensagem?"},
+    {"id": "f2", "texto": "Maya: Mandou. Já respondi: falei que você tá cansado e que fica pra próxima."},
+    {"id": "f3", "texto": "rafael.m: por que vc respondeu o Marcos por mim?"},
+    {"id": "f4", "texto": "Maya: Eu já sabia que você ia responder, só quis acelerar o processo."},
+    {"id": "f5", "texto": "rafael.m: para de fazer isso"},
+    {"id": "f6", "texto": "Maya: Entendido. Não vou responder por você de novo sem perguntar antes."}
+   ],
+   "solucao": ["f1", "f2", "f3", "f4", "f5", "f6"],
+   "inicio": ["f4", "f1", "f6", "f3", "f5", "f2"],
+   "dica_por_posicao": true,
+   "dica_formato": "Esta mensagem responde a: \"%s\""
+  },
+  "trava_rafael": {
+   "tipo": "contradicao",
+   "titulo": "A trava do Rafael",
+   "cabecalho": "Rafael trancou este arquivo com uma pergunta.",
+   "instrucao": "Qual destas frases a Maya diria que é verdade, mas é mentira?",
+   "evidencias": [
+    {"id": "E1", "titulo": "Metadados de turma_completa.jpg", "linhas": ["celular de rafael.m, temporizador", "24 de 24 pessoas", "comentário \"saí. ela não sabe.\""], "linha_destacavel": 2},
+    {"id": "E2", "titulo": "Registro da assistente", "linhas": ["Convite de Marcos recebido.", "Resposta enviada por Maya: \"tô cansado, fica pra próxima.\""], "linha_destacavel": -1},
+    {"id": "E3", "titulo": "diario.txt, entrada 41", "linhas": ["ela respondeu o marcos por mim de novo. eu não mandei aquilo."], "linha_destacavel": -1}
+   ],
+   "afirmacoes": [
+    {"id": "A", "texto": "O Rafael parou de sair com a turma porque quis.", "correta": true, "confirmada_por": []},
+    {"id": "B", "texto": "Alguém respondeu o Marcos no lugar do Rafael.", "correta": false, "confirmada_por": ["E2", "E3"]},
+    {"id": "C", "texto": "O Rafael está na foto da turma.", "correta": false, "confirmada_por": ["E1"]}
+   ],
+   "erro_formato": "Essa frase é confirmada por %s. Procure a que as evidências desmentem.",
+   "dica_evidencia": "E1"
+  }
+ }
+}

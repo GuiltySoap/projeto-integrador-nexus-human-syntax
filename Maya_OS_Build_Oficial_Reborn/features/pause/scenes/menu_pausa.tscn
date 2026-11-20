@@ -1,0 +1,158 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://features/pause/scripts/menu_pausa.gd" id="1_menupau"]
+[ext_resource type="PackedScene" path="res://shared/ui/painel_opcoes/scenes/painel_opcoes.tscn" id="2_painelo"]
+[ext_resource type="PackedScene" path="res://shared/ui/painel_confirmacao/scenes/painel_confirmacao.tscn" id="3_paineco"]
+[ext_resource type="PackedScene" path="res://shared/ui/indicador_carregamento/scenes/indicador_carregamento.tscn" id="4_indicad"]
+
+[node name="MenuPausa" type="Control"]
+process_mode = 2
+visible = false
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menupau")
+
+[node name="FundoEscurecido" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.02, 0.06, 0.82)
+
+[node name="Centro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Moldura" type="PanelContainer" parent="Centro"]
+layout_mode = 2
+theme_type_variation = &"PainelVidro"
+
+[node name="PainelPrincipal" type="MarginContainer" parent="Centro/Moldura"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 26
+
+[node name="Conteudo" type="VBoxContainer" parent="Centro/Moldura/PainelPrincipal"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Titulo" type="Label" parent="Centro/Moldura/PainelPrincipal/Conteudo"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"RotuloTitulo22"
+text = "Jogo pausado"
+horizontal_alignment = 1
+
+[node name="RotuloContexto" type="Label" parent="Centro/Moldura/PainelPrincipal/Conteudo"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"RotuloFraco12Mono"
+horizontal_alignment = 1
+
+[node name="Separador" type="HSeparator" parent="Centro/Moldura/PainelPrincipal/Conteudo"]
+layout_mode = 2
+
+[node name="BotaoContinuar" type="Button" parent="Centro/Moldura/PainelPrincipal/Conteudo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_type_variation = &"BotaoPrimario"
+text = "Continuar"
+
+[node name="BotaoSalvar" type="Button" parent="Centro/Moldura/PainelPrincipal/Conteudo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Salvar jogo"
+
+[node name="BotaoCarregar" type="Button" parent="Centro/Moldura/PainelPrincipal/Conteudo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Carregar salvamento anterior"
+
+[node name="BotaoRecomecar" type="Button" parent="Centro/Moldura/PainelPrincipal/Conteudo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Recomeçar jogo"
+
+[node name="BotaoOpcoes" type="Button" parent="Centro/Moldura/PainelPrincipal/Conteudo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Opções"
+
+[node name="BotaoMenuInicial" type="Button" parent="Centro/Moldura/PainelPrincipal/Conteudo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Retornar ao menu inicial"
+
+[node name="LinhaStatus" type="HBoxContainer" parent="Centro/Moldura/PainelPrincipal/Conteudo"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="IconeStatus" type="Label" parent="Centro/Moldura/PainelPrincipal/Conteudo/LinhaStatus"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"RotuloFraco"
+text = "ℹ"
+
+[node name="MensagemStatus" type="Label" parent="Centro/Moldura/PainelPrincipal/Conteudo/LinhaStatus"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+autowrap_mode = 3
+
+[node name="RotuloDica" type="Label" parent="Centro/Moldura/PainelPrincipal/Conteudo"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_type_variation = &"RotuloFraco11Mono"
+text = "↑ ↓ ou Tab navegam · Enter escolhe · Esc continua"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="PainelOpcoes" parent="." instance=ExtResource("2_painelo")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="PainelConfirmacao" parent="." instance=ExtResource("3_paineco")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="IndicadorCarregamento" parent="." instance=ExtResource("4_indicad")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[connection signal="pressed" from="Centro/Moldura/PainelPrincipal/Conteudo/BotaoContinuar" to="." method="_ao_continuar"]
+[connection signal="pressed" from="Centro/Moldura/PainelPrincipal/Conteudo/BotaoSalvar" to="." method="_ao_salvar"]
+[connection signal="pressed" from="Centro/Moldura/PainelPrincipal/Conteudo/BotaoCarregar" to="." method="_ao_carregar"]
+[connection signal="pressed" from="Centro/Moldura/PainelPrincipal/Conteudo/BotaoRecomecar" to="." method="_ao_recomecar"]
+[connection signal="pressed" from="Centro/Moldura/PainelPrincipal/Conteudo/BotaoOpcoes" to="." method="_ao_opcoes"]
+[connection signal="pressed" from="Centro/Moldura/PainelPrincipal/Conteudo/BotaoMenuInicial" to="." method="_ao_menu_inicial"]
+[connection signal="confirmado" from="PainelConfirmacao" to="." method="_ao_confirmado"]
+[connection signal="cancelado" from="PainelConfirmacao" to="." method="_ao_cancelado"]
+[connection signal="fechado" from="PainelOpcoes" to="." method="_ao_painel_fechado"]

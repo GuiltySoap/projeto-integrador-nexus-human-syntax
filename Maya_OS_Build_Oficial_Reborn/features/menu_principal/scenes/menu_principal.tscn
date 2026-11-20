@@ -1,0 +1,233 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://features/menu_principal/scripts/menu_principal.gd" id="1_menupri"]
+[ext_resource type="PackedScene" uid="uid://ass15jmfmymrm" path="res://shared/ui/orbe_nexus/scenes/orbe_nexus.tscn" id="2_orbenex"]
+[ext_resource type="PackedScene" path="res://shared/ui/logo_marca/scenes/logo_marca.tscn" id="3_logomay"]
+[ext_resource type="PackedScene" path="res://shared/ui/painel_opcoes/scenes/painel_opcoes.tscn" id="4_painelo"]
+[ext_resource type="PackedScene" path="res://features/menu_principal/scenes/painel_creditos.tscn" id="5_painelc"]
+[ext_resource type="PackedScene" path="res://shared/ui/painel_confirmacao/scenes/painel_confirmacao.tscn" id="6_paineco"]
+[ext_resource type="PackedScene" path="res://shared/ui/indicador_carregamento/scenes/indicador_carregamento.tscn" id="7_indicad"]
+
+[sub_resource type="Gradient" id="Gradient_vinheta"]
+offsets = PackedFloat32Array(0.45, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.72)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vinheta"]
+gradient = SubResource("Gradient_vinheta")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="MenuPrincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menupri")
+
+[node name="Fundo" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0431, 0.0392, 0.102, 1)
+
+[node name="CamadaAtmosferica" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="OrbeAtmosfera" parent="CamadaAtmosferica" instance=ExtResource("2_orbenex")]
+modulate = Color(1, 1, 1, 0.16)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -820.0
+offset_top = -420.0
+offset_right = 140.0
+offset_bottom = 540.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Vinheta" type="TextureRect" parent="CamadaAtmosferica"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_vinheta")
+expand_mode = 1
+
+[node name="MargemPrincipal" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 40
+
+[node name="Conteudo" type="VBoxContainer" parent="MargemPrincipal"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Logo" parent="MargemPrincipal/Conteudo" instance=ExtResource("3_logomay")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+marca = "maya_marca"
+altura = 230.0
+
+[node name="Titulo" type="Label" parent="MargemPrincipal/Conteudo"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"RotuloTitulo52Mono"
+text = "Maya Human Syntax"
+horizontal_alignment = 1
+
+[node name="Subtitulo" type="Label" parent="MargemPrincipal/Conteudo"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"RotuloAcento14Mono"
+text = "HUMAXOS · ASSISTENTE INTEGRADA MAYA"
+horizontal_alignment = 1
+
+[node name="Separador" type="HSeparator" parent="MargemPrincipal/Conteudo"]
+layout_mode = 2
+
+[node name="Botoes" type="VBoxContainer" parent="MargemPrincipal/Conteudo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="BotaoNovoJogo" type="Button" parent="MargemPrincipal/Conteudo/Botoes"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+theme_type_variation = &"BotaoPrimario"
+text = "Novo Jogo"
+
+[node name="BotaoCarregar" type="Button" parent="MargemPrincipal/Conteudo/Botoes"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+text = "Carregar"
+
+[node name="BotaoOpcoes" type="Button" parent="MargemPrincipal/Conteudo/Botoes"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+text = "Opções"
+
+[node name="BotaoCreditos" type="Button" parent="MargemPrincipal/Conteudo/Botoes"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+text = "Créditos"
+
+[node name="BotaoSair" type="Button" parent="MargemPrincipal/Conteudo/Botoes"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+theme_type_variation = &"BotaoPerigo"
+text = "Sair do jogo"
+
+[node name="LinhaStatus" type="HBoxContainer" parent="MargemPrincipal/Conteudo"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
+
+[node name="IconeStatus" type="Label" parent="MargemPrincipal/Conteudo/LinhaStatus"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"RotuloFraco"
+text = "ℹ"
+
+[node name="MensagemStatus" type="Label" parent="MargemPrincipal/Conteudo/LinhaStatus"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+autowrap_mode = 3
+
+[node name="RotuloSalvamento" type="Label" parent="MargemPrincipal/Conteudo"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"RotuloFraco12Mono"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="RotuloDica" type="Label" parent="MargemPrincipal/Conteudo"]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"RotuloFraco11Mono"
+text = "↑ ↓ ou Tab navegam · Enter escolhe · Esc volta"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Versao" type="Label" parent="MargemPrincipal/Conteudo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"RotuloFraco11Mono"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="PainelOpcoes" parent="." instance=ExtResource("4_painelo")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="PainelCreditos" parent="." instance=ExtResource("5_painelc")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="DialogoConfirmacao" parent="." instance=ExtResource("6_paineco")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="IndicadorCarregamento" parent="." instance=ExtResource("7_indicad")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[connection signal="pressed" from="MargemPrincipal/Conteudo/Botoes/BotaoNovoJogo" to="." method="_ao_novo_jogo"]
+[connection signal="pressed" from="MargemPrincipal/Conteudo/Botoes/BotaoCarregar" to="." method="_ao_carregar"]
+[connection signal="pressed" from="MargemPrincipal/Conteudo/Botoes/BotaoOpcoes" to="." method="_ao_opcoes"]
+[connection signal="pressed" from="MargemPrincipal/Conteudo/Botoes/BotaoCreditos" to="." method="_ao_creditos"]
+[connection signal="pressed" from="MargemPrincipal/Conteudo/Botoes/BotaoSair" to="." method="_ao_sair"]
+[connection signal="confirmado" from="DialogoConfirmacao" to="." method="_ao_confirmado"]
+[connection signal="cancelado" from="DialogoConfirmacao" to="." method="_ao_cancelado"]
+[connection signal="fechado" from="PainelOpcoes" to="." method="_ao_painel_fechado"]
+[connection signal="fechado" from="PainelCreditos" to="." method="_ao_painel_fechado"]

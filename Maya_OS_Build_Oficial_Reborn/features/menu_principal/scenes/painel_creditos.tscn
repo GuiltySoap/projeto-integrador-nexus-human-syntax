@@ -1,0 +1,230 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://features/menu_principal/scripts/painel_creditos.gd" id="1_painelc"]
+
+[node name="PainelCreditos" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_painelc")
+
+[node name="Cortina" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78)
+
+[node name="Centro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Painel" type="PanelContainer" parent="Centro"]
+custom_minimum_size = Vector2(780, 0)
+layout_mode = 2
+theme_type_variation = &"PainelVidro"
+
+[node name="Margem" type="MarginContainer" parent="Centro/Painel"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 22
+
+[node name="Caixa" type="VBoxContainer" parent="Centro/Painel/Margem"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="RotuloTitulo" type="Label" parent="Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_type_variation = &"RotuloTitulo22"
+text = "Créditos"
+
+[node name="Rolagem" type="ScrollContainer" parent="Centro/Painel/Margem/Caixa"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 460)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Conteudo" type="VBoxContainer" parent="Centro/Painel/Margem/Caixa/Rolagem"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 18
+
+[node name="SecaoJogo" type="VBoxContainer" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="RotuloSecao" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo/SecaoJogo"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "JOGO"
+
+[node name="RotuloCorpo" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo/SecaoJogo"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Maya Human Syntax\nJogo de horror psicológico em formato de simulador de sistema operacional: o HumaxOS e a assistente Maya."
+autowrap_mode = 3
+
+[node name="SecaoEquipe" type="VBoxContainer" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="RotuloSecao" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo/SecaoEquipe"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "EQUIPE"
+
+[node name="RotuloCorpo" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo/SecaoEquipe"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = ""
+autowrap_mode = 3
+
+[node name="SecaoFuncoes" type="VBoxContainer" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="RotuloSecao" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo/SecaoFuncoes"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "FUNÇÕES"
+
+[node name="RotuloCorpo" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo/SecaoFuncoes"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = ""
+autowrap_mode = 3
+
+[node name="SecaoTecnologias" type="VBoxContainer" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="RotuloSecao" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo/SecaoTecnologias"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "TECNOLOGIAS"
+
+[node name="RotuloCorpo" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo/SecaoTecnologias"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Godot Engine 4.7 e GDScript.\nFerramentas de apoio ao desenvolvimento em Python (pasta tools do projeto)."
+autowrap_mode = 3
+
+[node name="SecaoAssets" type="VBoxContainer" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="RotuloSecao" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo/SecaoAssets"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "IMAGENS E ÍCONES"
+
+[node name="RotuloCorpo" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo/SecaoAssets"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ícones, papéis de parede e imagens gerados por programa para este projeto, sem material de terceiros."
+autowrap_mode = 3
+
+[node name="SecaoAudios" type="VBoxContainer" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="RotuloSecao" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo/SecaoAudios"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "ÁUDIOS"
+
+[node name="RotuloCorpo" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo/SecaoAudios"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Efeitos sonoros e trilhas gerados por programa para este projeto, sem material de terceiros."
+autowrap_mode = 3
+
+[node name="SecaoLicencas" type="VBoxContainer" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="RotuloSecao" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo/SecaoLicencas"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "LICENÇAS"
+
+[node name="RotuloCorpo" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo/SecaoLicencas"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Godot Engine: licença MIT (godotengine.org/license). O texto da licença do motor segue abaixo."
+autowrap_mode = 3
+
+[node name="TextoLicencaMotor" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo/SecaoLicencas"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco11Mono"
+autowrap_mode = 3
+
+[node name="SecaoAgradecimentos" type="VBoxContainer" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="RotuloSecao" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo/SecaoAgradecimentos"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "AGRADECIMENTOS"
+
+[node name="RotuloCorpo" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo/SecaoAgradecimentos"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = ""
+autowrap_mode = 3
+
+[node name="SecaoVersao" type="VBoxContainer" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="RotuloSecao" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo/SecaoVersao"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "VERSÃO"
+
+[node name="TextoVersao" type="Label" parent="Centro/Painel/Margem/Caixa/Rolagem/Conteudo/SecaoVersao"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+autowrap_mode = 3
+
+[node name="Rodape" type="HBoxContainer" parent="Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+alignment = 2
+
+[node name="BotaoVoltar" type="Button" parent="Centro/Painel/Margem/Caixa/Rodape"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 46)
+layout_mode = 2
+theme_type_variation = &"BotaoPrimario"
+text = "Voltar"
+
+[connection signal="pressed" from="Centro/Painel/Margem/Caixa/Rodape/BotaoVoltar" to="." method="_ao_voltar"]

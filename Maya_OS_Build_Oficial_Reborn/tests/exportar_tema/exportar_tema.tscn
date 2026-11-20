@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://vfdjpdyqptj73"]
+
+[ext_resource type="Script" path="res://tests/exportar_tema/exportar_tema.gd" id="1_exptema"]
+
+[node name="ExportarTema" type="Node"]
+script = ExtResource("1_exptema")

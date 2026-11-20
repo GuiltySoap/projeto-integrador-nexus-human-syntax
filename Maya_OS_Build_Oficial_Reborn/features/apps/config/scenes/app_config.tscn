@@ -1,0 +1,590 @@
+[gd_scene format=3 uid="uid://clsbdodij77em"]
+
+[ext_resource type="Script" uid="uid://d2kag4wt1h2xb" path="res://features/apps/config/scripts/app_config.gd" id="1_appconf"]
+[ext_resource type="PackedScene" uid="uid://aavjmqedvu0y6" path="res://features/apps/config/components/cabecalho_pagina/scenes/cabecalho_pagina.tscn" id="2_cabecal"]
+[ext_resource type="PackedScene" uid="uid://ck0b311ii245h" path="res://features/apps/config/components/linha_opcao/scenes/linha_opcao.tscn" id="3_linhaop"]
+[ext_resource type="PackedScene" uid="uid://bnmr2okbfuw0v" path="res://features/apps/config/components/linha_check/scenes/linha_check.tscn" id="4_linhach"]
+[ext_resource type="PackedScene" uid="uid://aawmf1axwut7d" path="res://features/apps/config/components/linha_slider/scenes/linha_slider.tscn" id="5_linhasl"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_5i7rb"]
+
+[node name="AppConfig" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_appconf")
+
+[node name="Raiz" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+
+[node name="PainelMenu" type="PanelContainer" parent="Raiz"]
+layout_mode = 2
+theme_type_variation = &"PainelEscuro"
+
+[node name="Margem" type="MarginContainer" parent="Raiz/PainelMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Menu" type="VBoxContainer" parent="Raiz/PainelMenu/Margem"]
+layout_mode = 2
+theme_override_constants/separation = 6
+custom_minimum_size = Vector2(196, 0)
+
+[node name="BotaoPersonalizacao" type="Button" parent="Raiz/PainelMenu/Margem/Menu"]
+layout_mode = 2
+theme_type_variation = &"BotaoPlano"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_5i7rb")
+alignment = 0
+text = "🎨  Personalização"
+button_pressed = true
+unique_name_in_owner = true
+
+[node name="BotaoAudio" type="Button" parent="Raiz/PainelMenu/Margem/Menu"]
+layout_mode = 2
+theme_type_variation = &"BotaoPlano"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_5i7rb")
+alignment = 0
+text = "🔊  Áudio"
+button_pressed = false
+unique_name_in_owner = true
+
+[node name="BotaoAcessibilidade" type="Button" parent="Raiz/PainelMenu/Margem/Menu"]
+layout_mode = 2
+theme_type_variation = &"BotaoPlano"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_5i7rb")
+alignment = 0
+text = "♿  Acessibilidade"
+button_pressed = false
+unique_name_in_owner = true
+
+[node name="BotaoPrivacidade" type="Button" parent="Raiz/PainelMenu/Margem/Menu"]
+layout_mode = 2
+theme_type_variation = &"BotaoPlano"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_5i7rb")
+alignment = 0
+text = "🔐  Privacidade"
+button_pressed = false
+unique_name_in_owner = true
+
+[node name="BotaoSistema" type="Button" parent="Raiz/PainelMenu/Margem/Menu"]
+layout_mode = 2
+theme_type_variation = &"BotaoPlano"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_5i7rb")
+alignment = 0
+text = "⚙  Sistema"
+button_pressed = false
+unique_name_in_owner = true
+
+[node name="Conteudo" type="Control" parent="Raiz"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PaginaPersonalizacao" type="ScrollContainer" parent="Raiz/Conteudo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+visible = true
+unique_name_in_owner = true
+
+[node name="Margem" type="MarginContainer" parent="Raiz/Conteudo/PaginaPersonalizacao"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Caixa" type="VBoxContainer" parent="Raiz/Conteudo/PaginaPersonalizacao/Margem"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Cabecalho" parent="Raiz/Conteudo/PaginaPersonalizacao/Margem/Caixa" instance=ExtResource("2_cabecal")]
+layout_mode = 2
+titulo = "Personalização"
+subtitulo = "Aparência do sistema. As cores do tema também mudam sozinhas a cada dia da história."
+
+[node name="OpcaoPapelDeParede" parent="Raiz/Conteudo/PaginaPersonalizacao/Margem/Caixa" instance=ExtResource("3_linhaop")]
+layout_mode = 2
+chave = "papel_de_parede"
+titulo = "Papel de parede"
+rotulos = PackedStringArray("Automático (muda a cada dia)", "Grade neon", "Preto sólido")
+valores = ["dia", "grade", "preto"]
+
+[node name="OpcaoTema" parent="Raiz/Conteudo/PaginaPersonalizacao/Margem/Caixa" instance=ExtResource("3_linhaop")]
+layout_mode = 2
+chave = "tema"
+titulo = "Cor de destaque"
+rotulos = PackedStringArray("Automática (por dia)", "Roxo", "Azul", "Verde")
+valores = ["auto", "roxo", "azul", "verde"]
+
+[node name="OpcaoTamanhoTexto" parent="Raiz/Conteudo/PaginaPersonalizacao/Margem/Caixa" instance=ExtResource("3_linhaop")]
+layout_mode = 2
+chave = "tamanho_texto"
+titulo = "Tamanho do texto"
+rotulos = PackedStringArray("Pequeno", "Normal", "Grande", "Muito grande")
+valores = [0.9, 1.0, 1.2, 1.4]
+
+[node name="NotaTamanhoTexto" type="Label" parent="Raiz/Conteudo/PaginaPersonalizacao/Margem/Caixa"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+text = "O novo tamanho vale por completo para as janelas abertas depois da mudança."
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+
+[node name="PaginaAudio" type="ScrollContainer" parent="Raiz/Conteudo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+visible = false
+unique_name_in_owner = true
+
+[node name="Margem" type="MarginContainer" parent="Raiz/Conteudo/PaginaAudio"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Caixa" type="VBoxContainer" parent="Raiz/Conteudo/PaginaAudio/Margem"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Cabecalho" parent="Raiz/Conteudo/PaginaAudio/Margem/Caixa" instance=ExtResource("2_cabecal")]
+layout_mode = 2
+titulo = "Áudio"
+subtitulo = "Todo o áudio do jogo é gerado ou carregado localmente. Nada é gravado do seu microfone real."
+
+[node name="VolumeGeral" parent="Raiz/Conteudo/PaginaAudio/Margem/Caixa" instance=ExtResource("5_linhasl")]
+layout_mode = 2
+chave = "volume_master"
+titulo = "Volume geral"
+
+[node name="VolumeMusica" parent="Raiz/Conteudo/PaginaAudio/Margem/Caixa" instance=ExtResource("5_linhasl")]
+layout_mode = 2
+chave = "volume_bgm"
+titulo = "Música ambiente"
+
+[node name="VolumeEfeitos" parent="Raiz/Conteudo/PaginaAudio/Margem/Caixa" instance=ExtResource("5_linhasl")]
+layout_mode = 2
+chave = "volume_sfx"
+titulo = "Efeitos sonoros"
+
+[node name="BarraSom" type="HBoxContainer" parent="Raiz/Conteudo/PaginaAudio/Margem/Caixa"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BotaoTestarSom" type="Button" parent="Raiz/Conteudo/PaginaAudio/Margem/Caixa/BarraSom"]
+layout_mode = 2
+text = "▶ Testar som"
+
+[node name="PaginaAcessibilidade" type="ScrollContainer" parent="Raiz/Conteudo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+visible = false
+unique_name_in_owner = true
+
+[node name="Margem" type="MarginContainer" parent="Raiz/Conteudo/PaginaAcessibilidade"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Caixa" type="VBoxContainer" parent="Raiz/Conteudo/PaginaAcessibilidade/Margem"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Cabecalho" parent="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa" instance=ExtResource("2_cabecal")]
+layout_mode = 2
+titulo = "Acessibilidade"
+subtitulo = "O jogo usa efeitos de glitch como parte da história. Aqui você controla a intensidade de cada um."
+
+[node name="BarraConforto" type="HBoxContainer" parent="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BotaoAtivarConforto" type="Button" parent="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa/BarraConforto"]
+layout_mode = 2
+theme_type_variation = &"BotaoPrimario"
+text = "Ativar modo conforto"
+
+[node name="BotaoDesativarConforto" type="Button" parent="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa/BarraConforto"]
+layout_mode = 2
+text = "Desativar modo conforto"
+
+[node name="BotaoRestaurarPadroes" type="Button" parent="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa/BarraConforto"]
+layout_mode = 2
+text = "Restaurar padrões"
+
+[node name="NotaAtalhoConforto" type="Label" parent="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+text = "Atalho em qualquer tela: Ctrl+Shift+D liga o modo conforto na hora."
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+
+[node name="OpcaoReduzirGlitch" parent="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa" instance=ExtResource("4_linhach")]
+layout_mode = 2
+chave = "reduzir_glitch"
+titulo = "Reduzir efeitos de glitch"
+descricao = "Desliga as distorções de tela e o texto embaralhado."
+
+[node name="OpcaoReduzirTremor" parent="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa" instance=ExtResource("4_linhach")]
+layout_mode = 2
+chave = "reduzir_tremor"
+titulo = "Reduzir tremor das janelas"
+descricao = "As janelas deixam de balançar quando a Maya reage."
+
+[node name="OpcaoSemFlashes" parent="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa" instance=ExtResource("4_linhach")]
+layout_mode = 2
+chave = "sem_flashes"
+titulo = "Sem flashes de luz"
+descricao = "Remove qualquer clarão ou piscar rápido de cor."
+
+[node name="OpcaoReduzirRuido" parent="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa" instance=ExtResource("4_linhach")]
+layout_mode = 2
+chave = "reduzir_ruido"
+titulo = "Reduzir ruído e chiado"
+descricao = "Troca sons de estática por tons suaves."
+
+[node name="OpcaoReduzirAnimacoes" parent="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa" instance=ExtResource("4_linhach")]
+layout_mode = 2
+chave = "reduzir_animacoes"
+titulo = "Reduzir animações"
+descricao = "Transições instantâneas, sem fades nem movimentos."
+
+[node name="OpcaoAltoContraste" parent="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa" instance=ExtResource("4_linhach")]
+layout_mode = 2
+chave = "alto_contraste"
+titulo = "Alto contraste"
+descricao = "Texto branco sobre fundo preto, com bordas mais fortes."
+
+[node name="OpcaoDesativarEfeitosAgressivos" parent="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa" instance=ExtResource("4_linhach")]
+layout_mode = 2
+chave = "desativar_efeitos_agressivos"
+titulo = "Desativar efeitos de interface agressivos"
+descricao = "Desliga de uma vez os efeitos de perda de controle da interface simulada (botões que fogem, contagens falsas, glitch de resistência e tremor). O jogo continua igual, só sem esses efeitos."
+
+[node name="OpcaoMostrarIndicadorOculto" parent="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa" instance=ExtResource("4_linhach")]
+layout_mode = 2
+chave = "mostrar_indicador_oculto"
+titulo = "Mostrar o indicador de mensagem alterada"
+descricao = "Quando a Maya altera ou censura uma mensagem, mostra uma marca discreta junto dela e a anuncia para leitores de tela."
+
+[node name="OpcaoTempoEstendido" parent="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa" instance=ExtResource("4_linhach")]
+layout_mode = 2
+chave = "tempo_estendido"
+titulo = "Tempo estendido nas barras de envio"
+descricao = "A barra de envio do Mensageiro dura 6 segundos em vez de 3, para dar mais tempo de cancelar uma mensagem."
+
+[node name="Separador" type="HSeparator" parent="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa"]
+layout_mode = 2
+
+[node name="TituloRitmo" type="Label" parent="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa"]
+layout_mode = 2
+theme_type_variation = &"RotuloTitulo16"
+text = "Ritmo do jogo"
+
+[node name="PaginaPrivacidade" type="ScrollContainer" parent="Raiz/Conteudo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+visible = false
+unique_name_in_owner = true
+
+[node name="Margem" type="MarginContainer" parent="Raiz/Conteudo/PaginaPrivacidade"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Caixa" type="VBoxContainer" parent="Raiz/Conteudo/PaginaPrivacidade/Margem"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Cabecalho" parent="Raiz/Conteudo/PaginaPrivacidade/Margem/Caixa" instance=ExtResource("2_cabecal")]
+layout_mode = 2
+titulo = "Privacidade e permissões"
+subtitulo = "As cinco permissões da Maya. Você pode revogar cada uma aqui."
+
+[node name="RotuloMonitoramento" type="Label" parent="Raiz/Conteudo/PaginaPrivacidade/Margem/Caixa"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloAcento"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[node name="ListaPermissoes" type="VBoxContainer" parent="Raiz/Conteudo/PaginaPrivacidade/Margem/Caixa"]
+layout_mode = 2
+theme_override_constants/separation = 12
+unique_name_in_owner = true
+
+[node name="PaginaSistema" type="ScrollContainer" parent="Raiz/Conteudo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+visible = false
+unique_name_in_owner = true
+
+[node name="Margem" type="MarginContainer" parent="Raiz/Conteudo/PaginaSistema"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Caixa" type="VBoxContainer" parent="Raiz/Conteudo/PaginaSistema/Margem"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Cabecalho" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa" instance=ExtResource("2_cabecal")]
+layout_mode = 2
+titulo = "Sistema"
+subtitulo = "Informações da sessão e opções gerais."
+
+[node name="PainelSessao" type="PanelContainer" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa"]
+layout_mode = 2
+theme_type_variation = &"PainelEscuro"
+
+[node name="Margem" type="MarginContainer" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/PainelSessao"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RotuloSistema" type="Label" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/PainelSessao/Margem"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloMono14"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[node name="BarraSistema" type="HBoxContainer" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BotaoTelaCheia" type="Button" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/BarraSistema"]
+layout_mode = 2
+text = "Tela cheia (F11)"
+
+[node name="BotaoSalvarJogo" type="Button" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/BarraSistema"]
+layout_mode = 2
+text = "Salvar jogo agora"
+
+[node name="OpcaoDepuracao" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa" instance=ExtResource("4_linhach")]
+layout_mode = 2
+chave = "modo_depuracao"
+titulo = "Painel de testes (F9)"
+descricao = "Libera o painel de depuração fora do editor: pular dias, concluir objetivos, forçar eventos."
+
+[node name="Separador" type="HSeparator" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa"]
+layout_mode = 2
+
+[node name="TituloAtalhos" type="Label" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa"]
+layout_mode = 2
+theme_type_variation = &"RotuloTitulo16"
+text = "Atalhos de teclado"
+
+[node name="ListaAtalhos" type="GridContainer" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa"]
+layout_mode = 2
+columns = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 4
+
+[node name="Tecla1" type="Label" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/ListaAtalhos"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "F1"
+
+[node name="Descricao1" type="Label" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/ListaAtalhos"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+text = "Abrir/fechar o Menu Iniciar"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+
+[node name="Tecla2" type="Label" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/ListaAtalhos"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "F11"
+
+[node name="Descricao2" type="Label" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/ListaAtalhos"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+text = "Alternar tela cheia"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+
+[node name="Tecla3" type="Label" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/ListaAtalhos"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "Ctrl+Tab"
+
+[node name="Descricao3" type="Label" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/ListaAtalhos"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+text = "Alternar entre janelas"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+
+[node name="Tecla4" type="Label" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/ListaAtalhos"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "Ctrl+W"
+
+[node name="Descricao4" type="Label" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/ListaAtalhos"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+text = "Fechar a janela ativa"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+
+[node name="Tecla5" type="Label" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/ListaAtalhos"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "Ctrl+M"
+
+[node name="Descricao5" type="Label" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/ListaAtalhos"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+text = "Minimizar a janela ativa"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+
+[node name="Tecla6" type="Label" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/ListaAtalhos"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "Ctrl+Shift+T"
+
+[node name="Descricao6" type="Label" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/ListaAtalhos"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+text = "Abrir o Terminal"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+
+[node name="Tecla7" type="Label" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/ListaAtalhos"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "Ctrl+Shift+D"
+
+[node name="Descricao7" type="Label" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/ListaAtalhos"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+text = "MODO CONFORTO: desliga glitch, tremor, flashes, ruído e animações"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+
+[node name="Tecla8" type="Label" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/ListaAtalhos"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "F9"
+
+[node name="Descricao8" type="Label" parent="Raiz/Conteudo/PaginaSistema/Margem/Caixa/ListaAtalhos"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+text = "Painel de testes (modo de depuração)"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+
+[connection signal="pressed" from="Raiz/PainelMenu/Margem/Menu/BotaoPersonalizacao" to="." method="_mostrar_pagina" binds= ["personalizacao"]]
+[connection signal="pressed" from="Raiz/PainelMenu/Margem/Menu/BotaoAudio" to="." method="_mostrar_pagina" binds= ["audio"]]
+[connection signal="pressed" from="Raiz/PainelMenu/Margem/Menu/BotaoAcessibilidade" to="." method="_mostrar_pagina" binds= ["acessibilidade"]]
+[connection signal="pressed" from="Raiz/PainelMenu/Margem/Menu/BotaoPrivacidade" to="." method="_mostrar_pagina" binds= ["privacidade"]]
+[connection signal="pressed" from="Raiz/PainelMenu/Margem/Menu/BotaoSistema" to="." method="_mostrar_pagina" binds= ["sistema"]]
+[connection signal="valor_escolhido" from="Raiz/Conteudo/PaginaPersonalizacao/Margem/Caixa/OpcaoPapelDeParede" to="." method="_ao_opcao"]
+[connection signal="valor_escolhido" from="Raiz/Conteudo/PaginaPersonalizacao/Margem/Caixa/OpcaoTema" to="." method="_ao_opcao"]
+[connection signal="valor_escolhido" from="Raiz/Conteudo/PaginaPersonalizacao/Margem/Caixa/OpcaoTamanhoTexto" to="." method="_ao_opcao"]
+[connection signal="valor_alterado" from="Raiz/Conteudo/PaginaAudio/Margem/Caixa/VolumeGeral" to="." method="_ao_slider"]
+[connection signal="valor_confirmado" from="Raiz/Conteudo/PaginaAudio/Margem/Caixa/VolumeGeral" to="." method="_ao_slider_solto"]
+[connection signal="valor_alterado" from="Raiz/Conteudo/PaginaAudio/Margem/Caixa/VolumeMusica" to="." method="_ao_slider"]
+[connection signal="valor_confirmado" from="Raiz/Conteudo/PaginaAudio/Margem/Caixa/VolumeMusica" to="." method="_ao_slider_solto"]
+[connection signal="valor_alterado" from="Raiz/Conteudo/PaginaAudio/Margem/Caixa/VolumeEfeitos" to="." method="_ao_slider"]
+[connection signal="valor_confirmado" from="Raiz/Conteudo/PaginaAudio/Margem/Caixa/VolumeEfeitos" to="." method="_ao_slider_solto"]
+[connection signal="pressed" from="Raiz/Conteudo/PaginaAudio/Margem/Caixa/BarraSom/BotaoTestarSom" to="." method="_ao_testar_som"]
+[connection signal="pressed" from="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa/BarraConforto/BotaoAtivarConforto" to="." method="_ao_ativar_conforto"]
+[connection signal="pressed" from="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa/BarraConforto/BotaoDesativarConforto" to="." method="_ao_desativar_conforto"]
+[connection signal="pressed" from="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa/BarraConforto/BotaoRestaurarPadroes" to="." method="_ao_restaurar_acessibilidade"]
+[connection signal="alternada" from="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa/OpcaoReduzirGlitch" to="." method="_ao_alternar"]
+[connection signal="alternada" from="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa/OpcaoReduzirTremor" to="." method="_ao_alternar"]
+[connection signal="alternada" from="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa/OpcaoSemFlashes" to="." method="_ao_alternar"]
+[connection signal="alternada" from="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa/OpcaoReduzirRuido" to="." method="_ao_alternar"]
+[connection signal="alternada" from="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa/OpcaoReduzirAnimacoes" to="." method="_ao_alternar"]
+[connection signal="alternada" from="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa/OpcaoAltoContraste" to="." method="_ao_alternar"]
+[connection signal="alternada" from="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa/OpcaoDesativarEfeitosAgressivos" to="." method="_ao_alternar"]
+[connection signal="alternada" from="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa/OpcaoMostrarIndicadorOculto" to="." method="_ao_alternar"]
+[connection signal="alternada" from="Raiz/Conteudo/PaginaAcessibilidade/Margem/Caixa/OpcaoTempoEstendido" to="." method="_ao_alternar"]
+[connection signal="pressed" from="Raiz/Conteudo/PaginaSistema/Margem/Caixa/BarraSistema/BotaoTelaCheia" to="." method="_ao_tela_cheia"]
+[connection signal="pressed" from="Raiz/Conteudo/PaginaSistema/Margem/Caixa/BarraSistema/BotaoSalvarJogo" to="." method="_ao_salvar_jogo"]
+[connection signal="alternada" from="Raiz/Conteudo/PaginaSistema/Margem/Caixa/OpcaoDepuracao" to="." method="_ao_alternar"]

@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://cytt6frcwki1k"]
+
+[ext_resource type="Script" uid="uid://d0wwhiyit07fs" path="res://features/apps/leitor_texto/scripts/app_leitor_texto.gd" id="1_appleit"]
+
+[node name="AppLeitorTexto" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_appleit")
+
+[node name="Raiz" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+
+[node name="Topo" type="HBoxContainer" parent="Raiz"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RotuloCaminho" type="Label" parent="Raiz/Topo"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloMono13"
+text_overrun_behavior = 3
+unique_name_in_owner = true
+
+[node name="RotuloSomenteLeitura" type="Label" parent="Raiz/Topo"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento12"
+text = "🔒 somente leitura"
+
+[node name="BotaoEditor" type="Button" parent="Raiz/Topo"]
+layout_mode = 2
+text = "Abrir no Bloco de Notas"
+disabled = true
+unique_name_in_owner = true
+
+[node name="PainelCorpo" type="PanelContainer" parent="Raiz"]
+layout_mode = 2
+theme_type_variation = &"PainelEscuro"
+size_flags_vertical = 3
+
+[node name="Margem" type="MarginContainer" parent="Raiz/PainelCorpo"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Corpo" type="RichTextLabel" parent="Raiz/PainelCorpo/Margem"]
+layout_mode = 2
+theme_type_variation = &"RichoMono"
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = false
+selection_enabled = true
+focus_mode = 1
+unique_name_in_owner = true
+
+[node name="RotuloEstado" type="Label" parent="Raiz"]
+layout_mode = 2
+theme_type_variation = &"RotuloFraco12"
+unique_name_in_owner = true
+
+[connection signal="pressed" from="Raiz/Topo/BotaoEditor" to="." method="_ao_abrir_no_editor"]

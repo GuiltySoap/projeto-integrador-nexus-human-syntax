@@ -1,0 +1,301 @@
+[gd_scene format=3 uid="uid://dn6752s6df8if"]
+
+[ext_resource type="Script" uid="uid://bsfexpgip2rss" path="res://features/shell/tela_boot/scripts/tela_boot.gd" id="1_telaboo"]
+[ext_resource type="PackedScene" uid="uid://ass15jmfmymrm" path="res://shared/ui/orbe_nexus/scenes/orbe_nexus.tscn" id="2_orbenex"]
+[ext_resource type="PackedScene" path="res://shared/ui/logo_marca/scenes/logo_marca.tscn" id="3_logomar"]
+
+[node name="TelaBoot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_telaboo")
+
+[node name="Fundo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0431, 0.0392, 0.102, 1.0)
+unique_name_in_owner = true
+
+[node name="Margem" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="Coluna" type="VBoxContainer" parent="Margem"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Log" type="RichTextLabel" parent="Margem/Coluna"]
+layout_mode = 2
+theme_type_variation = &"RichoMono"
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_following = true
+focus_mode = 0
+selection_enabled = false
+unique_name_in_owner = true
+
+[node name="RotuloAviso" type="Label" parent="Margem/Coluna"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco13"
+text = "Aviso: este jogo usa efeitos de glitch e tremor de tela. Ctrl+Shift+D ativa o modo conforto a qualquer momento; F11 alterna a tela cheia. Pressione qualquer tecla para pular o log."
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+unique_name_in_owner = true
+
+[node name="Cortina" type="ColorRect" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+color = Color(0, 0, 0, 0.55)
+
+[node name="Centro" type="CenterContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Painel" type="PanelContainer" parent="Menu/Centro"]
+layout_mode = 2
+theme_type_variation = &"PainelVidro"
+custom_minimum_size = Vector2(600, 0)
+
+[node name="Margem" type="MarginContainer" parent="Menu/Centro/Painel"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Caixa" type="VBoxContainer" parent="Menu/Centro/Painel/Margem"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LogoHumaxOS" parent="Menu/Centro/Painel/Margem/Caixa" instance=ExtResource("3_logomar")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+marca = "humaxos"
+altura = 56.0
+
+[node name="RotuloTitulo" type="Label" parent="Menu/Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_type_variation = &"RotuloTitulo36"
+text = "HumaxOS"
+
+[node name="RotuloSubtitulo" type="Label" parent="Menu/Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento13Mono"
+text = "REGISTRO DE USUÁRIO"
+
+[node name="Separador1" type="HSeparator" parent="Menu/Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+
+[node name="RotuloSalvo" type="Label" parent="Menu/Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[node name="BotaoContinuar" type="Button" parent="Menu/Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_type_variation = &"BotaoPrimario"
+text = "▶ Continuar jogo salvo"
+unique_name_in_owner = true
+
+[node name="RotuloNovo" type="Label" parent="Menu/Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_type_variation = &"Rotulo15"
+text = "Novo jogo — como devemos chamar você?"
+
+[node name="CampoNome" type="LineEdit" parent="Menu/Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_length = 24
+placeholder_text = "Seu nome"
+unique_name_in_owner = true
+
+[node name="LinhaPronome" type="HBoxContainer" parent="Menu/Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RotuloPronome" type="Label" parent="Menu/Centro/Painel/Margem/Caixa/LinhaPronome"]
+layout_mode = 2
+theme_type_variation = &"Rotulo15"
+text = "Pronome:"
+
+[node name="SelPronome" type="OptionButton" parent="Menu/Centro/Painel/Margem/Caixa/LinhaPronome"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Como os textos do jogo devem se referir a você."
+unique_name_in_owner = true
+
+[node name="RotuloErro" type="Label" parent="Menu/Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloPerigo"
+visible = false
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[node name="LinhaEntrar" type="HBoxContainer" parent="Menu/Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BotaoEntrar" type="Button" parent="Menu/Centro/Painel/Margem/Caixa/LinhaEntrar"]
+layout_mode = 2
+theme_type_variation = &"BotaoPrimario"
+size_flags_horizontal = 3
+text = "Entrar no sistema"
+unique_name_in_owner = true
+
+[node name="BotaoNomePadrao" type="Button" parent="Menu/Centro/Painel/Margem/Caixa/LinhaEntrar"]
+layout_mode = 2
+text = "Usar nome padrão"
+
+[node name="Separador2" type="HSeparator" parent="Menu/Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+
+[node name="RotuloAcessibilidade" type="Label" parent="Menu/Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_type_variation = &"RotuloFraco11Mono"
+text = "ACESSIBILIDADE (mais opções em Configurações)"
+
+[node name="CaixaConforto" type="CheckBox" parent="Menu/Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+text = "Modo conforto: reduz glitch, tremor, flashes, ruído e animações"
+unique_name_in_owner = true
+
+[node name="CaixaContraste" type="CheckBox" parent="Menu/Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+text = "Alto contraste"
+unique_name_in_owner = true
+
+[node name="Rodape" type="HBoxContainer" parent="Menu/Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BotaoVoltar" type="Button" parent="Menu/Centro/Painel/Margem/Caixa/Rodape"]
+layout_mode = 2
+visible = false
+text = "← Voltar ao menu"
+unique_name_in_owner = true
+
+[node name="BotaoTelaCheia" type="Button" parent="Menu/Centro/Painel/Margem/Caixa/Rodape"]
+layout_mode = 2
+text = "Tela cheia (F11)"
+
+[node name="Espacador" type="Control" parent="Menu/Centro/Painel/Margem/Caixa/Rodape"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="BotaoSair" type="Button" parent="Menu/Centro/Painel/Margem/Caixa/Rodape"]
+layout_mode = 2
+theme_type_variation = &"BotaoPerigo"
+text = "Sair do jogo"
+
+[node name="Saudacao" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+unique_name_in_owner = true
+
+[node name="Cortina" type="ColorRect" parent="Saudacao"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+color = Color(0, 0, 0, 0.7)
+
+[node name="Centro" type="CenterContainer" parent="Saudacao"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Coluna" type="VBoxContainer" parent="Saudacao/Centro"]
+layout_mode = 2
+theme_override_constants/separation = 18
+custom_minimum_size = Vector2(760, 0)
+
+[node name="Orbe" parent="Saudacao/Centro/Coluna" instance=ExtResource("2_orbenex")]
+layout_mode = 2
+custom_minimum_size = Vector2(150, 150)
+size_flags_horizontal = 4
+unique_name_in_owner = true
+
+[node name="RotuloNexus" type="Label" parent="Saudacao/Centro/Coluna"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento16Mono"
+text = "MAYA"
+
+[node name="RotuloFala" type="Label" parent="Saudacao/Centro/Coluna"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloTitulo24"
+autowrap_mode = 3
+custom_minimum_size = Vector2(760, 180)
+unique_name_in_owner = true
+
+[node name="BotaoSaudacao" type="Button" parent="Saudacao/Centro/Coluna"]
+layout_mode = 2
+theme_type_variation = &"BotaoPrimario"
+size_flags_horizontal = 4
+text = "Continuar ▶"
+unique_name_in_owner = true
+
+[connection signal="pressed" from="Menu/Centro/Painel/Margem/Caixa/BotaoContinuar" to="." method="_ao_continuar"]
+[connection signal="text_submitted" from="Menu/Centro/Painel/Margem/Caixa/CampoNome" to="." method="_ao_nome_enviado"]
+[connection signal="text_changed" from="Menu/Centro/Painel/Margem/Caixa/CampoNome" to="." method="_ao_nome_alterado"]
+[connection signal="pressed" from="Menu/Centro/Painel/Margem/Caixa/LinhaEntrar/BotaoEntrar" to="." method="_ao_entrar"]
+[connection signal="pressed" from="Menu/Centro/Painel/Margem/Caixa/LinhaEntrar/BotaoNomePadrao" to="." method="_ao_nome_padrao"]
+[connection signal="toggled" from="Menu/Centro/Painel/Margem/Caixa/CaixaConforto" to="." method="_ao_conforto"]
+[connection signal="toggled" from="Menu/Centro/Painel/Margem/Caixa/CaixaContraste" to="." method="_ao_contraste"]
+[connection signal="pressed" from="Menu/Centro/Painel/Margem/Caixa/Rodape/BotaoVoltar" to="." method="_ao_voltar"]
+[connection signal="pressed" from="Menu/Centro/Painel/Margem/Caixa/Rodape/BotaoTelaCheia" to="." method="_ao_tela_cheia"]
+[connection signal="pressed" from="Menu/Centro/Painel/Margem/Caixa/Rodape/BotaoSair" to="." method="_ao_sair"]
+[connection signal="pressed" from="Saudacao/Centro/Coluna/BotaoSaudacao" to="." method="_ao_saudacao_continuar"]

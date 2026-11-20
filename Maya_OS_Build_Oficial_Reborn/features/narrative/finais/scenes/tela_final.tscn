@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ajcaxd1lbc277"]
+
+[ext_resource type="Script" path="res://features/narrative/finais/scripts/tela_final.gd" id="1_telafin"]
+[ext_resource type="PackedScene" path="res://features/pause/scenes/tela_fim_de_jogo.tscn" id="4_telafim"]
+
+[node name="TelaFinal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_telafin")
+
+[node name="Fundo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0431, 0.0392, 0.102, 1)
+unique_name_in_owner = true
+
+[node name="TelaFimDeJogo" parent="." instance=ExtResource("4_telafim")]
+layout_mode = 1
+unique_name_in_owner = true
+
+[connection signal="rever_pedido" from="TelaFimDeJogo" to="." method="_ao_fim_de_jogo_revisto"]

@@ -1,0 +1,10 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://features/shell/widget_maya/scripts/widget_maya.gd" id="1_widget"]
+
+[node name="WidgetMaya" type="Button"]
+custom_minimum_size = Vector2(46, 40)
+size_flags_vertical = 4
+focus_mode = 2
+flat = true
+script = ExtResource("1_widget")

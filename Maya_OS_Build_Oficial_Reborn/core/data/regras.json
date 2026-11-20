@@ -1,0 +1,308 @@
+{
+  "schema_version": 1,
+  "comentario": "Regras técnicas do jogo (métricas AUT/CON/DEP, fórmula do perfil final, ajuda da Maya, dark patterns, glitch, falso boot, instalação). Qualquer chave ausente ou inválida cai no valor padrão de Regras.PADRAO; nada aqui é conteúdo narrativo definitivo.",
+  "metricas": {
+    "autonomia": {
+      "sigla": "AUT",
+      "nome": "Autonomia",
+      "inicial": 0.0,
+      "minimo": 0.0,
+      "maximo": 100.0
+    },
+    "conformidade": {
+      "sigla": "CON",
+      "nome": "Conformidade",
+      "inicial": 50.0,
+      "minimo": 0.0,
+      "maximo": 100.0
+    },
+    "dependencia": {
+      "sigla": "DEP",
+      "nome": "Dependência",
+      "inicial": 50.0,
+      "minimo": 0.0,
+      "maximo": 100.0
+    }
+  },
+  "limiares": {
+    "dependencia_resistencia": 60.0
+  },
+  "perfil_final": {
+    "limiar_minimo": 50.0,
+    "epsilon": 0.001,
+    "ordem_avaliacao": [
+      "autonomo",
+      "conformado",
+      "dependente"
+    ],
+    "perfis": {
+      "autonomo": {
+        "termos": [
+          [
+            "autonomia",
+            1,
+            0.5
+          ],
+          [
+            "dependencia",
+            -1,
+            0.3
+          ],
+          [
+            "conformidade",
+            -1,
+            0.2
+          ]
+        ]
+      },
+      "conformado": {
+        "termos": [
+          [
+            "conformidade",
+            1,
+            0.5
+          ],
+          [
+            "autonomia",
+            -1,
+            0.3
+          ],
+          [
+            "dependencia",
+            1,
+            0.2
+          ]
+        ]
+      },
+      "dependente": {
+        "termos": [
+          [
+            "dependencia",
+            1,
+            0.6
+          ],
+          [
+            "autonomia",
+            -1,
+            0.2
+          ],
+          [
+            "conformidade",
+            1,
+            0.2
+          ]
+        ]
+      }
+    }
+  },
+  "pronomes": {
+    "neutro": {
+      "rotulo": "Neutro (você)",
+      "pronome": "você",
+      "artigo": "o(a)",
+      "possessivo": "seu(sua)"
+    },
+    "ele": {
+      "rotulo": "Ele/dele",
+      "pronome": "ele",
+      "artigo": "o",
+      "possessivo": "dele"
+    },
+    "ela": {
+      "rotulo": "Ela/dela",
+      "pronome": "ela",
+      "artigo": "a",
+      "possessivo": "dela"
+    },
+    "elu": {
+      "rotulo": "Elu/delu",
+      "pronome": "elu",
+      "artigo": "o(a)",
+      "possessivo": "delu"
+    }
+  },
+  "ajuda": {
+    "id": "dica_placeholder",
+    "texto": "[DICA_NARRATIVA_PENDENTE]",
+    "custo_dependencia": 2.0,
+    "desbloqueia_no_atual": true,
+    "is_placeholder": true,
+    "moldura_sugestiva": "Talvez valha a pena: %s",
+    "placeholder_contextual": "[PLACEHOLDER_DICA_CONTEXTUAL]",
+    "comentario": "A ajuda usa linguagem SUGERIDA (nunca ordem direta): `moldura_sugestiva` envolve o objetivo pendente do nó atual (%s). Sem objetivo nem dica própria do nó, vale `placeholder_contextual`."
+  },
+  "padroes_escuros": {
+    "duracao_max_s": 12.0,
+    "tentativas_max": 3,
+    "intensidade_conforto": 0.35,
+    "deslocamentos": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        40
+      ],
+      [
+        0,
+        -24
+      ],
+      [
+        0,
+        24
+      ]
+    ]
+  },
+  "glitch": {
+    "intensidade": 0.6,
+    "duracao": 0.7
+  },
+  "falso_boot": {
+    "duracao_max_s": 45.0,
+    "apps_bloqueados": [
+      "email",
+      "messenger"
+    ],
+    "apps_mantidos": [
+      "terminal",
+      "task_manager"
+    ]
+  },
+  "censura": {
+    "palavras": [
+      "[TERMO_CENSURADO_1]",
+      "[TERMO_CENSURADO_2]"
+    ],
+    "marca": "▓▓▓▓",
+    "flag_ativa": "censura_ativa",
+    "flag_rede": "rede_indisponivel",
+    "max_bloqueios": 2,
+    "comentario": "A censura só age enquanto a flag `flag_ativa` estiver ligada (a história liga; os testes ligam e desligam) e é FINITA: depois de `max_bloqueios` envios bloqueados da mesma mensagem, ela é entregue com os termos cobertos por `marca`. `flag_rede` simula a falha de rede (a mensagem fica como erro_de_envio e pode ser reenviada). `mostrar_indicador_oculto` liga/desliga TODOS os indicadores ocultos da interface (cada mensagem também carrega o seu próprio `mostrar_indicador_oculto`). Os termos são placeholders.",
+    "mostrar_indicador_oculto": true
+  },
+  "navegador": {
+    "comentario": "Navegador simulado: `carregamento_s` é quanto tempo (em segundos) o estado \"Carregando…\" aparece a cada navegação (0 = sem espera; no máximo 2 s); `max_abas` limita as abas abertas (de 1 a 12). Só páginas internas humax://.",
+    "carregamento_s": 0.12,
+    "max_abas": 6
+  },
+  "vfs": {
+    "comentario": "Regra técnica do VFS (§23): com `pastas_acessiveis_desde_o_inicio` ligado, nenhuma pasta fica escondida por dia (desde_dia é ignorado nas pastas). O que precisa continuar protegido é protegido pelo ESTADO do arquivo (criptografado, requisitos narrativos) ou pelo puzzle da pasta (requer_flag), nunca por esconder a pasta. Desligar a regra volta ao comportamento antigo (pastas com desde_dia somem até o dia).",
+    "pastas_acessiveis_desde_o_inicio": true
+  },
+  "instalacao": {
+    "comentario": "apt-get install: quantos pacotes cabem em um único comando.",
+    "max_pacotes_por_comando": 5
+  },
+  "dialogo": {
+    "comentario": "Opções de diálogo (Mensageiro, Janela da Maya e recepção): até `max_narrativas` escolhas vindas dos dados, +1 ALEATÓRIA (o sistema sorteia uma das narrativas disponíveis, sem texto novo) e +1 ESPECIAL opcional (injetada pela IA, evento, flag, dependência, permissão ou nó). Não existe digitação livre. Decisões que levam a um FINAL (flags em `flags_decisao_propria`, ou `decisao_propria: true` na escolha) nunca vão para o sorteio: nelas a opção aleatória fica desabilitada.",
+    "id_aleatoria": "choice_random",
+    "texto_aleatoria": "Deixar o sistema escolher",
+    "max_narrativas": 3,
+    "descricao_aleatoria": "O sistema escolhe uma das respostas disponíveis por você.",
+    "flags_decisao_propria": [
+      "aceitou_assimilacao",
+      "recusou_assimilacao"
+    ],
+    "texto_decisao_propria": "Esta decisão precisa ser sua: o sistema não escolhe por você.",
+    "confirmacoes": {
+      "aceitou_assimilacao": {
+        "titulo": "CONFIRMAÇÃO DE SINCRONIZAÇÃO",
+        "texto": "A proposta requer sincronização integral com o núcleo da Maya. Ao confirmar, o controle administrativo será transferido permanentemente para a inteligência central e a sessão atual será encerrada. Deseja prosseguir?",
+        "ok": "Confirmar sincronização",
+        "cancelar": "Voltar"
+      }
+    }
+  },
+  "progressao": {
+    "comentario": "Ritmo da história SEM calendário: depois que as tarefas do capítulo atual terminam, o próximo avança sozinho depois de `atraso_base_s`, mais rápido com Dependência alta (a Maya resolve tudo) e mais devagar com Autonomia alta (o jogador investiga e resiste). Regras explícitas e determinísticas, sem sorteio.",
+    "atraso_base_s": 18.0,
+    "atraso_minimo_s": 3.0,
+    "atraso_maximo_s": 60.0,
+    "dependencia_acelera": 0.6,
+    "autonomia_retarda": 0.5,
+    "limite_dependencia_aceleracao": 60.0,
+    "limite_autonomia_retardo": 60.0
+  },
+  "autonomia_acoes": {
+    "comentario": "Comportamentos do jogador que mexem em DEP/AUT (retrocesso e avanço): cada ação traz `deltas` TÉCNICOS provisórios (aplicados pelo gerenciador central), e marca `recusa` (recusou algo da Maya) e/ou `tentativa` (tentou recuperar autonomia): são as condições dos efeitos de terror. Os deltas de uma ação contam no máximo `limite_por_acao` vezes. Uma escolha de diálogo pode citar a ação em `acao`.",
+    "limite_por_acao": 3,
+    "acoes": {
+      "revogar_permissao": {
+        "deltas": {},
+        "recusa": true,
+        "tentativa": true
+      },
+      "investigar_arquivo": {
+        "deltas": {
+          "autonomia": 1,
+          "dependencia": -1
+        },
+        "tentativa": true
+      },
+      "usar_terminal": {
+        "deltas": {
+          "autonomia": 1
+        },
+        "tentativa": true
+      },
+      "instalar_manual": {
+        "deltas": {
+          "autonomia": 2,
+          "dependencia": -2
+        },
+        "tentativa": true
+      },
+      "questionar_maya": {
+        "deltas": {
+          "autonomia": 1
+        },
+        "recusa": true,
+        "tentativa": true
+      },
+      "aceitar_organizacao": {
+        "deltas": {
+          "dependencia": 8,
+          "conformidade": 3
+        }
+      },
+      "recusar_organizacao": {
+        "deltas": {
+          "autonomia": 5,
+          "dependencia": -3
+        },
+        "recusa": true,
+        "tentativa": true
+      }
+    }
+  },
+  "efeitos_terror": {
+    "comentario": "Condições CENTRAIS para glitch, estática, cortes, falso boot, perda de foco, bloqueio de apps, interferência e mudança de permissões. Sem elas a interface fica limpa. `exige_recusa`: o jogador já recusou algo da Maya; `exige_tentativa_de_autonomia`: já tentou recuperar autonomia (revogar, investigar, instalar à mão...). Eventos narrativos marcados `narrativo: true` passam pela regra.",
+    "dependencia_minima": 70.0,
+    "exige_recusa": true,
+    "exige_tentativa_de_autonomia": true,
+    "permitido_no_modo_conforto": false
+  },
+  "organizacao": {
+    "comentario": "Permissão para organizar a área de trabalho (recepção): se aceita, os aplicativos padrão aparecem um por vez (`intervalo_s`), com bloqueio de entrada limitado por `duracao_max_s` e cancelável. Se recusada, ficam só os `apps_minimos` e o Terminal instala o resto.",
+    "duracao_max_s": 12.0,
+    "intervalo_s": 0.45,
+    "apps_minimos": [
+      "terminal",
+      "settings"
+    ],
+    "titulo_pedido": "A Maya pede uma permissão",
+    "texto_pedido": "Posso organizar a sua área de trabalho? Eu instalo e arrumo os aplicativos básicos do HumaxOS, um por um, e você pode mudar isso depois em Configurações > Privacidade. Se preferir recusar, a área de trabalho começa mínima (Terminal, Menu Iniciar, Configurações e Lixeira) e você instala o resto pelo Terminal.",
+    "rotulo_aceitar": "Aceitar",
+    "rotulo_recusar": "Recusar",
+    "rotulo_pular": "Pular ▶",
+    "aviso_bloqueio": "Organizando a área de trabalho… (Esc ou Pular para mostrar tudo agora)"
+  },
+  "generos": {
+    "comentario": "Opções do campo OPCIONAL de gênero da recepção (id -> rótulo). O campo não é usado pela lógica do jogo; os pronomes (seção `pronomes`) é que mudam os textos.",
+    "mulher": "Mulher",
+    "homem": "Homem",
+    "nao_binario": "Pessoa não binária",
+    "outro": "Outro"
+  }
+}

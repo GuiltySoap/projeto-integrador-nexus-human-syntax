@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://aawmf1axwut7d"]
+
+[ext_resource type="Script" path="res://features/apps/config/components/linha_slider/scripts/linha_slider.gd" id="1_linhasl"]
+
+[node name="LinhaSlider" type="VBoxContainer"]
+layout_mode = 3
+anchors_preset = 0
+theme_override_constants/separation = 2
+script = ExtResource("1_linhasl")
+
+[node name="Topo" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RotuloTitulo" type="Label" parent="Topo"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Título"
+unique_name_in_owner = true
+
+[node name="RotuloValor" type="Label" parent="Topo"]
+layout_mode = 2
+theme_type_variation = &"RotuloAcento14Mono"
+unique_name_in_owner = true
+
+[node name="Slider" type="HSlider" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 24)
+max_value = 1.0
+step = 0.05
+unique_name_in_owner = true
+
+[connection signal="value_changed" from="Slider" to="." method="_ao_valor_alterado"]
+[connection signal="drag_ended" from="Slider" to="." method="_ao_arraste_terminado"]

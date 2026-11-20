@@ -1,0 +1,218 @@
+[gd_scene format=3 uid="uid://8uaonhgogmof"]
+
+[ext_resource type="Script" uid="uid://dbexmpp13wm78" path="res://features/shell/area_de_trabalho/scripts/area_de_trabalho.gd" id="1_areadet"]
+[ext_resource type="PackedScene" uid="uid://b0iau0gk71bpk" path="res://features/shell/area_de_trabalho/scenes/papel_de_parede.tscn" id="2_papelde"]
+[ext_resource type="PackedScene" uid="uid://agu0rb3h8io11" path="res://features/shell/area_de_trabalho/scenes/icone_area_de_trabalho.tscn" id="3_iconear"]
+[ext_resource type="PackedScene" uid="uid://bcc5ry8ap5cgt" path="res://features/shell/data_e_hora/scenes/widget_relogio.tscn" id="4_widgetr"]
+[ext_resource type="PackedScene" uid="uid://ckmbwo1pfwdr4" path="res://features/shell/barra_de_tarefas/scenes/barra_de_tarefas.tscn" id="6_barrade"]
+[ext_resource type="PackedScene" uid="uid://amkqvjox5rppp" path="res://features/shell/janela_inicial/scenes/menu_iniciar.tscn" id="7_menuini"]
+[ext_resource type="PackedScene" uid="uid://br0qo6efch851" path="res://features/shell/centro_notificacoes/scenes/centro_notificacoes.tscn" id="8_centron"]
+[ext_resource type="PackedScene" uid="uid://abn4tb5p72iks" path="res://features/shell/popup_notificacao/scenes/pilha_toasts.tscn" id="9_pilhato"]
+[ext_resource type="PackedScene" uid="uid://bl6n3n4skggsk" path="res://features/shell/efeito_glitch/scenes/efeito_glitch.tscn" id="10_efeitog"]
+[ext_resource type="PackedScene" uid="uid://aqhgtvwpvcxwq" path="res://features/shell/area_de_trabalho/scenes/painel_debug.tscn" id="12_paineld"]
+[ext_resource type="PackedScene" path="res://features/pause/scenes/menu_pausa.tscn" id="13_menupau"]
+[ext_resource type="PackedScene" path="res://features/pause/scenes/tela_fim_de_jogo.tscn" id="14_telafim"]
+
+[node name="AreaDeTrabalho" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_areadet")
+mouse_filter = 1
+cena_icone = ExtResource("3_iconear")
+
+[node name="CamadaFundo" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PapelDeParede" parent="CamadaFundo" instance=ExtResource("2_papelde")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+unique_name_in_owner = true
+
+[node name="CamadaIcones" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="GradeIcones" type="VFlowContainer" parent="CamadaIcones"]
+layout_mode = 1
+mouse_filter = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 478.0
+offset_bottom = -70.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+unique_name_in_owner = true
+
+[node name="CamadaWidgets" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColunaWidgets" type="VBoxContainer" parent="CamadaWidgets"]
+layout_mode = 1
+mouse_filter = 2
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -378.0
+offset_top = 18.0
+offset_right = -18.0
+offset_bottom = -70.0
+alignment = 2
+theme_override_constants/separation = 10
+
+[node name="WidgetRelogio" parent="CamadaWidgets/ColunaWidgets" instance=ExtResource("4_widgetr")]
+layout_mode = 2
+unique_name_in_owner = true
+
+[node name="CamadaJanelas" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+offset_bottom = -52.0
+unique_name_in_owner = true
+
+[node name="CamadaShell" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BarraTarefas" parent="CamadaShell" instance=ExtResource("6_barrade")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+offset_top = -52.0
+unique_name_in_owner = true
+
+[node name="MenuIniciar" parent="CamadaShell" instance=ExtResource("7_menuini")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_bottom = -52.0
+unique_name_in_owner = true
+
+[node name="CentroNotificacoes" parent="CamadaShell" instance=ExtResource("8_centron")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_bottom = -52.0
+unique_name_in_owner = true
+
+[node name="CamadaToasts" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PilhaToasts" parent="CamadaToasts" instance=ExtResource("9_pilhato")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+unique_name_in_owner = true
+
+[node name="CamadaEfeitos" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="EfeitoGlitch" parent="CamadaEfeitos" instance=ExtResource("10_efeitog")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+unique_name_in_owner = true
+
+
+
+[node name="CamadaModais" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+unique_name_in_owner = true
+
+[node name="CamadaDebug" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PainelDebug" parent="CamadaDebug" instance=ExtResource("12_paineld")]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 490.0
+unique_name_in_owner = true
+
+[node name="MenuPausa" parent="." instance=ExtResource("13_menupau")]
+layout_mode = 1
+unique_name_in_owner = true
+
+[node name="TelaFimDeJogo" parent="." instance=ExtResource("14_telafim")]
+layout_mode = 1
+unique_name_in_owner = true

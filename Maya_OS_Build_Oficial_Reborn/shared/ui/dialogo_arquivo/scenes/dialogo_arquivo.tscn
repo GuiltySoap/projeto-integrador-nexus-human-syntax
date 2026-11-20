@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://cwidoxr1ymboc"]
+
+[ext_resource type="Script" path="res://shared/ui/dialogo_arquivo/scripts/dialogo_arquivo.gd" id="1_dialogo"]
+
+[node name="DialogoArquivo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dialogo")
+
+[node name="Cortina" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.58)
+
+[node name="Centro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Painel" type="PanelContainer" parent="Centro"]
+layout_mode = 2
+theme_type_variation = &"PainelVidro"
+custom_minimum_size = Vector2(560, 420)
+
+[node name="Margem" type="MarginContainer" parent="Centro/Painel"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="Caixa" type="VBoxContainer" parent="Centro/Painel/Margem"]
+layout_mode = 2
+theme_override_constants/separation = 10
+unique_name_in_owner = true
+
+[node name="RotuloTitulo" type="Label" parent="Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_type_variation = &"RotuloTitulo20"
+text = "Abrir arquivo"
+unique_name_in_owner = true
+
+[node name="Topo" type="HBoxContainer" parent="Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BotaoSubir" type="Button" parent="Centro/Painel/Margem/Caixa/Topo"]
+layout_mode = 2
+text = "↑ Subir"
+unique_name_in_owner = true
+
+[node name="RotuloPasta" type="Label" parent="Centro/Painel/Margem/Caixa/Topo"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloMono14"
+text_overrun_behavior = 3
+unique_name_in_owner = true
+
+[node name="Lista" type="ItemList" parent="Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 220)
+unique_name_in_owner = true
+
+[node name="Campo" type="LineEdit" parent="Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_type_variation = &"CampoMono"
+size_flags_horizontal = 3
+visible = false
+placeholder_text = "nome-do-arquivo.txt"
+unique_name_in_owner = true
+
+[node name="RotuloErro" type="Label" parent="Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_type_variation = &"RotuloPerigo"
+visible = false
+unique_name_in_owner = true
+
+[node name="Botoes" type="HBoxContainer" parent="Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 2
+
+[node name="BotaoCancelar" type="Button" parent="Centro/Painel/Margem/Caixa/Botoes"]
+layout_mode = 2
+text = "Cancelar"
+unique_name_in_owner = true
+
+[node name="BotaoConfirmar" type="Button" parent="Centro/Painel/Margem/Caixa/Botoes"]
+layout_mode = 2
+theme_type_variation = &"BotaoPrimario"
+text = "Abrir"
+unique_name_in_owner = true
+
+[connection signal="pressed" from="Centro/Painel/Margem/Caixa/Topo/BotaoSubir" to="." method="_ao_subir"]
+[connection signal="item_activated" from="Centro/Painel/Margem/Caixa/Lista" to="." method="_ao_item_ativado"]
+[connection signal="item_selected" from="Centro/Painel/Margem/Caixa/Lista" to="." method="_ao_item_selecionado"]
+[connection signal="text_submitted" from="Centro/Painel/Margem/Caixa/Campo" to="." method="_ao_nome_enviado"]
+[connection signal="pressed" from="Centro/Painel/Margem/Caixa/Botoes/BotaoCancelar" to="." method="_ao_cancelar"]
+[connection signal="pressed" from="Centro/Painel/Margem/Caixa/Botoes/BotaoConfirmar" to="." method="_ao_confirmar"]

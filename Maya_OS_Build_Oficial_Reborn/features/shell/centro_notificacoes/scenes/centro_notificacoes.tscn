@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://br0qo6efch851"]
+
+[ext_resource type="Script" path="res://features/shell/centro_notificacoes/scripts/centro_notificacoes.gd" id="1_centron"]
+[ext_resource type="PackedScene" uid="uid://bfn2edl13hj40" path="res://features/shell/centro_notificacoes/scenes/cartao_notificacao.tscn" id="2_cartaon"]
+
+[node name="CentroNotificacoes" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+visible = false
+script = ExtResource("1_centron")
+cena_cartao = ExtResource("2_cartaon")
+
+[node name="Fora" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+color = Color(0, 0, 0, 0.22)
+unique_name_in_owner = true
+
+[node name="Painel" type="PanelContainer" parent="."]
+layout_mode = 1
+theme_type_variation = &"PainelVidro"
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -440.0
+offset_top = -590.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+unique_name_in_owner = true
+
+[node name="Margem" type="MarginContainer" parent="Painel"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_bottom = 14
+
+[node name="Raiz" type="VBoxContainer" parent="Painel/Margem"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Cabecalho" type="HBoxContainer" parent="Painel/Margem/Raiz"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Titulo" type="Label" parent="Painel/Margem/Raiz/Cabecalho"]
+layout_mode = 2
+theme_type_variation = &"RotuloTitulo18"
+text = "Notificações"
+
+[node name="RotuloResumo" type="Label" parent="Painel/Margem/Raiz/Cabecalho"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco12Mono"
+horizontal_alignment = 2
+unique_name_in_owner = true
+
+[node name="BotaoLimpar" type="Button" parent="Painel/Margem/Raiz/Cabecalho"]
+layout_mode = 2
+text = "Limpar"
+
+[node name="Silenciar" type="CheckBox" parent="Painel/Margem/Raiz"]
+layout_mode = 2
+text = "Silenciar pop-ups (continuam no histórico)"
+unique_name_in_owner = true
+
+[node name="Separador" type="HSeparator" parent="Painel/Margem/Raiz"]
+layout_mode = 2
+
+[node name="Rolagem" type="ScrollContainer" parent="Painel/Margem/Raiz"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Lista" type="VBoxContainer" parent="Painel/Margem/Raiz/Rolagem"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+unique_name_in_owner = true
+
+[node name="RotuloVazio" type="Label" parent="Painel/Margem/Raiz/Rolagem/Lista"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RotuloFraco"
+text = "Nenhuma notificação por enquanto."
+autowrap_mode = 3
+visible = false
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[connection signal="gui_input" from="Fora" to="." method="_ao_clique_fora"]
+[connection signal="pressed" from="Painel/Margem/Raiz/Cabecalho/BotaoLimpar" to="." method="_ao_limpar"]
+[connection signal="toggled" from="Painel/Margem/Raiz/Silenciar" to="." method="_ao_silenciar"]

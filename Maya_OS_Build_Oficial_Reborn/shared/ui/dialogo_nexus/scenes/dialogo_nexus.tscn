@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://bjdq2vin75886"]
+
+[ext_resource type="Script" path="res://shared/ui/dialogo_nexus/scripts/dialogo_nexus.gd" id="1_dialogo"]
+
+[node name="DialogoNexus" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dialogo")
+
+[node name="Cortina" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.58)
+
+[node name="Centro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Painel" type="PanelContainer" parent="Centro"]
+layout_mode = 2
+theme_type_variation = &"PainelVidro"
+custom_minimum_size = Vector2(460, 0)
+
+[node name="Margem" type="MarginContainer" parent="Centro/Painel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Caixa" type="VBoxContainer" parent="Centro/Painel/Margem"]
+layout_mode = 2
+theme_override_constants/separation = 12
+unique_name_in_owner = true
+
+[node name="RotuloTitulo" type="Label" parent="Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_type_variation = &"RotuloTitulo20"
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[node name="RotuloCorpo" type="Label" parent="Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+size_flags_horizontal = 3
+autowrap_mode = 3
+custom_minimum_size = Vector2(420, 0)
+unique_name_in_owner = true
+
+[node name="Campo" type="LineEdit" parent="Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_type_variation = &"CampoMono"
+size_flags_horizontal = 3
+visible = false
+unique_name_in_owner = true
+
+[node name="RotuloErro" type="Label" parent="Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_type_variation = &"RotuloPerigo"
+visible = false
+unique_name_in_owner = true
+
+[node name="Botoes" type="HBoxContainer" parent="Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 2
+unique_name_in_owner = true
+
+[node name="BotaoCancelar" type="Button" parent="Centro/Painel/Margem/Caixa/Botoes"]
+layout_mode = 2
+text = "Cancelar"
+unique_name_in_owner = true
+
+[node name="BotaoOk" type="Button" parent="Centro/Painel/Margem/Caixa/Botoes"]
+layout_mode = 2
+theme_type_variation = &"BotaoPrimario"
+text = "OK"
+unique_name_in_owner = true
+
+[connection signal="text_submitted" from="Centro/Painel/Margem/Caixa/Campo" to="." method="_ao_texto_enviado"]
+[connection signal="pressed" from="Centro/Painel/Margem/Caixa/Botoes/BotaoCancelar" to="." method="_ao_cancelar"]
+[connection signal="pressed" from="Centro/Painel/Margem/Caixa/Botoes/BotaoOk" to="." method="_ao_confirmar"]

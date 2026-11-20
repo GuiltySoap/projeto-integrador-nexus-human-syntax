@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://agu0rb3h8io11"]
+
+[ext_resource type="Script" path="res://features/shell/area_de_trabalho/scripts/icone_area_de_trabalho.gd" id="1_iconear"]
+[ext_resource type="PackedScene" uid="uid://bp3exqu5smrvm" path="res://shared/ui/icone_app/scenes/icone_app.tscn" id="2_iconeap"]
+
+[node name="IconeAreaDeTrabalho" type="Button"]
+layout_mode = 3
+anchors_preset = 0
+theme_type_variation = &"BotaoPlano"
+custom_minimum_size = Vector2(98, 104)
+script = ExtResource("1_iconear")
+
+[node name="Caixa" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Icone" parent="Caixa" instance=ExtResource("2_iconeap")]
+layout_mode = 2
+lado = 52
+size_flags_horizontal = 4
+unique_name_in_owner = true
+
+[node name="Rotulo" type="Label" parent="Caixa"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_type_variation = &"Rotulo13"
+horizontal_alignment = 1
+autowrap_mode = 3
+custom_minimum_size = Vector2(1, 0)
+unique_name_in_owner = true
+
+[connection signal="gui_input" from="." to="." method="_ao_entrada"]
+[connection signal="pressed" from="." to="." method="_ao_pressionado"]

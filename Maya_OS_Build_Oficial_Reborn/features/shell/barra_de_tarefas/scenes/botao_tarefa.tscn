@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://a1je0rgya1tlj"]
+
+[ext_resource type="Script" path="res://features/shell/barra_de_tarefas/scripts/botao_tarefa.gd" id="1_botaota"]
+[ext_resource type="PackedScene" uid="uid://bp3exqu5smrvm" path="res://shared/ui/icone_app/scenes/icone_app.tscn" id="2_iconeap"]
+
+[node name="BotaoTarefaApp" type="Button"]
+layout_mode = 3
+anchors_preset = 0
+theme_type_variation = &"BotaoTarefa"
+custom_minimum_size = Vector2(44, 38)
+size_flags_vertical = 4
+clip_text = true
+script = ExtResource("1_botaota")
+
+[node name="Linha" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+alignment = 1
+offset_left = 8.0
+offset_right = -8.0
+
+[node name="Icone" parent="Linha" instance=ExtResource("2_iconeap")]
+layout_mode = 2
+lado = 24
+size_flags_vertical = 4
+unique_name_in_owner = true
+
+[node name="Rotulo" type="Label" parent="Linha"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_type_variation = &"Rotulo13"
+text_overrun_behavior = 3
+visible = false
+unique_name_in_owner = true

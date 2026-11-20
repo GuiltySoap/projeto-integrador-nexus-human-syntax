@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://bg05k5a7bwih"]
+
+[ext_resource type="Script" path="res://features/splash_screen/scripts/splash_screen.gd" id="1_splashs"]
+[ext_resource type="Texture2D" path="res://features/splash_screen/assets/mayaos_intro_logo.png" id="2_logoest"]
+
+[node name="SplashScreen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_splashs")
+
+[node name="FundoPreto" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ContainerVideo" type="AspectRatioContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+ratio = 1.7777778
+
+[node name="VideoLogo" type="VideoStreamPlayer" parent="ContainerVideo"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+mouse_filter = 2
+expand = true
+
+[node name="LogoFallback" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_logoest")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CamadaInteracao" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="IndicadorPular" type="Label" parent="CamadaInteracao"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -76.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_type_variation = &"RotuloFraco"
+text = "Pressione Espaço para pular"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PainelFalha" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Moldura" type="PanelContainer" parent="PainelFalha"]
+layout_mode = 2
+theme_type_variation = &"PainelVidro"
+
+[node name="Margem" type="MarginContainer" parent="PainelFalha/Moldura"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 26
+
+[node name="Conteudo" type="VBoxContainer" parent="PainelFalha/Moldura/Margem"]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TituloFalha" type="Label" parent="PainelFalha/Moldura/Margem/Conteudo"]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+theme_type_variation = &"RotuloTitulo22"
+text = "Não foi possível abrir o Menu Inicial"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MensagemFalha" type="Label" parent="PainelFalha/Moldura/Margem/Conteudo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+theme_type_variation = &"RotuloFraco"
+text = "Verifique a instalação do jogo e tente de novo."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="BotaoTentarNovamente" type="Button" parent="PainelFalha/Moldura/Margem/Conteudo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_type_variation = &"BotaoPrimario"
+text = "Tentar novamente"
+
+[node name="BotaoSair" type="Button" parent="PainelFalha/Moldura/Margem/Conteudo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Sair do jogo"
+
+[node name="FadeOverlay" type="ColorRect" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="PainelFalha/Moldura/Margem/Conteudo/BotaoTentarNovamente" to="." method="_ao_tentar_novamente"]
+[connection signal="pressed" from="PainelFalha/Moldura/Margem/Conteudo/BotaoSair" to="." method="_ao_sair"]

@@ -1,0 +1,83 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://shared/ui/painel_confirmacao/scripts/painel_confirmacao.gd" id="1_painelc"]
+
+[node name="PainelConfirmacao" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_painelc")
+
+[node name="Cortina" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.62)
+
+[node name="Centro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Painel" type="PanelContainer" parent="Centro"]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 2
+theme_type_variation = &"PainelVidro"
+
+[node name="Margem" type="MarginContainer" parent="Centro/Painel"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 22
+
+[node name="Caixa" type="VBoxContainer" parent="Centro/Painel/Margem"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="RotuloTitulo" type="Label" parent="Centro/Painel/Margem/Caixa"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_type_variation = &"RotuloTitulo20"
+text = "Confirmar?"
+autowrap_mode = 3
+
+[node name="RotuloTexto" type="Label" parent="Centro/Painel/Margem/Caixa"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(472, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+autowrap_mode = 3
+
+[node name="Botoes" type="HBoxContainer" parent="Centro/Painel/Margem/Caixa"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="BotaoCancelar" type="Button" parent="Centro/Painel/Margem/Caixa/Botoes"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 44)
+layout_mode = 2
+text = "Cancelar"
+
+[node name="BotaoConfirmar" type="Button" parent="Centro/Painel/Margem/Caixa/Botoes"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 44)
+layout_mode = 2
+theme_type_variation = &"BotaoPrimario"
+text = "Confirmar"
+
+[connection signal="pressed" from="Centro/Painel/Margem/Caixa/Botoes/BotaoCancelar" to="." method="_ao_cancelar"]
+[connection signal="pressed" from="Centro/Painel/Margem/Caixa/Botoes/BotaoConfirmar" to="." method="_ao_confirmar"]

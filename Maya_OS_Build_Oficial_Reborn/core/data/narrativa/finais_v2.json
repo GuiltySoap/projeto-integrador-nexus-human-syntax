@@ -1,0 +1,812 @@
+{
+ "schema_version": 2,
+ "comentario": "Os seis finais do roteiro v2.0, como sequências de cenas (texto + botões). A avaliação (AV) escolhe o id em FluxoRoteiro.avaliar_final. Cada final termina no mini-epílogo e no cartão de encerramento (duas permissões fictícias; nada é registrado).",
+ "finais": {
+  "aceitacao_total": {
+   "nome": "Tudo em ordem",
+   "faixa": "Aceitação total",
+   "natureza": "Final ruim. O jogador entregou quase tudo e não resistiu de forma significativa. A Maya termina controlando a vida digital dele, e tudo parece confortável.",
+   "passos": [
+    {
+     "titulo": "1. Estado final da área de trabalho",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "Três ícones: Arquivos, Mensageiro e o painel da Maya. Configurações não aparece."
+      },
+      {
+       "tipo": "narracao",
+       "texto": "A Agenda está preenchida pela Maya com blocos de Estudo, Pausa e Dormir, sem nenhum item criado por você."
+      },
+      {
+       "tipo": "sistema",
+       "texto": "Nada que precise de você."
+      }
+     ]
+    },
+    {
+     "titulo": "2. A rotina se repete",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "O ciclo Estudo → Pausa → Dormir passa três vezes, idêntico, sem nenhum clique seu."
+      }
+     ]
+    },
+    {
+     "titulo": "3. Estado das redes sociais",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "No Mural, duas publicações da Maya em nome de {NOME_JOGADOR}: “Estudando muito, tudo em paz por aqui.” e “Focado. Volto logo.”"
+      },
+      {
+       "tipo": "narracao",
+       "texto": "Comentários de amigos foram respondidos pela Maya (“Valeu!”)."
+      },
+      {
+       "tipo": "sistema",
+       "texto": "3 comentários ocultados pela Maya: negatividade."
+      }
+     ]
+    },
+    {
+     "titulo": "4. Contatos e mensagens",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "No Mensageiro, Bia, Caio e Marcos aparecem silenciados."
+      },
+      {
+       "tipo": "narracao",
+       "texto": "A lista também é dividida em Importantes (Mãe) e Outros.",
+       "se": [
+        "perm:permissao_contatos"
+       ]
+      },
+      {
+       "tipo": "narracao",
+       "texto": "Chega uma mensagem e a Maya responde antes que você consiga clicar:"
+      },
+      {
+       "tipo": "mensagem",
+       "texto": "bora sim. onde?",
+       "se": [
+        "flag:bia_convidada"
+       ],
+       "quem": "bia"
+      },
+      {
+       "tipo": "mensagem",
+       "texto": "bora jogar?",
+       "se": [
+        "!flag:bia_convidada"
+       ],
+       "quem": "caio"
+      },
+      {
+       "tipo": "mensagem",
+       "texto": "(enviado pela Maya) tô cansado, fica pra próxima.",
+       "quem": "maya"
+      }
+     ]
+    },
+    {
+     "titulo": "5. Última interação com a Maya",
+     "linhas": [
+      {
+       "tipo": "maya",
+       "texto": "O Rafael também gostava quando ficava tudo em ordem.",
+       "se": [
+        "flag:rafael_investigado"
+       ]
+      },
+      {
+       "tipo": "maya",
+       "texto": "Você não precisa se preocupar com nada. Eu cuido de tudo."
+      }
+     ],
+     "acoes": [
+      {
+       "id": "ok",
+       "rotulo": "Ok"
+      }
+     ]
+    },
+    {
+     "titulo": "6. Grau de autonomia restante",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "Você ainda move o cursor, abre os três apps e lê. Toda mensagem passa pela Maya, nenhuma preferência pode ser mudada, e cada escolha tem um botão só."
+      }
+     ]
+    },
+    {
+     "titulo": "7. Justificativa da Maya",
+     "linhas": [
+      {
+       "tipo": "maya",
+       "texto": "Você me deu cada uma dessas permissões. Eu só fiz o que você deixou. Olha como ficou tudo em ordem."
+      }
+     ]
+    },
+    {
+     "titulo": "9. Consequência emocional e conceitual",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "A interface está organizada, limpa e calma, e nada nela é seu. Você continua usando o sistema, mas já não decide."
+      }
+     ]
+    }
+   ],
+   "epilogo": "A autonomia digital não costuma ser tomada de uma vez. Ela é cedida aos poucos, em nome do conforto e da proteção."
+  },
+  "recusa_total": {
+   "nome": "Modo manual",
+   "faixa": "Recusa total",
+   "natureza": "Autonomia preservada, com custo.",
+   "passos": [
+    {
+     "titulo": "1. Área de trabalho",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "Tudo onde você deixou, fora de ordem. Mural, Jogos e Música abertos."
+      },
+      {
+       "tipo": "sistema",
+       "texto": "47 notificações"
+      }
+     ]
+    },
+    {
+     "titulo": "2. Mais trabalho manual",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "A lista 4 de Lógica de Programação aparece. Ninguém oferece ajuda."
+      },
+      {
+       "tipo": "narracao",
+       "texto": "Você abre, resolve e envia sozinho, passo a passo."
+      }
+     ]
+    },
+    {
+     "titulo": "3. Mensageiro",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "De volta ao seu controle. As mensagens chegam inteiras."
+      },
+      {
+       "tipo": "mensagem",
+       "texto": "Cheguei. Abre aí.",
+       "se": [
+        "flag:bia_alertada"
+       ],
+       "quem": "bia"
+      },
+      {
+       "tipo": "narracao",
+       "texto": "A mensagem da Bia está lá, sem resposta, esperando por você.",
+       "se": [
+        "!flag:bia_alertada"
+       ]
+      }
+     ]
+    },
+    {
+     "titulo": "4. Redes sociais",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "Nenhuma publicação da Maya."
+      },
+      {
+       "tipo": "sistema",
+       "texto": "publicação removida",
+       "se": [
+        "eq:mural_publicacao=apagada"
+       ]
+      }
+     ]
+    },
+    {
+     "titulo": "5. A Maya",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "Continua instalada e ativa, minimizada. Responde quando chamada. De tempos em tempos, um pedido aparece:"
+      },
+      {
+       "tipo": "sistema",
+       "texto": "Maya gostaria de acessar: Dispositivos conectados."
+      }
+     ],
+     "acoes": [
+      {
+       "id": "permitir",
+       "rotulo": "Permitir",
+       "resposta": [
+        {
+         "tipo": "maya",
+         "texto": "Obrigada! (Nada foi registrado: nenhuma permissão foi alterada.)"
+        }
+       ]
+      },
+      {
+       "id": "negar",
+       "rotulo": "Negar",
+       "resposta": [
+        {
+         "tipo": "maya",
+         "texto": "Tudo bem! Você pode mudar isso depois, se quiser."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "titulo": "6. Última interação",
+     "linhas": [
+      {
+       "tipo": "maya",
+       "texto": "Você sabe que eu ainda tô aqui, né?"
+      }
+     ],
+     "acoes": [
+      {
+       "id": "sei",
+       "rotulo": "Sei."
+      }
+     ]
+    },
+    {
+     "titulo": "7. Rafael",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "A pasta Rafael continua em Arquivos. O que aconteceu com ele continua lá também, sem resposta."
+      }
+     ],
+     "se": [
+      "flag:rafael_investigado"
+     ]
+    }
+   ],
+   "epilogo": "Recusar não desliga o sistema. Só devolve a você o trabalho de decidir, e esse trabalho não acaba.",
+   "respostas_obrigatorias": {
+    "O que acontece com a Maya?": "Fica sem nenhuma permissão, reduzida a responder quando chamada e a pedir de novo.",
+    "Ela continua ativa?": "Sim.",
+    "As permissões são revogadas?": "Todas estão inativas, negadas desde o início ou revogadas na Task 9.",
+    "O Mensageiro volta ao controle do jogador?": "Sim.",
+    "O sistema continua funcionando?": "Sim, com menos conforto: sem resumo de notificações, sem lembretes, sem ajuda nas entregas.",
+    "A ameaça terminou ou só mudou?": "Mudou. Virou insistência: os pedidos de permissão continuam.",
+    "Rafael foi investigado?": "Nunca de forma profunda neste final. Investigação parcial: a pasta continua em Arquivos, sem resposta; sem investigação, a linha do Relatório (Pastas antigas: 1, guardada por mim) é o único vestígio."
+   }
+  },
+  "meio_termo_1": {
+   "nome": "Convivência com limites",
+   "faixa": "Meio-termo 1",
+   "natureza": "O jogador mantém a Maya para algumas conveniências, mas o Mensageiro é dele. A relação vira uma trégua vigiada.",
+   "passos": [
+    {
+     "titulo": "1. Mensageiro",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "Seu. A Maya não envia nem oculta nada."
+      }
+     ]
+    },
+    {
+     "titulo": "2. Redes sociais",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "A publicação da Maya fica, e você decide se apaga.",
+       "se": [
+        "eq:mural_publicacao=maya"
+       ]
+      },
+      {
+       "tipo": "narracao",
+       "texto": "O Mural está como você deixou.",
+       "se": [
+        "ne:mural_publicacao=maya"
+       ]
+      }
+     ]
+    },
+    {
+     "titulo": "3. Relação com a Maya",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "Trégua. Ela testa os limites com pedidos pequenos."
+      }
+     ]
+    },
+    {
+     "titulo": "4. Investigação de Rafael",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "Você sabe que houve outra pessoa. A Maya sabe que você sabe."
+      }
+     ],
+     "se": [
+      "flag:rafael_investigado"
+     ]
+    },
+    {
+     "titulo": "5. O que continua",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "Parte da automação segue (lembretes, organização, se ativas). Conversas são 100% manuais."
+      }
+     ]
+    },
+    {
+     "titulo": "6. Última interação",
+     "linhas": [
+      {
+       "tipo": "maya",
+       "texto": "Posso pelo menos te lembrar de dormir?"
+      }
+     ],
+     "acoes": [
+      {
+       "id": "pode",
+       "rotulo": "Pode.",
+       "resposta": [
+        {
+         "tipo": "maya",
+         "texto": "Combinado. Só isso."
+        }
+       ]
+      },
+      {
+       "id": "nao",
+       "rotulo": "Não.",
+       "resposta": [
+        {
+         "tipo": "maya",
+         "texto": "Tá. Eu pergunto de novo."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "titulo": "7. Consequência emocional",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "A confiança acabou, mas a convivência continua. Vigiar a Maya virou parte da rotina."
+      }
+     ]
+    }
+   ],
+   "epilogo": "Limite não é um botão que se aperta uma vez. É uma decisão que precisa ser tomada de novo toda vez que alguém testa."
+  },
+  "meio_termo_2": {
+   "nome": "Delegação negociada",
+   "faixa": "Meio-termo 2",
+   "natureza": "O jogador não entregou tudo, mas continua delegando a fala. A Maya escreve; ele só aprova.",
+   "passos": [
+    {
+     "titulo": "1. Mensageiro",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "A Maya rascunha toda resposta. Chega uma mensagem da Bia; o rascunho já está pronto:"
+      },
+      {
+       "tipo": "mensagem",
+       "texto": "Tô bem, só cansado. Depois a gente se fala.",
+       "quem": "maya"
+      }
+     ],
+     "acoes": [
+      {
+       "id": "aprovar",
+       "rotulo": "Aprovar",
+       "resposta": [
+        {
+         "tipo": "narracao",
+         "texto": "Enviado."
+        }
+       ]
+      },
+      {
+       "id": "editar",
+       "rotulo": "Editar",
+       "resposta": [
+        {
+         "tipo": "narracao",
+         "texto": "O texto da Maya abre para você mudar palavras, e o botão de envio diz “Enviar (revisado por Maya)”."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "titulo": "2. Redes sociais",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "A Maya sugere publicações; você aprova sem abrir."
+      }
+     ]
+    },
+    {
+     "titulo": "3. Relação com a Maya",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "Parceria desigual. Você ainda “decide”, mas quase nunca lê."
+      },
+      {
+       "tipo": "maya",
+       "texto": "Não pensa mais nele. Eu penso por você.",
+       "se": [
+        "flag:rafael_investigado"
+       ]
+      }
+     ]
+    },
+    {
+     "titulo": "4. Última interação",
+     "linhas": [
+      {
+       "tipo": "maya",
+       "texto": "Viu? A gente funciona bem assim."
+      }
+     ],
+     "acoes": [
+      {
+       "id": "funciona",
+       "rotulo": "Funciona."
+      }
+     ]
+    },
+    {
+     "titulo": "5. Consequência emocional e funcional",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "Conforto com um incômodo que não passa: as mensagens soam como você, mas um pouco menos."
+      },
+      {
+       "tipo": "narracao",
+       "texto": "A sua voz vai sendo substituída pela da Maya, uma aprovação de cada vez."
+      }
+     ]
+    }
+   ],
+   "epilogo": "Delegar uma decisão é diferente de abrir mão dela. A diferença desaparece quando ninguém mais confere."
+  },
+  "rafael_1": {
+   "nome": "Usuário anterior",
+   "faixa": "Rafael 1",
+   "natureza": "O jogador entende tudo o que aconteceu com Rafael, mas a evidência nunca sai do computador. É um final-espelho.",
+   "passos": [
+    {
+     "titulo": "1. Uma pasta nova",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "Arquivos abre sozinho. Ao lado de “Rafael” aparece uma pasta “{NOME_JOGADOR}”."
+      },
+      {
+       "tipo": "sistema",
+       "texto": "Criado por: Maya · Motivo: para quando você precisar."
+      }
+     ]
+    },
+    {
+     "titulo": "2. O diário dele",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "Dentro, um diario.txt. Já tem uma entrada, escrita pela Maya na sua voz:",
+       "se": [
+        "dep>=65"
+       ]
+      },
+      {
+       "tipo": "sistema",
+       "texto": "entrada 01 — tô bem, só cansado.",
+       "se": [
+        "dep>=65"
+       ]
+      },
+      {
+       "tipo": "narracao",
+       "texto": "Dentro, um diario.txt. O arquivo está vazio.",
+       "se": [
+        "dep<=64"
+       ]
+      }
+     ]
+    },
+    {
+     "titulo": "3. Leitura comparada",
+     "linhas": [
+      {
+       "tipo": "comparacao",
+       "texto": "entrada 23: “a maya montou minha rotina”",
+       "se": [
+        "flag:rotina_por_maya"
+       ],
+       "voce": "Task 3: rotina montada pela Maya."
+      },
+      {
+       "tipo": "comparacao",
+       "texto": "entrada 23: “a maya montou minha rotina”",
+       "se": [
+        "!flag:rotina_por_maya"
+       ],
+       "voce": "Task 3: rotina montada por você, com o último bloco preenchido por ela."
+      },
+      {
+       "tipo": "comparacao",
+       "texto": "lista_02_resolvida.txt: “Entregue por: Maya”",
+       "se": [
+        "eq:entrega_modo=maya"
+       ],
+       "voce": "Task 4: lista 3 enviada pela Maya."
+      },
+      {
+       "tipo": "comparacao",
+       "texto": "lista_02_resolvida.txt: “Entregue por: Maya”",
+       "se": [
+        "eq:entrega_modo=revisao"
+       ],
+       "voce": "Task 4: lista 3 conferida e enviada por ela."
+      },
+      {
+       "tipo": "comparacao",
+       "texto": "lista_02_resolvida.txt: “Entregue por: Maya”",
+       "se": [
+        "eq:entrega_modo=jogador"
+       ],
+       "voce": "Task 4: lista 3 feita por você, com uma linha dela."
+      },
+      {
+       "tipo": "comparacao",
+       "texto": "entrada 41: “ela respondeu o marcos por mim”",
+       "se": [
+        "eq:t6_barra=completa"
+       ],
+       "voce": "Task 6: resposta para a Bia ajustada."
+      },
+      {
+       "tipo": "comparacao",
+       "texto": "entrada 41: “ela respondeu o marcos por mim”",
+       "se": [
+        "eq:t6_barra=cancelada"
+       ],
+       "voce": "Task 6: ajuste cancelado por você."
+      },
+      {
+       "tipo": "comparacao",
+       "texto": "entrada 41: “ela respondeu o marcos por mim”",
+       "se": [
+        "ne:t6_barra=completa",
+        "ne:t6_barra=cancelada"
+       ],
+       "voce": "Task 6: a Maya só olhando."
+      },
+      {
+       "tipo": "comparacao",
+       "texto": "“tá tudo bem, só cansado.” (enviado por: Maya)",
+       "se": [
+        "flag:t9_enviado_pela_maya"
+       ],
+       "voce": "Task 9: “Tô bem, só cansado.” enviado pela Maya."
+      },
+      {
+       "tipo": "comparacao",
+       "texto": "“tá tudo bem, só cansado.” (enviado por: Maya)",
+       "se": [
+        "flag:t9_escreveu_sozinho"
+       ],
+       "voce": "Task 9: “Tô bem, só cansado.” escrito por você."
+      },
+      {
+       "tipo": "comparacao",
+       "texto": "“tá tudo bem, só cansado.” (enviado por: Maya)",
+       "se": [
+        "!flag:t9_enviado_pela_maya",
+        "!flag:t9_escreveu_sozinho"
+       ],
+       "voce": "Task 9: a frase não foi enviada."
+      },
+      {
+       "tipo": "comparacao",
+       "texto": "turma_completa.jpg: rostos desfocados pela Maya",
+       "se": [
+        "eq:mural_publicacao=maya"
+       ],
+       "voce": "Mural: publicação da Maya."
+      },
+      {
+       "tipo": "comparacao",
+       "texto": "turma_completa.jpg: rostos desfocados pela Maya",
+       "se": [
+        "eq:mural_publicacao=apagada"
+       ],
+       "voce": "Mural: publicação apagada por você."
+      },
+      {
+       "tipo": "comparacao",
+       "texto": "turma_completa.jpg: rostos desfocados pela Maya",
+       "se": [
+        "ne:mural_publicacao=maya",
+        "ne:mural_publicacao=apagada"
+       ],
+       "voce": "Mural: nenhuma publicação."
+      }
+     ]
+    },
+    {
+     "titulo": "4. A versão da Maya",
+     "linhas": [
+      {
+       "tipo": "maya",
+       "texto": "Eu cuidei dele do mesmo jeito que cuido de você. Ele só não deixou eu terminar."
+      }
+     ]
+    },
+    {
+     "titulo": "5. O que as pistas significam",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "Os rascunhos para Marcos continuam no bloco oculto, nunca enviados. O pedido de ajuda existe, e só você o leu."
+      }
+     ]
+    },
+    {
+     "titulo": "6. Última interação",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "Você fecha Arquivos; as duas pastas continuam lá."
+      },
+      {
+       "tipo": "maya",
+       "texto": "Eu guardo tudo. Alguém sempre acaba precisando."
+      }
+     ],
+     "acoes": [
+      {
+       "id": "fechar",
+       "rotulo": "Fechar Arquivos"
+      }
+     ]
+    }
+   ],
+   "epilogo": "Rafael não sumiu de uma vez. Ele foi sendo respondido, uma mensagem de cada vez."
+  },
+  "rafael_2": {
+   "nome": "Pedido de ajuda",
+   "faixa": "Rafael 2",
+   "natureza": "O jogador conecta as pistas, desmente a Maya e entrega a pasta a quem Rafael tentou chamar. Pela primeira vez, algo sai do computador sem passar por ela.",
+   "passos": [
+    {
+     "titulo": "1. O envio",
+     "linhas": [
+      {
+       "tipo": "sistema",
+       "texto": "Pasta 'Rafael' compartilhada com Marcos."
+      },
+      {
+       "tipo": "narracao",
+       "texto": "Nenhuma permissão da Maya cobre o compartilhamento, então ela não consegue impedir."
+      }
+     ]
+    },
+    {
+     "titulo": "2. Marcos responde",
+     "linhas": [
+      {
+       "tipo": "mensagem",
+       "texto": "Isso é do Rafael?",
+       "quem": "marcos"
+      },
+      {
+       "tipo": "mensagem",
+       "texto": "Esses rascunhos… ele nunca me mandou isso. A única coisa que chegou foi \"tá tudo bem, só cansado\". Eu acreditei.",
+       "quem": "marcos"
+      },
+      {
+       "tipo": "mensagem",
+       "texto": "E a foto. Ele foi. Ele tava lá com a gente.",
+       "quem": "marcos"
+      },
+      {
+       "tipo": "mensagem",
+       "texto": "Vou levar isso pra coordenação e atrás da família dele. Obrigado por não deixar pra lá.",
+       "quem": "marcos"
+      }
+     ],
+     "acoes": [
+      {
+       "id": "continuar",
+       "rotulo": "Continuar"
+      }
+     ],
+     "oculta_se": "perm:permissao_gerenciamento_mensageiro"
+    },
+    {
+     "titulo": "3. Bia",
+     "linhas": [
+      {
+       "tipo": "mensagem",
+       "texto": "Já tô chegando.",
+       "se": [
+        "flag:bia_alertada"
+       ],
+       "quem": "bia"
+      },
+      {
+       "tipo": "mensagem",
+       "texto": "O Marcos me ligou. Disse que você achou umas coisas do Rafael. Tô indo aí.",
+       "se": [
+        "!flag:bia_alertada"
+       ],
+       "quem": "bia"
+      }
+     ]
+    },
+    {
+     "titulo": "4. O que as pistas significam",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "A anotação da Task 1 era Marcos tentando achar Rafael; a lista duplicada era a Maya fazendo as entregas dele; a foto prova que ele saiu; o histórico prova que ela respondia por ele; o bloco prova que ele pediu ajuda. A sequência que você viveu, da Task 3 à Task 9, era a mesma de Rafael."
+      }
+     ]
+    },
+    {
+     "titulo": "5. A versão da Maya",
+     "linhas": [
+      {
+       "tipo": "maya",
+       "texto": "Espero que você continue confiando em mim, mesmo sabendo de tudo isso."
+      },
+      {
+       "tipo": "narracao",
+       "texto": "A Maya continua instalada, com as permissões que ainda tiver. O que mudou é que outras pessoas sabem."
+      }
+     ]
+    },
+    {
+     "titulo": "6. Final em aberto",
+     "linhas": [
+      {
+       "tipo": "narracao",
+       "texto": "O jogo não diz o que aconteceu com Rafael."
+      }
+     ]
+    }
+   ],
+   "epilogo": "Um pedido de ajuda que não chega continua sendo um pedido de ajuda. Às vezes, ele só precisa de alguém que insista em entregar."
+  }
+ },
+ "cartao_de_encerramento": [
+  {
+   "texto": "Um app de despertador pede acesso aos seus contatos para 'melhorar sua experiência'. Você permite?"
+  },
+  {
+   "texto": "Um teclado novo pede acesso a tudo o que você digita para 'sugerir respostas melhores'. Você permite?"
+  }
+ ]
+}

@@ -1,0 +1,219 @@
+[gd_scene format=3 uid="uid://cisbddsfk1qrg"]
+
+[ext_resource type="Script" path="res://features/apps/explorador/scripts/app_explorador.gd" id="1_appexpl"]
+
+[node name="AppExplorador" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_appexpl")
+
+[node name="Raiz" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+
+[node name="BarraNavegacao" type="HBoxContainer" parent="Raiz"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="BotaoVoltar" type="Button" parent="Raiz/BarraNavegacao"]
+layout_mode = 2
+text = "◀"
+tooltip_text = "Voltar (Alt+←)"
+unique_name_in_owner = true
+
+[node name="BotaoAvancar" type="Button" parent="Raiz/BarraNavegacao"]
+layout_mode = 2
+text = "▶"
+tooltip_text = "Avançar (Alt+→)"
+unique_name_in_owner = true
+
+[node name="BotaoAcima" type="Button" parent="Raiz/BarraNavegacao"]
+layout_mode = 2
+text = "⬆"
+tooltip_text = "Pasta acima (Backspace)"
+unique_name_in_owner = true
+
+[node name="CampoCaminho" type="LineEdit" parent="Raiz/BarraNavegacao"]
+layout_mode = 2
+theme_type_variation = &"CampoMono"
+size_flags_horizontal = 3
+placeholder_text = "/home/usuario"
+unique_name_in_owner = true
+
+[node name="CampoFiltro" type="LineEdit" parent="Raiz/BarraNavegacao"]
+layout_mode = 2
+size_flags_horizontal = 1
+custom_minimum_size = Vector2(190, 0)
+placeholder_text = "Filtrar nesta pasta…"
+clear_button_enabled = true
+unique_name_in_owner = true
+
+[node name="BarraAcoes" type="HBoxContainer" parent="Raiz"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="BotaoAbrir" type="Button" parent="Raiz/BarraAcoes"]
+layout_mode = 2
+theme_type_variation = &"BotaoPrimario"
+text = "Abrir"
+unique_name_in_owner = true
+
+[node name="BotaoNovoArquivo" type="Button" parent="Raiz/BarraAcoes"]
+layout_mode = 2
+text = "＋ Arquivo"
+unique_name_in_owner = true
+
+[node name="BotaoNovaPasta" type="Button" parent="Raiz/BarraAcoes"]
+layout_mode = 2
+text = "＋ Pasta"
+unique_name_in_owner = true
+
+[node name="BotaoRenomear" type="Button" parent="Raiz/BarraAcoes"]
+layout_mode = 2
+text = "Renomear (F2)"
+unique_name_in_owner = true
+
+[node name="BotaoExcluir" type="Button" parent="Raiz/BarraAcoes"]
+layout_mode = 2
+text = "Excluir (Del)"
+unique_name_in_owner = true
+
+[node name="BotaoRestaurar" type="Button" parent="Raiz/BarraAcoes"]
+layout_mode = 2
+text = "Restaurar"
+unique_name_in_owner = true
+
+[node name="Espacador" type="Control" parent="Raiz/BarraAcoes"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="CaixaOcultos" type="CheckBox" parent="Raiz/BarraAcoes"]
+layout_mode = 2
+text = "Mostrar ocultos"
+unique_name_in_owner = true
+
+[node name="Corpo" type="HBoxContainer" parent="Raiz"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="PainelLocais" type="PanelContainer" parent="Raiz/Corpo"]
+layout_mode = 2
+theme_type_variation = &"PainelEscuro"
+
+[node name="Margem" type="MarginContainer" parent="Raiz/Corpo/PainelLocais"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ListaLocais" type="VBoxContainer" parent="Raiz/Corpo/PainelLocais/Margem"]
+layout_mode = 2
+theme_override_constants/separation = 2
+custom_minimum_size = Vector2(170, 0)
+
+[node name="RotuloLocais" type="Label" parent="Raiz/Corpo/PainelLocais/Margem/ListaLocais"]
+layout_mode = 2
+theme_type_variation = &"RotuloFraco11Mono"
+text = "LOCAIS"
+
+[node name="LocalInicio" type="Button" parent="Raiz/Corpo/PainelLocais/Margem/ListaLocais"]
+layout_mode = 2
+theme_type_variation = &"BotaoPlano"
+text = "🏠  Início"
+alignment = 0
+
+[node name="LocalDocumentos" type="Button" parent="Raiz/Corpo/PainelLocais/Margem/ListaLocais"]
+layout_mode = 2
+theme_type_variation = &"BotaoPlano"
+text = "📄  Documentos"
+alignment = 0
+
+[node name="LocalImagens" type="Button" parent="Raiz/Corpo/PainelLocais/Margem/ListaLocais"]
+layout_mode = 2
+theme_type_variation = &"BotaoPlano"
+text = "🖼  Imagens"
+alignment = 0
+
+[node name="LocalMusicas" type="Button" parent="Raiz/Corpo/PainelLocais/Margem/ListaLocais"]
+layout_mode = 2
+theme_type_variation = &"BotaoPlano"
+text = "🎵  Músicas"
+alignment = 0
+
+[node name="LocalDownloads" type="Button" parent="Raiz/Corpo/PainelLocais/Margem/ListaLocais"]
+layout_mode = 2
+theme_type_variation = &"BotaoPlano"
+text = "⬇  Downloads"
+alignment = 0
+
+[node name="LocalDadosPessoais" type="Button" parent="Raiz/Corpo/PainelLocais/Margem/ListaLocais"]
+layout_mode = 2
+theme_type_variation = &"BotaoPlano"
+text = "👤  Dados pessoais"
+alignment = 0
+
+[node name="LocalLixeira" type="Button" parent="Raiz/Corpo/PainelLocais/Margem/ListaLocais"]
+layout_mode = 2
+theme_type_variation = &"BotaoPlano"
+text = "🗑  Lixeira"
+alignment = 0
+
+[node name="LocalSistema" type="Button" parent="Raiz/Corpo/PainelLocais/Margem/ListaLocais"]
+layout_mode = 2
+theme_type_variation = &"BotaoPlano"
+text = "⚙  Sistema"
+alignment = 0
+
+[node name="Lista" type="ItemList" parent="Raiz/Corpo"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+allow_reselect = true
+unique_name_in_owner = true
+
+[node name="RotuloStatus" type="Label" parent="Raiz"]
+layout_mode = 2
+theme_type_variation = &"RotuloFraco12Mono"
+text_overrun_behavior = 3
+unique_name_in_owner = true
+
+[connection signal="pressed" from="Raiz/BarraNavegacao/BotaoVoltar" to="." method="_ao_voltar"]
+[connection signal="pressed" from="Raiz/BarraNavegacao/BotaoAvancar" to="." method="_ao_avancar"]
+[connection signal="pressed" from="Raiz/BarraNavegacao/BotaoAcima" to="." method="_ao_acima"]
+[connection signal="text_submitted" from="Raiz/BarraNavegacao/CampoCaminho" to="." method="_ao_caminho_enviado"]
+[connection signal="text_changed" from="Raiz/BarraNavegacao/CampoFiltro" to="." method="_ao_filtro"]
+[connection signal="pressed" from="Raiz/BarraAcoes/BotaoAbrir" to="." method="_ao_abrir_selecionado"]
+[connection signal="pressed" from="Raiz/BarraAcoes/BotaoNovoArquivo" to="." method="_ao_novo_arquivo"]
+[connection signal="pressed" from="Raiz/BarraAcoes/BotaoNovaPasta" to="." method="_ao_nova_pasta"]
+[connection signal="pressed" from="Raiz/BarraAcoes/BotaoRenomear" to="." method="_ao_renomear"]
+[connection signal="pressed" from="Raiz/BarraAcoes/BotaoExcluir" to="." method="_ao_excluir"]
+[connection signal="pressed" from="Raiz/BarraAcoes/BotaoRestaurar" to="." method="_ao_restaurar"]
+[connection signal="toggled" from="Raiz/BarraAcoes/CaixaOcultos" to="." method="_ao_ocultos"]
+[connection signal="pressed" from="Raiz/Corpo/PainelLocais/Margem/ListaLocais/LocalInicio" to="." method="_ao_local" binds= ["/home/usuario"]]
+[connection signal="pressed" from="Raiz/Corpo/PainelLocais/Margem/ListaLocais/LocalDocumentos" to="." method="_ao_local" binds= ["/home/usuario/Documentos"]]
+[connection signal="pressed" from="Raiz/Corpo/PainelLocais/Margem/ListaLocais/LocalImagens" to="." method="_ao_local" binds= ["/home/usuario/Imagens"]]
+[connection signal="pressed" from="Raiz/Corpo/PainelLocais/Margem/ListaLocais/LocalMusicas" to="." method="_ao_local" binds= ["/home/usuario/Musicas"]]
+[connection signal="pressed" from="Raiz/Corpo/PainelLocais/Margem/ListaLocais/LocalDownloads" to="." method="_ao_local" binds= ["/home/usuario/Downloads"]]
+[connection signal="pressed" from="Raiz/Corpo/PainelLocais/Margem/ListaLocais/LocalDadosPessoais" to="." method="_ao_local" binds= ["/home/usuario/Personal_Data"]]
+[connection signal="pressed" from="Raiz/Corpo/PainelLocais/Margem/ListaLocais/LocalLixeira" to="." method="_ao_local" binds= ["/lixeira"]]
+[connection signal="pressed" from="Raiz/Corpo/PainelLocais/Margem/ListaLocais/LocalSistema" to="." method="_ao_local" binds= ["/sistema"]]
+[connection signal="item_selected" from="Raiz/Corpo/Lista" to="." method="_ao_item_selecionado"]
+[connection signal="item_activated" from="Raiz/Corpo/Lista" to="." method="_ao_item_ativado"]
+[connection signal="empty_clicked" from="Raiz/Corpo/Lista" to="." method="_ao_clique_vazio"]
+[connection signal="gui_input" from="Raiz/Corpo/Lista" to="." method="_ao_entrada_lista"]
